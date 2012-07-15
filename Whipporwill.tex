@@ -1,0 +1,342 @@
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}                    % PNG images
+\usepackage{wrapfig}                     % Wrap text around images
+\usepackage{color}                       % Set the color of text
+\usepackage[usenames,dvipsnames]{xcolor} % Import set of color names, like "Plum"
+\usepackage[margin=0.5in]{geometry}      % Easy way to set margins
+\usepackage{subfigure}                   % Allow side-by-side figures
+\usepackage{multirow}                    % Allow "merged cells" in tables
+\usepackage[normalem]{ulem}              % Strike-through text
+\usepackage{wasysym}                     % Male and Female symbols
+\usepackage{etoolbox}                    % Conditionals like \ifstrequal
+\pagestyle{empty}                        % No page numbers
+
+\newcommand{\fullline}{\noindent\line(1,0){542} \\}
+
+\newcommand{\row}[4]{\hline
+    \ifstrequal{#4}{Bold}{\textbf{#1} & \textbf{#2} & \textbf{#3}}{%
+    \ifstrequal{#4}{In}{#1 &\hspace{1em} #2 & #3}{%
+    \ifstrequal{#4}{}{#1 & #2 & #3}{}}}\\}
+
+\newcommand{\spell}[7]{
+\begin{wrapfigure}{l}{2em}
+\vspace{-13pt}
+\ifstrequal{#2}{Full}{\includegraphics[width=2em]{Checkbox-Full}}{
+                      \includegraphics[width=2em]{Checkbox}}
+\ifstrequal{#7}{}{\vspace{-1em}}{\vspace{#7}}
+\end{wrapfigure}
+\noindent \textbf{#1} #3 {
+    \ifstrequal{#4}{Conj}{\color{Plum}Conj}{%
+    \ifstrequal{#4}{Divin}{\color{YellowOrange}Divin}{%
+    \ifstrequal{#4}{Ench}{\color{VioletRed}Ench}{%
+    \ifstrequal{#4}{Trans}{\color{LimeGreen}Trans}{%
+    \ifstrequal{#4}{Evoc}{\color{RedOrange}Evoc}{%
+    \ifstrequal{#4}{Illu}{\color{ProcessBlue}Illu}{%
+    \ifstrequal{#4}{Abjur}{\color{CadetBlue}Abjur}{%
+    \ifstrequal{#4}{Necro}{\color{Red}Necro}{%
+}}}}}}}}}
+{\footnotesize \emph{#5}} \\
+#6
+}
+
+\begin{document}
+\sffamily
+\begin{wrapfigure}{r}{13em}
+\vspace{-1.5em}
+\includegraphics[width=13em]{Pathfinder}
+\end{wrapfigure}
+\noindent \textbf{\huge{Whippoorwill }\Large{Human Ranger 4}} \\
+\emph{Chaotic Neutral} \hspace{2em} \emph{Age 23y} \hspace{2em} \emph{Height 5ft 10in} \hspace{2em} \emph{Weight 123lb} \par
+\vspace{-0.75em}
+
+\fullline
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-1.5em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{l | c | c}
+        \multicolumn{3}{c}{\emph{Ability Scores}} \\
+        \textbf{Strength} & 11  & +0 \\
+        \textbf{Dexterity} & 18 & +4 \\
+        \textbf{Constitution} & 16 & +3 \\
+        \textbf{Intelligence} & 14 & +2 \\
+        \textbf{Wisdom} & 17 & +3 \\
+        \textbf{Charisma} & 15 & +2 \\
+        \end{tabular}
+    }
+
+    \hspace{11em}
+
+    \subfigure{
+        \begin{tabular}{l | c}
+        \multicolumn{2}{c}{\emph{Defenses}} \\
+        \textbf{Armor Class} & 19 \\
+        Touch & 15 \\
+        Flat Footed & 14 \\
+        \textbf{Fortitude} & 7 \\
+        \textbf{Reflex} & 7 \\
+        \textbf{Will} & 4 \\
+        \end{tabular}
+    }
+
+    \hspace{11em}
+
+    \subfigure{
+        \begin{tabular}{l | c}
+        \multicolumn{2}{c}{\emph{Movement}} \\
+        \textbf{Speed} & 30 ft \\
+        \textbf{Initiative} & +4 \\ 
+        \multicolumn{2}{c}{~} \\
+        \multicolumn{2}{c}{Health} \\
+        \textbf{Hit Points} & 41 \\
+        \emph{Current HP} & ~ \\
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+
+\vspace{-1em}
+\fullline
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-1.5em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{l c c l}
+        \multicolumn{4}{c}{\emph{Attacks and Damage}} \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} \\
+        \textbf{Base Attack Bonus} & +4 \\
+        \textbf{Combat Maneuver} & +4 \\
+        \textbf{Combat Defense} & 18 \\ \hline
+        \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
+        {\footnotesize \emph{Damage}} & {\footnotesize \emph{Critical}} \\
+        \textbf{Longbow} & +7 & 1d8 & x3 \\
+        \multicolumn{4}{l}{\emph{Piercing, 100 ft range}} \\
+        \textbf{Masterwork Shortsword} & +8 & 1d6 & 19-20x2 \\
+        \multicolumn{4}{l}{\emph{Piercing}} \\ 
+        \multicolumn{4}{c}{~} \\ \hline
+        \multicolumn{4}{c}{~} \\
+        \multicolumn{4}{c}{\emph{Skills}} \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
+        {\footnotesize \emph{Ability}} & {\footnotesize \emph{Ranks}} \\
+        \textbf{Acrobatics} & 4 & {\footnotesize DEX} & - \\
+        \textbf{Appraise} & 2 & {\footnotesize INT} & - \\
+        \textbf{Bluff} & 2 & {\footnotesize CHA} & - \\
+        \textbf{Climb} & 6 & {\footnotesize STR} & 3 \\
+        %\textbf{Concentration} & 8 & {\footnotesize INT} & 4 \\
+        %\textbf{Craft {\scriptsize CLOTH}} & 8 & {\footnotesize INT} & 1 \\
+        \textbf{Diplomacy} & 2 & {\footnotesize CHA} & - \\
+        \textbf{Disable Device *} & 8 & {\footnotesize DEX} & 4 \\
+        \textbf{Disguise} & 2 & {\footnotesize CHA} & - \\
+        \end{tabular}
+    }
+
+    \hspace{3.7em}
+
+    \subfigure{
+        \begin{tabular}{l  c  c  c}
+        \multicolumn{4}{c}{\emph{Skills}} \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
+        {\footnotesize \emph{Ability}} & {\footnotesize \emph{Ranks}} \\
+        \textbf{Escape Artist} & 4 & {\footnotesize DEX} & - \\
+        \textbf{Fly} & 4 & {\footnotesize DEX} & - \\
+        \textbf{Handle Animal *} & 8 & {\footnotesize CHA} & 3 \\
+        \textbf{Heal} & 9 & {\footnotesize WIS} & 3 \\
+        \textbf{Intimidate} & 2 & {\footnotesize CHA} & - \\
+        %\textbf{Knowledge {\scriptsize ARCANA} *} & 11 & {\footnotesize INT} & 4 \\
+        \textbf{Knowledge {\scriptsize DUNGEONEERING} *} & 6 & {\footnotesize INT} & 1 \\
+        %\textbf{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
+        \textbf{Knowledge {\scriptsize GEOGRAPHY} *} & 7 & {\footnotesize INT} & 2 \\
+        %\textbf{Knowledge {\scriptsize HISTORY} *} & 11 & {\footnotesize INT} & 4 \\
+        %\textbf{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
+        \textbf{Knowledge {\scriptsize NATURE} *} & 9 & {\footnotesize INT} & 4 \\
+        %\textbf{Knowledge {\scriptsize NOBILITY} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize PLANES} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Linguistics *} & - & {\footnotesize INT} & - \\
+        \textbf{Perception} & 10 & {\footnotesize WIS} & 4 \\
+        \textbf{Perform} & 2 & {\footnotesize CHA} & - \\
+        \textbf{Profession {\scriptsize BUTCHER} *} & 7 & {\footnotesize WIS} & 1 \\
+        \textbf{Profession {\scriptsize COOK} *} & 7 & {\footnotesize WIS} & 1 \\
+        \textbf{Profession {\scriptsize TANNER} *} & 7 & {\footnotesize WIS} & 1 \\
+        \textbf{Profession {\scriptsize TRAPPER} *} & 7 & {\footnotesize WIS} & 1 \\
+        \textbf{Ride} & 8 & {\footnotesize DEX} & 1 \\
+        \textbf{Sense Motive} & 3 & {\footnotesize WIS} & - \\
+        %\textbf{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
+        %\textbf{Spellcraft *} & 11 & {\footnotesize INT} & 4 \\
+        \textbf{Stealth} & 11 & {\footnotesize DEX} & 4 \\
+        \textbf{Survival} & 10 & {\footnotesize WIS} & 4 \\
+        \textbf{Swim} & 5 & {\footnotesize STR} & 2 \\
+        %\textbf{Use Magic Device *} & - & {\footnotesize CHA} & - \\
+        {\footnotesize * Trained Only} \\
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+
+\vspace{-1.5em}
+\fullline
+\vspace{-1em}
+
+\noindent\emph{Feats} \\
+\noindent\textbf{Dodge} +1 Dodge Bonus to AC \\
+\noindent\textbf{Endurance} +4 to numerous environmental survival checks (see page 122), and you may sleep in armor without being fatigued.\\
+\noindent\textbf{Point Blank Shot} +1 Bonus to attack and damage of ranged weapons when attacking from within 30ft \\
+\noindent\textbf{Precise Shot} You may shoot into m\^{e}l\'{e}e without taking the standard -4 on your attack roll \\
+\noindent\textbf{Weapon Finesse} You may use your DEX in place of STR modifier on attacks with a light weapon \\
+\\
+\noindent\emph{Class Features} \\
+\textbf{Favored Enemy: Orc} +2 to attack/damage, bluff, knowledge, perception, sense motive, survival skill checks \\
+\textbf{Favored Terrain: Forests} +2 to initiative, knowledge {\scriptsize GEOGRAPHY}, perception, stealth, and survival skill checks.  Leave no tracks. \\
+\\
+\noindent\emph{Languages} \\
+\textbf{Common, Dwarven, Orc} \\
+\\
+\noindent{\emph{Experience}} \\
+\textbf{11,295 / 15,000} \\
+\\
+\noindent{\emph{Wealth}} \\
+\textbf{122 gp, 5 sp} \\
+
+\pagebreak
+
+\noindent \textbf{\huge{Inventory}} \\
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-0.75em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{| c | l | c |}
+        \hline
+        \row{\#}{Item (Carried)}{Wt}{Bold}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\hline
+        \multicolumn{2}{r}{\textbf{Total:}} & \multicolumn{1}{c}{\textbf{0 lbs}} \\
+        \multicolumn{2}{r}{\textbf{Carrying Capacity:}} & \multicolumn{1}{c}{\textbf{38 lbs}} \\
+        \end{tabular}
+    }
+
+    \hspace{0.5em}
+
+    \subfigure{
+        \begin{tabular}{| c | l | c |}
+        \row{\#}{Item (Stored at Outpost)}{Wt}{Bold}
+        \row{}{\textbf{Chest, Locked w/Good Lock (Party Loot)}}{10}{}
+        \row{}{[Empty]}{}{In}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\hline
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+\noindent Medium 76, Heavy 115, Lift 230, Push/Drag 575 \\
+
+\fullline
+\noindent\emph{Party Members} \\
+\textbf{Barneby} Human Rogue 4 (Mikey) \\
+\textbf{Kallus} Human Paladin 4 (Joe) \\
+\textbf{Shattered Fang} Halfling Barbarian 1/Druid 3 (Brian) \\
+\textbf{Suc} Gnome Bard 4 (Will) \\
+\textbf{Whipporwill} Human Ranger 4 (Jeremy) \\
+\textbf{Zaru} Gnome Wizard 4 (Ryan) \\
+\textbf{Korvek} Dwarf Fighter 4 (James) \\
+\sout{\textbf{Gavin} Half-Elf Dragoon 4 (Mike)}\\
+\sout{\textbf{Hifos} Human Barbarian 4 (Dan)} \\
+\sout{\textbf{Wren} Human Cleric 4 (Brian)} \\
+\sout{\textbf{Karel} Half-Elf Fighter 4 (Nate)} \\
+\sout{\textbf{Varcusto} Half-Elf Rogue 4 (Scott)} \\
+
+\pagebreak
+
+\noindent {\huge \textbf{Spellbook}} \hspace{2em}2 per day\par
+\vspace{-0.5em}
+\fullline
+\vspace{-1em}
+
+\spell{Alarm}{}{V S DF (tiny bell and very fine silver wire)}{Abjur}{Standard Action / 35ft range / 20ft radius emanation / 8 hour duration (D)}{%
+Triggers a mental or audible alarm each time a creature of Tiny or larger size enters/touches the warded area.  A creature speaking the password (determined at time of casting) does not set off the \emph{alarm}. Ethereal and astral creatures do not trigger the alarm.  \\
+\emph{Mental Alarm:} alerts you, as long as you are within 1 mile, with a single mental "ping" that awakens you from normal sleep, but otherwise does not disturb concentration.\\ 
+\emph{Audible Alarm:} produces the sound of a hand bell, anyone within 60 feet can hear it.  Reduce this range by 10 for each interposing closed door and by 20 for each wall.}{5em}
+
+\spell{Animal Messenger}{}{V S M (a morsel of food)}{Ench}{1 minute / 35ft range / 4 days}{%
+Compel a Tiny animal to go to a designated spot.  Does not work on tamed or trained animals, familiars, etc. You may attach a small item or note to the messenger.  Once it arrives, the animal remains at that spot for the duration of the spell.}{}
+
+\spell{Calm Animals}{}{V S}{Ench}{Standard Action / 35ft range / 4 minutes / Will DC 14 Negates}{%
+Soothes and quiets animals, rendering them docile and harmless.  All targets must be of the same kind and no two may be more than 30ft apart.  Affects up to 2d4+4 HD.  Targets will defend themselves normally if attacked. }{}
+
+\spell{Charm Animal}{}{V S}{Ench}{Standard Action / 35ft range / 4 hours / Will DC 14 Negates}{%
+Target animal regards you as its trusted friend and ally.  If the target is currently threatened by you or your allies, however, it recieves a +5 bonus to its save.  You cannot control the target, but it perceives your words and actions in the most favorable way.  You may order the animal, but you must win an opposed CHA check to make it do anything it would not ordinarily do.  Target will never obey suicidal orders, but may be convinced that dangerous actions are worthwhile.}{1em}
+
+\spell{Delay Poison}{}{V S DF}{Conj}{Standard Action / Touch / 4 hours / Fortitude DC 14 Negates (harmless)}{%
+Target becomes temporarily immune to poison. Does not cure any damage poison may have already done.\\}{}\\[-2em]
+
+\spell{Detect Animals or Plants}{}{V S}{Divin}{\mbox{Standard Action / 560ft Range / Cone Emanation* / Concentration (up to 40 minutes)}}{%
+Detect a particular kind of animal or plant in the area.  You may change the animal or plant kind each round. Information revealed depends on how long you concentrate: \\
+\emph{1st Round}: Presence or absence of that animal or plant in the area.\\
+\emph{2nd Round}: Number of individuals, condition of healthiest specimen.\\
+\emph{3rd Round}: Condition and location (or just direction if no LOS) of each individual. \\
+\begin{tabular}{l  l | l  l}
+\hline
+\footnotesize{Normal} & \footnotesize{$\geq$90\% HP, free of disease} & \footnotesize{Poor} & \footnotesize{HP$\leq$30\%/diseased/debilitated} \\
+\footnotesize{Fair} & \footnotesize{30\%$<$HP$<$90\%} & \footnotesize{Weak} & \footnotesize{HP$\leq$0 or disease that has reduced an ability to $<$5} \\
+\end{tabular}}{3em}
+
+\spell{Detect Poison}{}{V S}{Divin}{Standard Action / 35ft Range / Up to 5ft Cube*/ Instant}{%
+Determine whether target creature, object, or area has be poisoned or is poisonous.  A DC 20 WIS check to determines the poison type.  \mbox{May make a DC 20 Craft {\scriptsize ALCHEMY} check instead/if the WIS check fails.} \\[-1em]}{}
+
+\spell{Detect Snares and Pits}{}{V S}{Divin}{\mbox{Standard Action / 60ft Range / Cone Emanation* / Concentration (up to 40 minutes)}}{%
+Detect simple pits/deadfalls/snares and mechanical traps made of natural materials.  Does not detect complex traps. \mbox{Information revealed depends on length of concentration on an area (you may change areas each round):}\\
+\emph{1st Round}: Presence or absence of hazards.\\
+\emph{2nd Round}: Number of hazards, location of each (or just direction if no LOS).\\
+\emph{Each Additional Round}: General type and trigger for one particular hazard.}{3em}\\[-1em]
+
+\spell{Endure Elements}{}{V S}{Abjur}{Standard Action / Touch / 24 hours / Will DC 14 Negates (harmless)}{%
+Target creature suffers no harm from conditions between -50 and 140$^{\circ}$F, their equipment is likewise protected.  This does not protect from fire or cold damage, nor from hazards such as smoke, lack of air, and so forth.}{}
+
+\spell{Entangle}{}{V S DF}{Trans}{\mbox{Standard Action / 560ft Range / 40ft Radius Spread / 4 minutes / Reflex DC 14 Partial}}{%
+Tall grass and plants wrap around foes in the area and those that enter the area. Failure to save causes targets to be \emph{entangled}. Entangled creatures may make a Strength or Escape Artist (DC 14) check to escape.  Area is considered difficult terrain.  \mbox{Each failure to save or break free deals 1 damage.}}{1em}\\[-1em]
+
+\spell{Hide from Animals}{}{S DF}{Abjur}{Standard Action / Touch / 40 minutes / Will DC 14 Negates (harmless)}{%
+Up to 4 targets cannot be sensed by animals.  Even supernatural sensory abilities such as \emph{blindsense}, \emph{blindsight}, \emph{tremorsense}, etc. cannot detect target creatures.  If any target attacks or casts a spell, the spell ends for all targets.}{}
+
+\spell{Jump}{}{V S M (grasshopper's hind leg)}{Trans}{\mbox{Standard Action / Touch / 4 minutes (D) / Will DC 14 Negates (harmless)}}{%
+Target gets a +10 enhancement bonus on Acrobatics checks made on high or long jumps.}{}\\[-1em] % Enhancement bonus increases at level 5, see core rulebook
+
+\spell{Longstrider}{}{V S M (a pinch of dirt)}{Trans}{Standard Action / Personal / 4 hours (D)}{%
+Grants a +10 foot enhancement bonus to your base speed.  \mbox{Does not effect burrow, climb, fly, or swim speeds.}}{}\\[-1em]
+
+\spell{Magic Fang}{}{V S}{Trans}{Standard Action / Touch / 4 minutes**}{%
+Gives one natural weapon or unarmed strike a +1 enhancment bonus to attack and damage.}{}\\[3em]
+
+\spell{Pass without Trace}{}{V S DF}{Trans}{\mbox{Standard Action / Touch / 4 hours / Will DC 14 Negates (harmless)}}{%
+Up to 4 targets do not leave footprints or a scent trail while moving.  \mbox{Tracking targets, without magic, is impossible.}}{}\\[-1em]
+
+\spell{Read Magic}{}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 40 minutes**}{%
+You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \emph{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \emph{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}
+
+\spell{Resist Energy}{}{V S DF}{Abjur}{Standard Action / Touch / 40 minutes / Fortitude DC 14 Negates (harmless)}{%
+Target gains resist 10 against one of: acid, cold, electricity, fire, or sonic. Does not stack with \emph{protection from energy} }{}\\[-2em]
+% Resistance value increase at level 7 and 11, see core rulebook p334
+
+\spell{Speak with Animals}{}{V S}{Divin}{Standard Action / Personal / 4 minutes}{%
+You can speak with animals, but they are no more friendly than normal (wary and cunning animals are likely to be terse and evasive, etc).}{}\\
+
+\noindent * Emanation/area may penetrate barriers, but is blocked by 3ft wood/dirt, 1ft stone, 1in metal, or a thin sheet of lead \\
+\noindent** May be made permanent with a \emph{permanency} spell
+
+\end{document}
