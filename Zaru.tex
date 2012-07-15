@@ -1,0 +1,536 @@
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}                    % PNG images
+\usepackage{wrapfig}                     % Wrap text around images
+\usepackage{color}                       % Set the color of text
+\usepackage[usenames,dvipsnames]{xcolor} % Import set of color names, like "Plum"
+\usepackage[margin=0.5in]{geometry}      % Easy way to set margins
+\usepackage{subfigure}                   % Allow side-by-side figures
+\usepackage{multirow}                    % Allow "merged cells" in tables
+\usepackage[normalem]{ulem}              % Strike-through text
+\usepackage{wasysym}                     % Male and Female symbols
+\usepackage{etoolbox}                    % Conditionals like \ifstrequal
+\pagestyle{empty}                        % No page numbers
+
+\newcommand{\fullline}{\noindent\line(1,0){542} \\}
+
+\newcommand{\row}[4]{\hline
+    \ifstrequal{#4}{Bold}{\textbf{#1} & \textbf{#2} & \textbf{#3}}{%
+    \ifstrequal{#4}{In}{#1 &\hspace{1em} #2 & #3}{%
+    \ifstrequal{#4}{}{#1 & #2 & #3}{}}}\\}
+
+\newcommand{\spell}[7]{
+\begin{wrapfigure}{l}{2em}
+\vspace{-13pt}
+\ifstrequal{#2}{Full}{\includegraphics[width=2em]{Checkbox-Full}}{
+                      \includegraphics[width=2em]{Checkbox}}
+\ifstrequal{#7}{}{\vspace{-1em}}{\vspace{#7}}
+\end{wrapfigure}
+\noindent \textbf{#1} #3 {
+    \ifstrequal{#4}{Conj}{\color{Plum}Conj}{%
+    \ifstrequal{#4}{Divin}{\color{YellowOrange}Divin}{%
+    \ifstrequal{#4}{Ench}{\color{VioletRed}Ench}{%
+    \ifstrequal{#4}{Trans}{\color{LimeGreen}Trans}{%
+    \ifstrequal{#4}{Evoc}{\color{RedOrange}Evoc}{%
+    \ifstrequal{#4}{Illu}{\color{ProcessBlue}Illu}{%
+    \ifstrequal{#4}{Abjur}{\color{CadetBlue}Abjur}{%
+    \ifstrequal{#4}{Necro}{\color{Red}Necro}{%
+}}}}}}}}}
+{\footnotesize \emph{#5}} \\
+#6
+}
+
+\newcommand{\person}[3]{\noindent\textbf{#1
+    \ifstrequal{#2}{M}{{\color{ProcessBlue}\male}}{%
+    \ifstrequal{#2}{F}{\color{VioletRed}\female}{}}}{\scriptsize #3}}
+
+\begin{document}
+\sffamily
+\begin{wrapfigure}{r}{13em}
+\vspace{-1.5em}
+\includegraphics[width=13em]{Pathfinder}
+\end{wrapfigure}
+\noindent \textbf{\huge{Zaru }\Large{Gnome Wizard 5}} \\
+\emph{Chaotic Good} \hspace{2em} \emph{Age 57y} \hspace{2em} \emph{Height 3ft} \hspace{2em} \emph{Weight 37lb} \par
+\vspace{-0.75em}
+
+\fullline
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-1.5em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{l | c | c}
+        \multicolumn{3}{c}{\emph{Ability Scores}} \\
+        \textbf{Strength} & 9  & -1 \\
+        \textbf{Dexterity} & 14 & +2 \\
+        \textbf{Constitution} & 12 & +1 \\
+        \textbf{Intelligence} & 19 & +4 \\
+        \textbf{Wisdom} & 12 & +1 \\
+        \textbf{Charisma} & 12 & +1 \\
+        \end{tabular}
+    }
+
+    \hspace{11em}
+
+    \subfigure{
+        \begin{tabular}{l | c}
+        \multicolumn{2}{c}{\emph{Defenses}} \\
+        \textbf{Armor Class} & 14 \\
+        Touch & 14 \\
+        Flat Footed & 12 \\
+        \textbf{Fortitude} & 3 \\
+        \textbf{Reflex} & 4 \\
+        \textbf{Will} & 6 \\
+        \end{tabular}
+    }
+
+    \hspace{11em}
+
+    \subfigure{
+        \begin{tabular}{l | c}
+        \multicolumn{2}{c}{\emph{Movement}} \\
+        \textbf{Speed} & 20 ft \\
+        \textbf{Initiative} & +2 \\ 
+        \multicolumn{2}{c}{~} \\
+        \multicolumn{2}{c}{Health} \\
+        \textbf{Hit Points} & 27 \\
+        \emph{Current HP} & ~ \\
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+
+\vspace{-1em}
+\fullline
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-1.5em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{l c c l}
+        \multicolumn{4}{c}{\emph{Attacks and Damage}} \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} \\
+        \textbf{Base Attack Bonus} & +2 \\
+        \textbf{Combat Maneuver} & +0 \\
+        \textbf{Combat Defense} & 12 \\ \hline
+        \textbf{M\^{e}l\'{e}e Touch Attack} & +1 \\
+        \textbf{Ranged Touch Attack} & +4 \\ 
+        \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
+        {\footnotesize \emph{Damage}} & {\footnotesize \emph{Critical}} \\
+        \textbf{Hand of the Apprentice} & +6 & 1d6+1 & x2 \\
+        \multicolumn{4}{l}{\emph{Piercing, 30 ft range, usable 7x/day}} \\ \hline
+        \textbf{Shortspear, Thrown} & +4 & 1d6+1 & x2 \\
+        \multicolumn{4}{l}{\emph{Piercing, 30 ft range}} \\ \hline
+        \textbf{Shortspear, M\^{e}l\'{e}e} & +1 & 1d6+1 & x2 \\
+        \multicolumn{4}{l}{\emph{Piercing}} \\
+        \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Damage}} \\
+        \textbf{Wand: Max. Magic Missile} & \multicolumn{3}{l}{10 Force} \\
+        \multicolumn{4}{l}{\emph{Caster Level 3, 41 Charges}} \\ \hline
+        \end{tabular}
+    }
+
+    \hspace{3.7em}
+
+    \subfigure{
+        \begin{tabular}{l  c  c  c}
+        \multicolumn{4}{c}{\emph{Skills}} \\
+        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
+        {\footnotesize \emph{Ability}} & {\footnotesize \emph{Ranks}} \\
+        \textbf{Acrobatics} & 2 & {\footnotesize DEX} & - \\
+        \textbf{Appraise} & 7 & {\footnotesize INT} & - \\
+        \hline
+        \textbf{Bluff} & 1 & {\footnotesize CHA} & - \\
+        \textbf{Climb} & -1 & {\footnotesize STR} & - \\
+        \hline
+        \textbf{Concentration} & 9 & {\footnotesize INT} & 5 \\
+        \textbf{Craft {\scriptsize CLOTH}} & 8 & {\footnotesize INT} & 1 \\
+        \hline
+        \textbf{Diplomacy} & 1 & {\footnotesize CHA} & - \\
+        %\textbf{Disable Device *} & - & {\footnotesize DEX} & - \\
+        \textbf{Disguise} & 1 & {\footnotesize CHA} & - \\
+        \hline
+        \textbf{Escape Artist} & 2 & {\footnotesize DEX} & - \\
+        \textbf{Fly} & 2 & {\footnotesize DEX} & - \\
+        \hline
+        %\textbf{Handle Animal *} & - & {\footnotesize CHA} & - \\
+        \textbf{Heal} & 1 & {\footnotesize WIS} & - \\
+        \textbf{Intimidate} & 1 & {\footnotesize CHA} & - \\
+        \hline
+        \textbf{Knowledge {\scriptsize ARCANA} *} & 12 & {\footnotesize INT} & 5 \\
+        %\textbf{Knowledge {\scriptsize DUNGEONEERING} *} & - & {\footnotesize INT} & -\\
+        %\textbf{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize GEOGRAPHY} *} & - & {\footnotesize INT} & - \\
+        \textbf{Knowledge {\scriptsize HISTORY} *} & 12 & {\footnotesize INT} & 5 \\
+        \hline
+        %\textbf{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize NATURE} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize NOBILITY} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize PLANES} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
+        %\textbf{Linguistics *} & - & {\footnotesize INT} & - \\
+        \textbf{Perception} & 6 & {\footnotesize WIS} & 5 \\
+        \textbf{Perform} & 1 & {\footnotesize CHA} & - \\
+        \hline
+        %\textbf{Profession *} & - & {\footnotesize WIS} & - \\
+        \textbf{Ride} & 2 & {\footnotesize DEX} & - \\
+        \textbf{Sense Motive} & 5 & {\footnotesize WIS} & 4 \\
+        \hline
+        %\textbf{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
+        \textbf{Spellcraft *} & 12 & {\footnotesize INT} & 5 \\
+        \textbf{Stealth} & 7 & {\footnotesize DEX} & 5 \\
+        \hline
+        \textbf{Survival} & 1 & {\footnotesize WIS} & - \\
+        \textbf{Swim} & -1 & {\footnotesize STR} & - \\
+        %\textbf{Use Magic Device *} & - & {\footnotesize CHA} & - \\
+        {\footnotesize * Trained Only} \\
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+
+\vspace{-1.5em}
+\fullline
+\vspace{-1em}
+
+\noindent\emph{Feats} \\
+\noindent\textbf{Arcane Strike} As a swift action, you can imbue your weapons with a +2 bonus to damage.  Affected weapon(s) are treated as magic in terms of damage reduction.  Bonus increases by +1 every five caster levels, up to a maximum of +5 at 20th level. \\
+\noindent\textbf{Brew Potion} You can create a potion of any 3rd-level or lower spell that you know that targets one or more creatures or objects. \\
+\noindent\textbf{Scribe Scroll} You can create a scroll of any spell that you know. \\
+\noindent\textbf{Craft Magic Arms and Armor} You can create magic weapons, armor, and shields. \\
+\noindent\textbf{Armor Proficiency, Light} Check penalty only on {\footnotesize DEX} and {\footnotesize STR} skill checks. \\
+\\
+\noindent\emph{Racial Traits} \\
+\textbf{Low-light Vision, +4 AC Versus Giants, +1 to Illusion Spell DC, +2 to Saves versus Illusion Spells, +1 Attack versus Humanoid(reptilian) and Humanoid(goblinoid)} \\
+\\
+\noindent\emph{Languages} \\
+\textbf{Common, Draconic, Dwarven, Gnome, Goblin, Orc, Sylvan} \\
+\\
+\noindent{\emph{Experience}} \\
+\textbf{19,800 / 23,000} \\
+\\
+\noindent{\emph{Wealth}} \\
+\textbf{646 gp, 3 sp} \\
+
+\pagebreak
+
+\noindent \textbf{\huge{Inventory}} \\
+
+\begin{table}[h!]
+\sffamily
+\vspace{-2em}
+\hspace{-0.75em}
+\mbox{
+    \subfigure{
+        \begin{tabular}{| c | l | c |}
+        \row{\#}{Item (Carried)}{Wt}{Bold}
+        \row{}{Shortspear}{3}{}
+        \row{}{Cloak of Resistance +1}{1}{}
+        \row{}{Ring of Protection +1}{-}{}
+        \row{}{Scholar's Outfit (small)}{1.5}{}
+        \row{}{Spell Component Pouch}{2}{}
+        \row{}{Wand of Maximized Magic Missile}{-}{}
+        \row{}{Wand of Acid Arrow}{-}{}
+        \row{}{\textbf{Backpack (small)}}{0.5}{}
+        \row{}{Winter Blanket (small)}{0.75}{In}
+        \row{}{Bedroll (small)}{1.25}{In}
+        \row{}{Ink (1oz)}{-}{In}
+        \row{}{Inkpen}{-}{In}
+        \row{10}{Parchment}{-}{In}
+        \row{}{Silk Rope (50ft)}{5}{In}
+        \row{}{Spellbook}{3}{In}
+        \row{}{Waterskin (small)}{1}{In}
+        \row{8}{Trail Rations (small)}{2}{In}
+        \row{1}{Potion of Cure Light Wounds}{0.5}{In}
+        \row{}{\textbf{Scroll Case}}{-}{}
+        \row{}{Scroll of Hold Portal}{-}{In}
+        \row{}{Scroll of Expeditious Retreat}{-}{In}
+        \row{}{Scroll of Feather Fall}{-}{In}
+        \row{}{Scroll of Floating Disk}{-}{In}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \hline
+        \multicolumn{2}{r}{\textbf{Total:}} & \multicolumn{1}{c}{\textbf{22 lbs}} \\
+        \multicolumn{2}{r}{\textbf{Carrying Capacity:}} & \multicolumn{1}{c}{\textbf{22.5 lbs}} \\
+        \end{tabular}
+    }
+
+    \hspace{0.4em}
+
+    \subfigure{
+        \begin{tabular}{| c | l | c |}
+        \row{\#}{Item (Stored at Outpost)}{Wt}{Bold}
+        \row{}{\textbf{Chest, Locked w/Good Lock (Party Loot)}}{10}{}
+        \row{9970}{Gold Axes}{}{In}
+        \row{1}{Gold Trade Bars (5000gp value total)}{}{In}
+        \row{6}{Silver Trade Bars, Dwarven (200sp value each)}{}{In}
+        \row{}{}{}{}
+        \row{2}{Potion of Cure Light Wounds}{3}{In}
+        \row{1}{Potion of Bear's Endurance}{0.5}{In}
+        \row{1}{Potion of Cat's Grace}{0.5}{In}
+        \row{1}{Potion of Bull's Strength}{0.5}{In}
+        \row{}{}{}{}
+        \row{1}{Masterwork Breastplate (350gp)}{30}{In}
+        \row{1}{Masterwork Chain Shirt (250gp)}{25}{In}
+        \row{1}{Masterwork Shortsword (310gp)}{2}{In}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
+        \row{}{\textbf{Chest, Locked w/Good Lock (Personal Supplies)}}{10}{}
+        \row{}{Primer on Magic}{3}{In}
+        \row{2}{Potion-making supplies (25gp each)}{10}{In}
+        \row{2}{Scroll-making supplies (12.5gp each)}{10}{In}
+        \row{}{}{}{}
+        \row{}{{\footnotesize (making a potion or scroll consumes caster level times}}{}{In}
+        & \hspace{1em} {\footnotesize spell level supplies)} &  \\
+        \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\hline
+        \end{tabular}
+    }
+}
+\vspace{-1.5em}
+\end{table} \par
+\noindent Medium 46, Heavy 68.5, Lift 137, Push/Drag 342.5 \\
+
+\fullline
+\noindent\emph{Party Members} \\
+\textbf{Barneby} Human Rogue 4 (Mikey) \\
+\textbf{Kallus} Human Paladin 4 (Joe) \\
+\textbf{Shattered Fang} Halfling Barbarian 1/Druid 3 (Brian) \\
+\textbf{Suc} Gnome Bard 4 (Will) \\
+\textbf{Whipporwill} Human Ranger 4 (Jeremy) \\
+\textbf{Zaru} Gnome Wizard 4 (Ryan) \\
+\textbf{Korvek} Dwarf Fighter 4 (James) \\
+\sout{\textbf{Gavin} Half-Elf Dragoon 4 (Mike)}\\
+\sout{\textbf{Hifos} Human Barbarian 4 (Dan)} \\
+\sout{\textbf{Wren} Human Cleric 4 (Brian)} \\
+\sout{\textbf{Karel} Half-Elf Fighter 4 (Nate)} \\
+\sout{\textbf{Varcusto} Half-Elf Rogue 4 (Scott)} \\
+
+\pagebreak
+
+\noindent {\huge \textbf{Spellbook}} \hspace{2em}4/4/3/2 per day\par
+\vspace{-0.5em}
+\fullline
+\vspace{-1.25em}
+
+\spell{Acid Splash}{Full}{V S}{Conj}{Standard Action / 35ft Range / Instant}{
+Ranged touch deals 1d3 acid damage to target}{}\\[-1em]
+
+%Arcane Mark
+%Bleed
+%Dancing Lights
+
+\spell{Detect Magic}{Full}{V S}{Divin}{Standard Action / 60ft range / 4 minute duration (D)}{
+Detect magic auras in a cone-shaped emanation.  Concentrate longer to reveal more detailed information:\\
+\emph{1st Round}: Presence or absence of auras.\\
+\emph{2nd Round}: Number of auras, strength of most potent aura.\\
+\emph{3rd Round}: Strength and location of each aura.  For each aura, a successful Knowledge (arcana) check determines the school of the aura (DC 15 + spell level or +1/2 caster level on non-spells); a successful Spellcraft determines the properties of magic items (DC 15 + caster level).}{3em}
+
+%Detect Poison
+%Disrupt Undead
+%Flare
+%Ghost Sound
+%Light
+
+%\spell{Daze}{Full}{V S M}{Ench}{Standard Action / 35ft range / 1 round duration}{
+%Target of $\leq$ 4 HD takes no actions for 1 round; if effected, cannot be targeted by this spell again for 1 minute.\\}{}\\[-2em]
+
+\spell{Mage Hand}{Full}{V S}{Trans}{Standard Action / 35ft range / concentration duration}{%
+Manipulate an object at a distance. As a move action, move the object up to 15 feet in any direction.\\}{}\\[-2em]
+
+\spell{Read Magic}{Full}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 40 minutes**}{
+You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \emph{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \emph{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-2em]
+
+\fullline
+\vspace{-1.25em}
+
+\spell{Burning Hands}{}{V S}{Evoc}{Standard Action / 15ft Range / Instant / Reflex DC 15 Half}{%
+Creatures in area take 5d4 fire damage, flammable materials in area are set on fire.}{}\\[-1em]
+
+\spell{Charm Person}{}{V S M}{Ench}{Standard Action / 35ft Range / 5 hours / Will DC 15 \nolinebreak Negates}{%
+Target humanoid regards you as its trusted friend (if threatened by you or your allies, receives a +5 bonus to its save).  You cannot control the target, but it perceives your words and actions in the most favorable way.  You may order the target, but you must win an opposed CHA check to make it do anything it would not ordinarily do.  Target will never obey suicidal orders, but may be convinced that dangerous actions are worthwhile.}{1em}
+
+\spell{Color Spray}{}{V S M}{Illu}{Standard Action / 15ft Range / Instant / Will DC 16 Negates}{%
+Creatures in area are affected by various status effects, according to their HD:\\
+\emph{2HD or less}: Unconscious+blind+stunned 2d4 rounds, then blind+stunned 1d4 rounds, then stunned 1 round \\
+\emph{3 or 4HD}: Creature is blinded and stunned for 1d4 rounds, then stunned for 1 round.\\
+\emph{5HD or more}: Creature is stunned for 1 round.}{1em}
+
+\spell{Comprehend Languages}{}{V S M (pinch of soot and salt)}{Divin}{Standard Action / Personal / 50 minutes**}{%
+You can understand spoken or written words (but not speak or write) of any language. You can read one page per minute. Magical writing cannot be deciphered, and you do not gain any insight beyond literal meaning.}{}
+
+\spell{Expeditious Retreat}{}{V S}{Trans}{Standard Action / Personal / 5 minutes (D)}{%
+Increases your base speed by 30ft.  Does not effect burrow, climb, fly, or swim speeds.}{}\\[-1em]
+
+\spell{Feather Fall}{}{V S}{Trans}{Immediate Action / 35ft Range / Until Landing or 5 rounds / Will DC 15 Negates (harmless)}{%
+Five medium or smaller (or 2 large) target(s) fall slowly, taking no damage upon landing. Targets resume normal falling spped if the spell ends before landing.}{}
+
+\spell{Floating Disk}{}{V S M}{Evoc}{Standard Action / 35ft Range / 5 hour duration}{%
+Creates a slightly concave, 3ft diameter disk that can hold 500lb or up to 2 gallons of liquid. Unless otherwise directed, it follows you at a 5-foot distance.  It winks out of existence at the end of the spell duration, or if you attempt to move beyond its range.}{0em}
+
+\spell{Hold Portal}{}{V}{Abjur}{Standard Action / 150ft Range / 5 minute duration (D)}{%
+Holds shut a door, gate, window, or shutter of wood, metal, or stone.  A \emph{knock} or successful \emph{dispell magic} negates. Add 5 to the DC for forcing open the affected portal.}{}
+
+\spell{Magic Missile}{}{V S}{Evoc}{Standard Action / 150ft Range / Instant}{%
+Three Missiles deal 1d4+1 points of force damage each.}{} \\[-1em]
+
+\spell{Magic Weapon}{}{V S}{Trans}{Standard Action / Touch / 5 minute duration / Will DC 15 Negates \mbox{(harmless)}}{%
+Target weapon gains +1 enhancement bonus to attack and damage rolls.}{}\\[-1em]
+
+\spell{Ray of Enfeeblement}{}{V S}{Necro}{Standard Action / 35ft Range / 5 rounds / Fort DC 15 Half}{%
+\mbox{Ranged touch attack causes 1d6+2 penalty to strength (to a minimum of 1).  Cannot be stacked with itself.}}{} \\[-1em]
+
+\spell{Shield}{}{V S}{Abjur}{Standard Action / Self / 5 minute duration (D)}{%
+Negates \emph{magic missiles} targeted at you; grants +4 shield bonus to regular and touch AC.}{}\\[-1em]
+
+\spell{Sleep}{}{V S M}{Ench}{Full Round Action / 150ft Range / 10ft Radius Burst / 5 minute duration / Will DC 15 \nolinebreak Negates}{%
+Up to 4HD (lower HD creatures closest to origin affected first) fall unconscious.  Affected targets are helpless, not wakened by sounds, but can be wakened by damage or via a standard action. Cannot effect constructs and undead.}{}\\[-1em]
+
+\spell{True Strike}{}{V F (small wooden replica of an archery target)}{Divin}{\mbox{Standard Action / Personal / See Text}}{%
+\mbox{Your next single attack gains a +20 insight bonus, and is not affected by miss change from striking a concealed target.}}{}\\
+
+\spell{Acid Arrow}{}{V S M (rhubarb leaf, adder's stomach) F (a dart)}{Conj}{\mbox{Standard Action / 600ft Range / 2 rounds}}{%
+Ranged touch attack deals 2d4 acid damage, plus 2d4 more damage 1 round later}{}\\[-1em]
+% Additional duration/damage at 6/9/12/15/18th level, see core rulebook p239
+
+\spell{Bear's Endurance}{}{V S M}{Trans}{\mbox{Standard Action / Touch / 5 minute duration / Will DC 16 Negates (harmless)}} {%
+\mbox{Target gains +4 enhancement bonus to Constitution (add usual benefits to HP, et cetera).} }{}\\[-1em]
+
+\spell{Blur}{}{V}{Illu}{\mbox{Standard Action / Touch / 5 minute duration / Will DC 16 Negates (harmless)}}{%
+\mbox{Target gains concealment (20\% miss chance) \emph{See invisibility} does not counteract this effect, but \emph{true seeing} does} }{}\\[-1em]
+
+\spell{Bull's Strength}{}{V S M}{Trans}{\mbox{Standard Action / Touch / 5 minute duration / Will DC 16 Negates (harmless)}}{%
+\mbox{Target gains +4 enhancement bonus to Strength (add usual benefits to melee attack/damage rolls, et cetera).} }{}\\[-1em]
+
+\spell{Cat's Grace}{}{V S M}{Trans}{\mbox{Standard Action / Touch / 5 minute duration / Will DC 16 Negates (harmless)}}{%
+\mbox{Target gains +4 enhancement bonus to Dexterity (add usual benefits to range attack, et cetera).} }{}\\[-1em]
+
+\spell{Continual Flame}{}{V S M (ruby dust worth 50gp)}{Evoc}{\mbox{Standard Action / Touch / Permanent}}{%
+A flame springs from target object.  It looks like a regular flame, but creates no heat, needs no oxygen, can't be smothered or quenched.  Counters \emph{darkness} spells of equal or lower level.}{}
+
+\spell{Glitterdust}{}{V S M (ground mica)}{Conj}{\mbox{Standard Action / 150ft range / 10ft radius spread / 5 rounds / Will DC 16 Negates }}{%
+Creatures in area are \emph{blinded} and take a -40 penalty on Stealth checks; invisible creatures are revealed. The dust cannot be removed until the spell ends. \emph{Blinded} creatures may make a new save each round.}{}
+
+\spell{Hideous Laughter}{}{V S M (tiny fruit tarts and a feather)}{Ench}{\mbox{Standard Action / 35ft range / 5 rounds / Will DC 16 Negates }}{%
+Target collapses into gales of manic laughter, falls \emph{prone}, and is unable to take actions, but is not considered \emph{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em}
+
+\spell{Hypnotic Pattern}{}{S M}{Illu}{\mbox{Standard Action / 150ft range / 10ft radius spread / concentration + 2 rounds / Will DC 16 Negates }}{%
+Pattern of subtle shifting colors fascinates creatures within the area of effect.  Up to 2d4+5 HD are effected, starting with those with the fewest HD, closest to the center.  Sightless creatures are not effected.}{}
+
+\spell{Scorching Ray}{}{V S}{Evoc}{Standard Action / 35ft range / Instant}{%
+Ranged touch attack deals 4d6 fire damage to target.}{}\\[-1em]
+
+\spell{Spectral Hand}{}{V S}{Necro}{\emph{Standard Action / 150ft range / 5 minutes (D)}}{%
+A ghostly hand materializes and moves as you desire, allowing you to deliver touch spells at a distance.  On casting, you lose 1d4 HP that returns when the spell ends (unless the hand is destroyed).  While it lasts, any 4th level or lower Touch range spell may be delivered by the \emph{hand}.  The spell grants a +2 bonus on m\^{e}l\'{e}e touch attacks. If moved beyond the max range, the hand re-materializes next to you.  It is incorporeal, has improved evasion (half damage on failed reflex save, none on successful), saves equal to yours, an AC of 26, and HP equal to the number you lost in creating it.}{2em}\\[-2em]
+
+\fullline
+\vspace{-1.25em}
+
+\spell{Flame Arrow}{}{V S M (oil drop and flint)}{Trans}{\mbox{Standard Action / 35ft range / 50 minutes}}{%
+\mbox{Turns up to 50 target projectiles into fiery ones which deal an extra 1d6 fire damage on hit, and can ignite a flamable object.}}{}\\[-1em]
+
+\spell{Lightning Bolt}{}{V S M (fur and a glass rod)}{Evoc}{Standard Action / 120ft Line / Instant / Reflex DC 17 Half}{%
+Creatures and objects in line take 5d6 electricity damage. Combustibles are set on fire, lead, gold, copper, silver and bronze melt; if barriers are broken by damage, the line continues.}{}
+
+\spell{Tiny Hut}{}{V S M (small crystal bead)}{Evoc}{\mbox{Standard Action / 20ft radius sphere on caster /  10 hours (D)}}{%
+Creates an unmoving sphere, half outside the ground, opaque from the outside but transparent from within.  Caster plus 9 medium creatures can fit inside.  Temperature is 70$^{\circ}$F inside unless exterior is below 0$^{\circ}$ or above 100$^{\circ}$, in which case it raises or lowers the interior on a 1-for-1 degree basis.  The hut protects from wind less than 75mph, as well as rain, dust, sand, etc.  You can illuminate it dimly upon command or extinguish the light as desired.  Spells, missiles, and weapons pass through the hut without affecting it, although the opaque barrier grants occupants total concealment if attacked from outside.}{2em}
+
+\spell{Sepia Snake Sigil}{}{V S M (500gp of powdered amber; a snake scale)}{Conj}{\emph{10 minutes / Touch / See Text / Reflex DC 17 Negates}}{%
+Cause a small symbol to appear in a written work or at least 25 words in length.  Anyone who reads the text triggers the spell, causing a large sepia snake to spring into being.  Target that fails to save is engulfed in an amber force field and immobilized for 1d4+4 days, or until you release them.  While immobilized, the target does not age, breathe, grow hungry, sleep, or regain spells: it is in a state of suspended animation.  It can be affected by its surroundings, but is unaware of them.  A \emph{detect magic} spell does not reveal this spell, only that the text is magical.  A \emph{dispell magic} spell can remove this sigil.  The \emph{erase} spell destroys the entire page of text.  This spell may be cast in combination with other text-affecting spells, such as \emph{secret page}.}{5em}\\
+
+\noindent** May be made permanent with a \emph{permanency} spell
+
+\pagebreak
+
+\noindent {\huge \textbf{Campaign Notes}} \par
+\vspace{-0.75em}
+\fullline
+\person{Trig}{F}{Gnome Artisan} Leatherworking shop owner in \emph{Baylith} \\
+\person{Philo}{M}{Halfling Bard} Rescued along with \emph{Trig} and \emph{Gareth} from the orcs \\
+\person{Gareth}{M}{Half-Orc Artisan} Weaponsmith able to imbue weapons with magic. Former prisoner of orcs, forged their weapons for 4 years (since age 16) before being rescued by the party. \\
+\person{Regan}{M}{Orc Wizard} Rescued from the Broken Tusk tribe, now \emph{Zaru's} apprentice \\
+\person{Miranda}{F}{Human Assassin} Beautiful woman from \emph{Givissel} who was hired to kill \emph{Gregory Riesling} and slept with \emph{Barneby} \\
+\person{Lord Duran}{M}{Dwarf} Son of \emph{King Kazim}, gave the former dwarven outpost to the party \\
+\person{King Kazim}{M}{Dwarf} King of the Mountain Dwarves north of the \emph{Seven Settlements} \\
+\person{Lord Kelvin}{M}{} Lord of \emph{Cerena} and emissary to the Dwarves on behalf of the \emph{Seven Settlements} \\
+\person{Ser Reisling}{M}{} Knight of \emph{Lord Kelvin} \\
+\person{Gregory Reisling}{M}{} Son of \emph{Ser Reisling}, party escorted him to negotiate peace between Painswick and Baylith \\
+\person{Ser Bolton}{M}{} Lord Kelvin's militia leader, gave the party the quest to escort \emph{Gregory Reisling} \\
+\person{Ser Grey}{M}{} Knight of Lord Kelvin \\
+\person{Xander Grey}{M}{Human Wizard} Scholar in \emph{Cerena}; son of \emph{Ser Grey}; advisor, informant, and quest-giver for the party.  40-ish year old human with gray hair.\\
+\person{Old Man Worthington}{M}{Human Expert} Plantation owner near \emph{Cerena}; quest-giver \\
+\person{``Middle-Aged'' Man Worthington}{M}{} Son of \emph{Old Man Worthington}, head of the team of carpenters and laborers that repaired and improved the party's outpost \\
+\person{Randall Riley}{M}{Human Artisan} Miner who excavated the Outpost's basement and mined Mythrill for us \\
+\person{Tristan Moonstone}{M}{Elf} Seeker of a temple from his dreams in the woods in between Baylith and Cerena \\
+\person{Grundle Bolthammer}{F}{Dwarf Fighter} Short-lived Silverfish bandit, now a member of our outpost\\
+
+\vspace{-1.75em}
+\fullline
+\textbf{Seven Settlements} Human settlements on the North part of the continent in a loose coalition, subject to the political influence of the nearby Mountain Dwarves \\
+\textbf{Cerena} Home to many of the party members and de-facto capitol of the \emph{Seven Settlements}, ruled by \emph{Lord Kelvin} and protected by his Knights \\
+\textbf{Baylith} \emph{One of the Seven Settlements}, home to \emph{Trig's} Leatherworking shop, in a dispute with \emph{Painswick} \\
+\textbf{Painswick} \emph{One of the Seven Settlements}, in a dispute with \emph{Baylith} \\
+\textbf{Lindstrom} One of the \emph{Seven Settlements}, a small fishing town on a lake, provides food for the other settlements.  Home to \emph{Zaru}, as well as most of the Gnomes of the North \\
+\textbf{The Outpost} A former Dwarven scouting camp, now taken by the party with the consent of \emph{Lord Duran}.  Consists of a 40x30ft main building with a forge, study, and sleeping quarters, complete with lookout cupola and basement, and two auxiliary buildings: a stable and a supply shack. Surrounded in all directions by a 5-ft high wall made of local stone. \\
+\textbf{Givissel} Port town far south of the \emph{Seven Settlements}, with garish sense of fashion and where political intrigue and assasination are seemingly commonplace \\
+\textbf{The Frothy Jugs} Meeting point for the party in Cerena, starting point of the campaign\\
+
+\vspace{-1.75em}
+\fullline
+\noindent - Zaru has Ogre Mage's spellbook containing: Summon Monster II, Detect Thoughts
+
+\noindent - Painswick and Baylith are currently feuding at the start of the campaign, but no open violence yet.
+
+\noindent - From N to S: The wastes, dwarven kingdom, 7 settlements, turnbull, horngrim, givissel.
+
+\vspace{-0.75em}
+\fullline
+\noindent Lord Duran arrived at the Outpost, gave permission for us to occupy the area. Promised to recommend our service to Lord Kelvin's Knights, as reward for clearing out the local orcs; suggested future work in taking back more orc-controlled areas in the Mountains (who sometimes hire ogres as mercenaries)\\
+
+\noindent At the direction of Ser Bolton, we agreed to escort Gregory Reisling on his way to Baylith, for negotiations between Painswick and Baylith.  Along the way, we encountered Tristan Moonstone and his escort Shattered Fang seeking a temple from Tristan's dreams. We decided to take a day or two to investigate, and did eventually stumble upon the temple.  Inside we found a statue of the ``Prince of Swords''', named ``Sener Vanis'', mysterious iconography depicting 7 swords, and the broken parts of a sword we named, ``Concluder'', which we took back to Gareth for repairs.\\
+
+\noindent After arriving at Baylith, Reisling was attacked by assassins and killed; we begged a local temple for a resurection spell, which they provided for free, putting us in their debt.  Reisling comes back weaker but able to carry on negotiations.  We determined the assassins were from Givissel.  They escape, killing a city guard on the way out.  Whippoorwill follows their tracks south, but we decide not to pursue them further.\\
+
+\noindent Negotiations centered around the ``Thrane Bogs'', a bit of swamppy land owned by the Oerths of Painswick, claimed by Mortimer Thrane of Baylith (after an inter-family marriage gave them some claim).  We investigated to determine why they want a swamp, and found evidence of a green dragon lair and some sort of temple (which there wasn't time to investigate).  We killed a pair of Wyverns on the trip, and hauled back the scales for Trig to work on making armor.\\
+
+\noindent Trig gives Zaru a book, from the library of Lord Givon.  It details the Denoxyan Empire from across the sea, a hugely expansionist culture, and the Empire's fight agains the Estani Barbarians and their ``Sword Coven''. Foreign words \emph{Servain} (prince?) and something possibly meaning "witch" seem connected to the Coven.  May be some connection between this Sword Coven and Gareth's abilities, or with the temple in the forest (of Tristan Moonstone's dreams), or both.  Trig also investigated Miranda's armor, and determined it was made by the armorers of the ``Rikante'' family, and upper-class family of Givissel.\\
+
+\noindent We returned to the Outpost to find it under siege, and tracked troll assailants to a cave, and wipe them out. Inside the cave, we found a vein we later identify as Mithri.\\
+
+\noindent Outpost again attacked, this time by Mercenaries, some bearing the symbol of Azmodeus.  They carried parchment mentioning the ``Dead Man's Arms'' tavern in Horngrim.  After the battle, we took their equipment to town and sold it to the master-at-arms for a large sum of axes.\\
+
+\noindent Zaru recieved a package from Trig of a woodprint of a coat of arms and a knight lying at peace labeled as Ser Dyson Oreth and dated to 800 years ago.  Trig believed it to be his tomb that lies at the center of the hotly-contested Thrane bogs.\\
+
+\noindent We contacted Randall Riley, an expert miner, who determined the ore vein in the old troll cave is Mithiril, and negotiated the rate of 1000gp plus 1.5\% of any profits for extraction, plus a promise to excavate the Outpost's basement for free.\\
+
+\noindent Neville, a Crimson Cloak warned us of the ``Silverfish Bandits'', a group near Turnbull, made up of half-orcs and humans, that was rumored to be have been hired to kill us (by whom and why unknown). Neville also shared rumors of a cult to Azmodeus in Horngrim, and that Givissel was hiring mercenaries from across the sea.\\
+
+\noindent Whippoorwill scouted the road to Horngrim, encounterd a Givisselian caravan under heavy guard, bearing the coat-of-arms of a black candle on a yellow background.  He met Grundle Bolthammer, a dwarf sellsword from Horngrim who joined the Silverfish Bandits, but realized it was bad company, and then was almost killed for trying to leave. She and Whippoorwill returned to the outpost.\\
+
+\noindent Regan learned the new spell Shocking Grasp, and tried to test it on Zaru ``because it's funny''; he progresses as a wizard, but not as a member of non-orcish society.\\
+
+\noindent Randall Riley's excavation of the Mithril is interrupted by the attack of a Golden Gorger, we ran and resolved to return, better prepared.\\
+
+\noindent Grundle offerd to help take on the Gorger in exchange for us providing equipment. We succeed in slaying the gorger by a hairsbreadth, expending numerous charges form our magic items in the process. We salvaged gems and gold from the Gorger's stomach, and take its hide to make into armor.\\
+
+\noindent Randall Riley and crew finished excavating the basement, a 20 by 30 foot area with finished floor and walls, with numerous empty wine racks and casks.  Zaru and Shattered Fang find a hidden door behind a wine rack, wade through a trap without Rogue assistance, and pulled a chest from the bottom of a pit in the next room.  After triggering another trap, we found \emph{Rat's Tooth} inside, a shortsword with a rat's face in the basket hilt.  It is intelligent, and cursed to turn both wielder and targets into were-rats.  \\
+
+\noindent Whippoorwill gave Concluder to Gareth, who seemed confident in his ability to re-forge it while retaining its magical properties. Zaru and Shattered Fang guard the mining operation while the others travel to give Trig the Gorger hide, and to repay the church that resurrected Gregory Riesling, by giving them an enchanted mace. Whippoorwill buys a ruby for Gareth to set in Concluder's hilt. Zaru and Shattered Fang ambushed and killed a half-orc at the mining camp, captured another and interrogated him, revealing that the Silverfish bandits are hiding out at the Seven Swords Temple. Zaru kills the prisoner to save him from suffering, and the two meet back up with the party, and pick up newly completed acid-resistant armor Trig made from the Wyvern hide.  She passes on info that Oerth men-at-arms were sent into the swamp but never returned, and now knights are hunting the dragon (the younger one may have left already).\\
+
+\noindent Neville reported that the mercenaries that were coming for us tried to ambush a Oerth caravan, took heavy losses, and so won't likely be a threat anymore.  He also offered to give us trustworthy contacts in Horngrim, if we decide to go there.\\
+
+\noindent We go to the Seven Swords Temple, and slaughtered the Silverfish Bandits, one Dwarf, possibly not a Silverfish himself, escaped to the road back to Cerena. We pursued him, and encounter two knights of Demair (a Horngrim family) who had taken him captive. The knights, Agee and Gil (brothers), invite Kallus to the tournament taking place soon in Baylith, and agree to turn the dwarf, Darren Daggersheen, over to us.\\
+
+\noindent We questioned Daggersheen, who admits to being a Silverfish and an outcast from Dwarven society, and claimed that someone with the last name ``Garret'' was the one sending the Silverfish out against us from Horngrim and Givissel. He also claimed to be headed to Cerena to meet a human spy (wouldn't give a name).  Other than that, he claimed to have no information, and demanded a trial by the Dwarfs, as he comes from a dwarven noble family.\\
+
+\noindent We went to the tourney in Baylith and participated in all three competitions, but won none of them. Kallus met Samuel Riesling, older brother to our friend Gregory.  Met Dr.\ Bernard Bozzle, the Alchemist who has opened up shop across from Trig; he sells all manner of potions, but something seemed fishy about his operation, not the least of which was that he sells healing potions that do not draw from a divine source.  Trig completed a suit of armor from the Gorger's hide. Back at the Frothy Jugs, Philo's cousin, Figgins, tried to sell numerous magical items to Shattered Fang and Zaru, but they were overpriced and his claims of their power were questionable.\\
+
+\noindent For now, Zaru is considering the scroll of ice storm (400gp) and scroll of mage's sword (500gp), but going to pass on the climbing ring, jumping ring, fire protection ring, vampiric touch want (5000gp), acid orb wand, and delayed blast fireball scroll. Zaru only intends to purchase the two scrolls if he can verify them using \emph{read magic}.\\
+
+\end{document}
