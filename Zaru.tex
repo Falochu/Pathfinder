@@ -16,12 +16,21 @@
 \setlength{\TPVertModule}{\TPHorizModule}% Y grid unit for textpos
 \usepackage{changepage}                  % Adjustwidth environment
 \usepackage{parallel}                    % Side-by-side paragraphs
-\pagestyle{empty}                        % No page numbers
 
 \newcommand{\fullline}{\noindent\line(1,0){542} \\}
+\newcommand{\colline}{\noindent\line(1,0){268} \\}
+\newcommand{\e}[1]{\emph{#1}}
+\newcommand{\B}[1]{\textbf{#1}}
+
+\newenvironment{notesection}[1]
+{\noindent {\huge \B{#1}} \par
+\vspace{-0.75em}
+\colline
+\begingroup\fontsize{9pt}{12pt}\selectfont}
+{\endgroup}
 
 \newcommand{\row}[4]{\hline
-    \ifstrequal{#4}{Bold}{\textbf{#1} & \textbf{#2} & \textbf{#3}}{%
+    \ifstrequal{#4}{Bold}{\B{#1} & \B{#2} & \B{#3}}{%
     \ifstrequal{#4}{In}{#1 &\hspace{1em} #2 & #3}{%
     \ifstrequal{#4}{}{#1 & #2 & #3}{}}}\\}
 
@@ -33,7 +42,7 @@
                         \includegraphics[width=2em]{Checkbox}}}
 \ifstrequal{#7}{}{\vspace{-1em}}{\vspace{#7}}
 \end{wrapfigure}
-\noindent \textbf{#1} #3 {
+\noindent \B{#1} #3 {
     \ifstrequal{#4}{Conj}{\color{Plum}Conj}{%
     \ifstrequal{#4}{Divin}{\color{YellowOrange}Divin}{%
     \ifstrequal{#4}{Ench}{\color{VioletRed}Ench}{%
@@ -43,11 +52,11 @@
     \ifstrequal{#4}{Abjur}{\color{CadetBlue}Abjur}{%
     \ifstrequal{#4}{Necro}{\color{Red}Necro}{%
 }}}}}}}}}
-{\footnotesize \emph{#5}} \\
+{\footnotesize \e{#5}} \\
 #6
 }
 
-\newcommand{\person}[3]{\noindent\textbf{#1
+\newcommand{\person}[3]{\noindent\B{#1
     \ifstrequal{#2}{M}{{\color{ProcessBlue}\male}}{%
     \ifstrequal{#2}{F}{\color{VioletRed}\female}{}}}{\scriptsize #3}}
 
@@ -56,20 +65,21 @@
 \newcommand{\spelllevel}[2]{
 \begin{textblock}{1}(0.5,#1)
 \begin{sideways}
-    \noindent {\color{light-gray}{\LARGE \emph{#2}}}
+    \noindent {\color{light-gray}{\LARGE \e{#2}}}
 \end{sideways}
 \end{textblock}}
 
 \newcommand{\s}[0]{$^S$}
 
 \begin{document}
+\thispagestyle{empty}
 \sffamily
 \begin{wrapfigure}{r}{13em}
 \vspace{-1.5em}
 \includegraphics[width=13em]{Pathfinder}
 \end{wrapfigure}
-\noindent \textbf{\huge{Zaru Bj\"{o}rtfiskur }\Large{Gnome Wizard 7}} \\
-\emph{Chaotic Good} \hspace{2em} \emph{Age 57y} \hspace{2em} \emph{Height 3ft} \hspace{2em} \emph{Weight 37lb} \par
+\noindent \B{\huge{Zaru Bj\"{o}rtfiskur }\Large{Gnome Wizard 7}} \\
+\e{Chaotic Good} \hspace{2em} \e{Age 57y} \hspace{2em} \e{Height 3ft} \hspace{2em} \e{Weight 37lb} \par
 \vspace{-0.75em}
 
 \fullline
@@ -81,13 +91,13 @@
 \mbox{
     \subfigure{
         \begin{tabular}{l | c | c}
-        \multicolumn{3}{c}{\emph{Ability Scores}} \\
-        \textbf{Strength} & 9  & -1 \\
-        \textbf{Dexterity} & 14 & +2 \\
-        \textbf{Constitution} & 12 & +1 \\
-        \textbf{Intelligence} & 20 & +5 \\
-        \textbf{Wisdom} & 12 & +1 \\
-        \textbf{Charisma} & 12 & +1 \\
+        \multicolumn{3}{c}{\e{Ability Scores}} \\
+        \B{Strength} & 9  & -1 \\
+        \B{Dexterity} & 14 & +2 \\
+        \B{Constitution} & 12 & +1 \\
+        \B{Intelligence} & 20 & +5 \\
+        \B{Wisdom} & 12 & +1 \\
+        \B{Charisma} & 12 & +1 \\
         \end{tabular}
     }
 
@@ -95,13 +105,13 @@
 
     \subfigure{
         \begin{tabular}{l | c}
-        \multicolumn{2}{c}{\emph{Defenses}} \\
-        \textbf{Armor Class} & 16 \\
+        \multicolumn{2}{c}{\e{Defenses}} \\
+        \B{Armor Class} & 16 \\
         Touch & 14 \\
         Flat Footed & 14 \\
-        \textbf{Fortitude} & 4 \\
-        \textbf{Reflex} & 5 \\
-        \textbf{Will} & 7 \\
+        \B{Fortitude} & 4 \\
+        \B{Reflex} & 5 \\
+        \B{Will} & 7 \\
         \end{tabular}
     }
 
@@ -109,13 +119,13 @@
 
     \subfigure{
         \begin{tabular}{l | c}
-        \multicolumn{2}{c}{\emph{Movement}} \\
-        \textbf{Speed} & 20 ft \\
-        \textbf{Initiative} & +2 \\ 
+        \multicolumn{2}{c}{\e{Movement}} \\
+        \B{Speed} & 20 ft \\
+        \B{Initiative} & +2 \\ 
         \multicolumn{2}{c}{~} \\
         \multicolumn{2}{c}{Health} \\
-        \textbf{Hit Points} & 38 \\
-        \emph{Current HP} & 38 \\
+        \B{Hit Points} & 38 \\
+        \e{Current HP} & 38 \\
         \end{tabular}
     }
 }
@@ -132,26 +142,26 @@
 \mbox{
     \subfigure{
         \begin{tabular}{l c c l}
-        \multicolumn{4}{c}{\emph{Attacks and Damage}} \\
-        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} \\
-        \textbf{Base Attack Bonus} & +3 \\
-        \textbf{Combat Maneuver} & +1 \\
-        \textbf{Combat Defense} & 13 \\ \hline
-        \textbf{M\^{e}l\'{e}e Touch Attack} & +2 \\
-        \textbf{Ranged Touch Attack} & +5 & \multicolumn{2}{l}{(+6 on ray spells)} \\ 
+        \multicolumn{4}{c}{\e{Attacks and Damage}} \\
+        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} \\
+        \B{Base Attack Bonus} & +3 \\
+        \B{Combat Maneuver} & +1 \\
+        \B{Combat Defense} & 13 \\ \hline
+        \B{M\^{e}l\'{e}e Touch Attack} & +2 \\
+        \B{Ranged Touch Attack} & +5 & \multicolumn{2}{l}{(+6 on ray spells)} \\ 
         \\
-        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
-        {\footnotesize \emph{Damage}} & {\footnotesize \emph{Critical}} \\
-        \textbf{Hand of the Apprentice} & +10 & 1d4+3* & 19-20x2 \\
-        \multicolumn{4}{l}{\emph{Piercing, 30 ft range, usable 8x/day}} \\ \hline
-        \textbf{+2 Oerth Ritual Dagger} & +4 & 1d4+3* & 19-20x2 \\
-        \multicolumn{4}{l}{\emph{Piercing}} \\
+        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
+        {\footnotesize \e{Damage}} & {\footnotesize \e{Critical}} \\
+        \B{Hand of the Apprentice} & +10 & 1d4+3* & 19-20x2 \\
+        \multicolumn{4}{l}{\e{Piercing, 30 ft range, usable 8x/day}} \\ \hline
+        \B{+2 Oerth Ritual Dagger} & +4 & 1d4+3* & 19-20x2 \\
+        \multicolumn{4}{l}{\e{Piercing}} \\
         \hline
-        \multicolumn{4}{l}{* Includes bonus from \emph{Arcane Strike}} \\
+        \multicolumn{4}{l}{* Includes bonus from \e{Arcane Strike}} \\
         \\
-        {\footnotesize \emph{Name}} & {\footnotesize \emph{Damage}} \\
-        \textbf{Wand: Max. Magic Missile} & \multicolumn{3}{l}{10 Force} \\
-        \multicolumn{4}{l}{\emph{Caster Level 3, 37 Charges}} \\ \hline
+        {\footnotesize \e{Name}} & {\footnotesize \e{Damage}} \\
+        \B{Wand: Max. Magic Missile} & \multicolumn{3}{l}{10 Force} \\
+        \multicolumn{4}{l}{\e{Caster Level 3, 37 Charges}} \\ \hline
         \end{tabular}
     }
 
@@ -159,59 +169,59 @@
 
     \subfigure{
         \begin{tabular}{l  c  c  c}
-        \multicolumn{4}{c}{\emph{Skills}} \\
+        \multicolumn{4}{c}{\e{Skills}} \\
         % 2+INT mod/level +1 for favored class 5 times = 54 ranks
-        {\footnotesize \emph{Name}} & {\footnotesize \emph{Bonus}} &
-        {\footnotesize \emph{Ability}} & {\footnotesize \emph{Ranks}} \\
-        \textbf{Acrobatics} & 2 & {\footnotesize DEX} & - \\
-        \textbf{Appraise} & 9 & {\footnotesize INT} & 1 \\
+        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
+        {\footnotesize \e{Ability}} & {\footnotesize \e{Ranks}} \\
+        \B{Acrobatics} & 2 & {\footnotesize DEX} & - \\
+        \B{Appraise} & 9 & {\footnotesize INT} & 1 \\
         \hline
-        \textbf{Bluff} & 5 & {\footnotesize CHA} & 4 \\
-        \textbf{Climb} & 1 & {\footnotesize STR} & 2 \\
+        \B{Bluff} & 5 & {\footnotesize CHA} & 4 \\
+        \B{Climb} & 1 & {\footnotesize STR} & 2 \\
         \hline
         % Concentration is not strictly a skill, but a caster level + ability mod check. 
         % As such, the "ranks" here are actually caster levels, and do not count against ranks of skills known.
-        \textbf{Concentration} & 12 & {\footnotesize INT} & 7 \\
-        \textbf{Craft {\scriptsize CLOTH}} & 9 & {\footnotesize INT} & 1 \\
+        \B{Concentration} & 12 & {\footnotesize INT} & 7 \\
+        \B{Craft {\scriptsize CLOTH}} & 9 & {\footnotesize INT} & 1 \\
         \hline
-        \textbf{Diplomacy} & 5 & {\footnotesize CHA} & 4 \\
-        %\textbf{Disable Device *} & - & {\footnotesize DEX} & - \\
-        \textbf{Disguise} & 1 & {\footnotesize CHA} & - \\
+        \B{Diplomacy} & 5 & {\footnotesize CHA} & 4 \\
+        %\B{Disable Device *} & - & {\footnotesize DEX} & - \\
+        \B{Disguise} & 1 & {\footnotesize CHA} & - \\
         \hline
-        \textbf{Escape Artist} & 2 & {\footnotesize DEX} & - \\
-        \textbf{Fly} & 2 & {\footnotesize DEX} & - \\
+        \B{Escape Artist} & 2 & {\footnotesize DEX} & - \\
+        \B{Fly} & 2 & {\footnotesize DEX} & - \\
         \hline
-        %\textbf{Handle Animal *} & - & {\footnotesize CHA} & - \\
-        \textbf{Heal} & 1 & {\footnotesize WIS} & - \\
-        \textbf{Intimidate} & 1 & {\footnotesize CHA} & - \\
+        %\B{Handle Animal *} & - & {\footnotesize CHA} & - \\
+        \B{Heal} & 1 & {\footnotesize WIS} & - \\
+        \B{Intimidate} & 1 & {\footnotesize CHA} & - \\
         \hline
-        \textbf{Knowledge {\scriptsize ARCANA} *} & 15 & {\footnotesize INT} & 7 \\
-        %\textbf{Knowledge {\scriptsize DUNGEONEERING} *} & - & {\footnotesize INT} & -\\
-        %\textbf{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
-        %\textbf{Knowledge {\scriptsize GEOGRAPHY} *} & - & {\footnotesize INT} & - \\
-        \textbf{Knowledge {\scriptsize HISTORY} *} & 15 & {\footnotesize INT} & 7 \\
+        \B{Knowledge {\scriptsize ARCANA} *} & 15 & {\footnotesize INT} & 7 \\
+        %\B{Knowledge {\scriptsize DUNGEONEERING} *} & - & {\footnotesize INT} & -\\
+        %\B{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
+        %\B{Knowledge {\scriptsize GEOGRAPHY} *} & - & {\footnotesize INT} & - \\
+        \B{Knowledge {\scriptsize HISTORY} *} & 15 & {\footnotesize INT} & 7 \\
         \hline
-        %\textbf{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
-        %\textbf{Knowledge {\scriptsize NATURE} *} & - & {\footnotesize INT} & - \\
-        \textbf{Knowledge {\scriptsize NOBILITY} *} & 9 & {\footnotesize INT} & 1 \\
-        \textbf{Knowledge {\scriptsize PLANES} *} & 9 & {\footnotesize INT} & 1 \\
+        %\B{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
+        %\B{Knowledge {\scriptsize NATURE} *} & - & {\footnotesize INT} & - \\
+        \B{Knowledge {\scriptsize NOBILITY} *} & 9 & {\footnotesize INT} & 1 \\
+        \B{Knowledge {\scriptsize PLANES} *} & 9 & {\footnotesize INT} & 1 \\
         \hline
-        %\textbf{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
-        %\textbf{Linguistics *} & - & {\footnotesize INT} & - \\
-        \textbf{Perception} & 8 & {\footnotesize WIS} & 7 \\
-        \textbf{Perform} & 1 & {\footnotesize CHA} & - \\
+        %\B{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
+        %\B{Linguistics *} & - & {\footnotesize INT} & - \\
+        \B{Perception} & 8 & {\footnotesize WIS} & 7 \\
+        \B{Perform} & 1 & {\footnotesize CHA} & - \\
         \hline
-        %\textbf{Profession *} & - & {\footnotesize WIS} & - \\
-        \textbf{Ride} & 2 & {\footnotesize DEX} & - \\
-        \textbf{Sense Motive} & 6 & {\footnotesize WIS} & 5 \\
+        %\B{Profession *} & - & {\footnotesize WIS} & - \\
+        \B{Ride} & 2 & {\footnotesize DEX} & - \\
+        \B{Sense Motive} & 6 & {\footnotesize WIS} & 5 \\
         \hline
-        %\textbf{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
-        \textbf{Spellcraft *} & 15 & {\footnotesize INT} & 7 \\
-        \textbf{Stealth} & 9 & {\footnotesize DEX} & 7 \\
+        %\B{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
+        \B{Spellcraft *} & 15 & {\footnotesize INT} & 7 \\
+        \B{Stealth} & 9 & {\footnotesize DEX} & 7 \\
         \hline
-        \textbf{Survival} & 1 & {\footnotesize WIS} & - \\
-        \textbf{Swim} & 1 & {\footnotesize STR} & 2 \\
-        %\textbf{Use Magic Device *} & - & {\footnotesize CHA} & - \\
+        \B{Survival} & 1 & {\footnotesize WIS} & - \\
+        \B{Swim} & 1 & {\footnotesize STR} & 2 \\
+        %\B{Use Magic Device *} & - & {\footnotesize CHA} & - \\
         {\footnotesize * Trained Only} \\
         \end{tabular}
     }
@@ -223,34 +233,35 @@
 \fullline
 \vspace{-1em}
 
-\noindent\emph{Feats} \\
+\noindent\e{Feats} \\
 % Bonus increases by +1 every five caster levels, up to a maximum of +5 at 20th level. \\
 % LVL10 increase bonus to +3
 % LVL15 increase bonus to +4
 % LVL20 increase bonus to +5
-\noindent\textbf{Arcane Strike} Swift action: grant your weapon a +2 to damage (affected weapon treated as magic in terms of damage reduction). \\
-\noindent\textbf{Brew Potion} You can create a potion of any 3rd-level or lower spell that you know that targets one or more creatures or objects. \\
-\noindent\textbf{Scribe Scroll} You can create a scroll of any spell that you know. \\
-\noindent\textbf{Craft Magic Arms and Armor} You can create magic weapons, armor, and shields. \\
-\noindent\textbf{Empower Spell} All variable numeric effects increased by half in exchange for spell taking a slot 2 levels higher. \\
-\noindent\textbf{Combat Casting} +4 on concentration checks to cast defensively. \\
-\noindent\textbf{Weapon Focus (ray)} +1 on ranged touch attack ray spells. \\
+\noindent\B{Arcane Strike} Swift action: grant your weapon a +2 to damage (affected weapon treated as magic in terms of damage reduction). \\
+\noindent\B{Brew Potion} You can create a potion of any 3rd-level or lower spell that you know that targets one or more creatures or objects. \\
+\noindent\B{Scribe Scroll} You can create a scroll of any spell that you know. \\
+\noindent\B{Craft Magic Arms and Armor} You can create magic weapons, armor, and shields. \\
+\noindent\B{Empower Spell} All variable numeric effects increased by half in exchange for spell taking a slot 2 levels higher. \\
+\noindent\B{Combat Casting} +4 on concentration checks to cast defensively. \\
+\noindent\B{Weapon Focus (ray)} +1 on ranged touch attack ray spells. \\
 \\
-\noindent\emph{Racial Traits} \\
-\textbf{Low-light Vision, +4 AC Versus Giants, +1 to Illusion Spell DC, +2 to Saves versus Illusion Spells, +1 Attack versus Humanoid(reptilian) and Humanoid(goblinoid)} \\
+\noindent\e{Racial Traits} \\
+\B{Low-light Vision, +4 AC Versus Giants, +1 to Illusion Spell DC, +2 to Saves versus Illusion Spells, +1 Attack versus Humanoid(reptilian) and Humanoid(goblinoid)} \\
 \\
-\noindent\emph{Languages} \\
-\textbf{Common, Draconic, Dwarven, Gnome, Goblin, Orc, Sylvan} \\
+\noindent\e{Languages} \\
+\B{Common, Draconic, Dwarven, Gnome, Goblin, Orc, Sylvan} \\
 \\
-\noindent{\emph{Experience}} \\
-\textbf{37,875 / 51,000} \\
+\noindent{\e{Experience}} \\
+\B{39,745 / 51,000} \\
 \\
-\noindent{\emph{Wealth}} \\
-\textbf{224ax, 3an} \\
+\noindent{\e{Wealth}} \\
+\B{224ax, 3an} \\
 
 \pagebreak
+\thispagestyle{empty}
 
-\noindent \textbf{\huge{Inventory}} \\
+\noindent \B{\huge{Inventory}} \\
 
 \begin{table}[h!]
 \sffamily
@@ -267,7 +278,7 @@
         \row{}{Scholar's Outfit (small)}{1.5}{}
         \row{}{Spell Component Pouch}{2}{}
         \row{}{Wand of Maximized Magic Missile}{-}{}
-        \row{}{\textbf{Backpack (small)}}{0.5}{}
+        \row{}{\B{Backpack (small)}}{0.5}{}
         \row{}{Winter Blanket (small)}{0.75}{In}
         \row{}{Bedroll (small)}{1.25}{In}
         \row{}{Ink (1oz)}{-}{In}
@@ -278,18 +289,18 @@
         \row{}{Waterskin (small)}{1}{In}
         \row{8}{Trail Rations (small)}{2}{In}
         %\row{1}{Potion of Cure Light Wounds}{0.5}{In}
-        \row{}{\textbf{Scroll Case}}{-}{}
+        \row{}{\B{Scroll Case}}{-}{}
         \row{}{Scroll of Hold Portal CL4}{-}{In}
         \row{}{Scroll of Feather Fall CL5}{-}{In}
         \row{}{Scroll of Floating Disk CL5}{-}{In}
         \row{}{Scroll of Ice Storm CL7}{-}{In}
         \row{}{Scroll of Mage's Sword CL13}{-}{In}
-        \row{3}{Scroll of \emph{Behir Lightning}* CL 7}{-}{In}
+        \row{2}{Scroll of \e{Behir Lightning}* CL 7}{-}{In}
         \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
         \row{}{}{}{}\row{}{}{}{}\row{}{}{}{}\row{}{}{}{}
         \hline
-        \multicolumn{2}{r}{\textbf{Total:}} & \multicolumn{1}{c}{\textbf{22 lbs}} \\
-        \multicolumn{2}{r}{\textbf{Carrying Capacity:}} & \multicolumn{1}{c}{\textbf{22.5 lbs}} \\
+        \multicolumn{2}{r}{\B{Total:}} & \multicolumn{1}{c}{\B{22 lbs}} \\
+        \multicolumn{2}{r}{\B{Carrying Capacity:}} & \multicolumn{1}{c}{\B{22.5 lbs}} \\
         \end{tabular}
     }
 
@@ -299,11 +310,10 @@
         \begin{tabular}{| c | l | c |}
         \row{\#}{Item (Party loot/supplies)}{Wt}{Bold}
         \row{2}{Masterwork Chain Shirt (250ax)}{50}{}
-        \row{6}{Potion of Cure Light Wounds}{1}{}
-        \row{6}{Potion of Cure Moderate Wounds}{1}{}
+        \row{5}{Potion of Cure Light Wounds}{1}{}
+        \row{4}{Potion of Cure Moderate Wounds}{1}{}
         \row{2}{Potion of Cure Serious Wounds}{2}{}
         \row{1}{Potion of Bear's Endurance}{0.5}{}
-        \row{1}{Potion of Cat's Grace}{0.5}{}
         \row{1}{Potion of Bull's Strength}{0.5}{}
         \row{1}{Everfull Mug (see 11/7 notes)}{5}{}
         \row{1}{+1 Light Hammer of Thundering}{2}{}
@@ -311,13 +321,17 @@
         \row{1}{Heavy Shield}{15}{}
         \row{1}{Bard wand of Cure Serious Wounds}{1}{}
         \row{1}{+1 Greataxe}{12}{}
-        \row{1}{+1 Longsword}{4}{}
+        \row{2}{+1 Longsword}{4}{}
         \row{1}{+1 Full Plate Mail}{50}{}
+        \row{1}{+1 Full Plate of Fire Resistance}{50}{}
+        \row{1}{Tome of Leadership +1}{4}{}
+        \row{1}{Manual of Bodily Health +2}{4}{}
+        \row{1}{+2 Unholy Greatsword}{15}{}
         \row{\#}{Item (Stored at New Middleton)}{Wt}{Bold}
         \row{1}{Cart}{}{}
         \row{2}{Draft Horses}{}{}
-        \row{1}{\emph{Concluder}, a +2 longsword (see notes)}{4}{}
-        \row{}{\textbf{Chest, Locked w/Good Lock (Party)}}{10}{}
+        \row{1}{\e{Concluder}, a +2 longsword (see notes)}{4}{}
+        \row{}{\B{Chest, Locked w/Good Lock (Party)}}{10}{}
         \row{9139}{Gold Axes}{}{In}
         \row{5346}{Silver Anvils}{}{In}
         \row{1}{Gold Trade Bars (5000ax value total)}{}{In}
@@ -326,7 +340,7 @@
         \row{1}{Masterwork Chain Shirt (250ax)}{25}{In}
         \row{1}{Masterwork Shortsword (310ax)}{2}{In}
         \row{}{}{}{}
-        \row{}{\textbf{Chest, Locked w/Good Lock (Personal}}{10}{}
+        \row{}{\B{Chest, Locked w/Good Lock (Personal)}}{10}{}
         \row{}{Primer on Magic}{3}{In}
         \row{2}{Elton's Spellbooks (see notes on 8/22)}{6}{In}
         \row{2}{Potion-making supplies (25ax each)}{10}{In}
@@ -348,40 +362,41 @@
 \begin{Parallel}{0.45\linewidth}{0.45\linewidth}
 
 \ParallelLText{
-\noindent\emph{Party Members} \\
-\textbf{Zaru Bj\"{o}rtfiskur} Gnome Wizard 7 (Ryan) \\
-\textbf{Shattered Fang} Halfling Barbarian 1/Druid 5 (Brian) \\
-\textbf{Clay Blackpool} Human Cad 3/Inquisitor 3 (Jeremy) \\
-\textbf{Korvek} Dwarf Fighter 6 (James) \\
-\textbf{Suc} Gnome Bard 6 (Will) \\
-\textbf{Sajitz} Half-Orc Alchemist 6 (Ben) \\
-\textbf{Pellagius} Humanish Ranger 6 (Rich) \\
-\textbf{Bim Delral} Dwarf Barbarian 2/Oracle 4 (Will)\\
+\noindent\e{Party Members} \\
+\B{Zaru Bj\"{o}rtfiskur} Gnome Wizard 7 (Ryan) \\
+\B{Shattered Fang} Halfling Barbarian 1/Druid 5 (Brian) \\
+\B{Clay Blackpool} Human Cad 3/Inquisitor 3 (Jeremy) \\
+\B{Korvek} Dwarf Fighter 6 (James) \\
+\B{Sajitz} Half-Orc Alchemist 6 (Ben) \\
+\B{Pellagius} Humanish Ranger 6 (Rich) \\
+\B{Bim Delral} Dwarf Barbarian 2/Oracle 4 (Will)\\
+\B{Leaf} Half-Elf Rogue 6 (Patrick)\\
 }
 
 \ParallelRText{
-\noindent\emph{Former Party Members} \\
-\sout{\textbf{Barneby} Human Rogue 6 (Mikey)} \\
-\sout{\textbf{Gavin} Half-Elf Dragoon 4 (Mike)}\\
-\sout{\textbf{Hifos} Human Barbarian 4 (Dan)} \\
-\sout{\textbf{Wren} Human Cleric 4 (Brian)} \\
-\sout{\textbf{Karel} Half-Elf Fighter 4 (Nate)} \\
-\sout{\textbf{Varcusto} Half-Elf Rogue 4 (Scott)} \\
-\sout{\textbf{Narssisco} Half-Elf Cleric 5 (Scott)} \\
-\sout{\textbf{Kallus} Human Paladin 4 (Joe)}\\
-\sout{\textbf{Antal} Halfling Cavalier 5 (Joe)} \\
-\sout{\textbf{Whipporwill} Human Ranger 6 (Jeremy)}\\
-\sout{\textbf{Suc} Gnome Bard 6 (Will)}
+\noindent\e{Former Party Members} \\
+\sout{\B{Barneby} Human Rogue 6 (Mikey)} \\
+\sout{\B{Gavin} Half-Elf Dragoon 4 (Mike)}\\
+\sout{\B{Hifos} Human Barbarian 4 (Dan)} \\
+\sout{\B{Wren} Human Cleric 4 (Brian)} \\
+\sout{\B{Karel} Half-Elf Fighter 4 (Nate)} \\
+\sout{\B{Varcusto} Half-Elf Rogue 4 (Scott)} \\
+\sout{\B{Narssisco} Half-Elf Cleric 5 (Scott)} \\
+\sout{\B{Kallus} Human Paladin 4 (Joe)}\\
+\sout{\B{Antal} Halfling Cavalier 5 (Joe)} \\
+\sout{\B{Whipporwill} Human Ranger 6 (Jeremy)}\\
+\sout{\B{Suc} Gnome Bard 6 (Will)}
 }
 \end{Parallel}
 
 \pagebreak
+\thispagestyle{empty}
 
 \spelllevel{14}{Cantrips}
 \spelllevel{31}{First: 6/day}
 \spelllevel{54}{Second: 4/day}
 
-\noindent {\huge \textbf{Spellbook}} \hspace{2em}4/6/4/3/2 per day\par
+\noindent {\huge \B{Spellbook}} \hspace{2em}4/6/4/3/2 per day\par
 \vspace{-0.5em}
 \fullline
 \vspace{-1.25em}
@@ -395,9 +410,9 @@
 
 \spell{Detect Magic}{Full}{V S}{Divin}{Standard Action / 60ft range / 7 minute duration (D)}{
 Detect magic auras in a cone-shaped emanation.  Concentrate longer to reveal more detailed information:\\
-\emph{1st Round}: Presence or absence of auras.\\
-\emph{2nd Round}: Number of auras, strength of most potent aura.\\
-\emph{3rd Round}: Strength and location of each aura.  For each aura, a successful Knowledge (arcana) check determines the school of the aura (DC 15 + spell level or +1/2 caster level on non-spells); a successful Spellcraft determines the properties of magic items (DC 15 + caster level).}{3em} %1min/lvl
+\e{1st Round}: Presence or absence of auras.\\
+\e{2nd Round}: Number of auras, strength of most potent aura.\\
+\e{3rd Round}: Strength and location of each aura.  For each aura, a successful Knowledge (arcana) check determines the school of the aura (DC 15 + spell level or +1/2 caster level on non-spells); a successful Spellcraft determines the properties of magic items (DC 15 + caster level).}{3em} %1min/lvl
 
 %Detect Poison
 %Disrupt Undead
@@ -415,7 +430,7 @@ Manipulate an object at a distance. As a move action, move the object up to 15 f
 With a successful ranged touch attack, a ray of ice strikes the target for 1d3 cold damage.\\}{}\\[-2em] % Close (25ft+5ft/2lvl)
 
 \spell{Read Magic}{Full}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 70 minutes*}{
-You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \emph{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \emph{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-2em] %10min/lvl
+You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \e{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \e{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-2em] %10min/lvl
 
 \fullline
 \vspace{-1.25em}
@@ -425,9 +440,9 @@ Creatures in area take 5d4 fire damage, flammable materials in area are set on f
 
 \spell{Color Spray}{}{V S M (red, yellow, and blue sand)}{Illu}{Standard Action / 15ft Cone / Instant / Will DC 17 Negates}{%
 Creatures in area are affected by various status effects, according to their HD:\\
-\emph{2HD or less}: Unconscious+blind+stunned 2d4 rounds, then blind+stunned 1d4 rounds, then stunned 1 round \\
-\emph{3 or 4HD}: Creature is blinded and stunned for 1d4 rounds, then stunned for 1 round.\\
-\emph{5HD or more}: Creature is stunned for 1 round.}{1em}
+\e{2HD or less}: Unconscious+blind+stunned 2d4 rounds, then blind+stunned 1d4 rounds, then stunned 1 round \\
+\e{3 or 4HD}: Creature is blinded and stunned for 1d4 rounds, then stunned for 1 round.\\
+\e{5HD or more}: Creature is stunned for 1 round.}{1em}
 
 \spell{Magic Missile}{}{V S}{Evoc}{Standard Action / 170ft Range / Instant}{%
 Four Missiles deal 1d4+1 points of force damage each.}{} \\[-1em] %Medium (100ft+10ft/lvl) One at 1st lvl, Two at 3rd, Three at 5th, Four at 7th, Five at 9th+.
@@ -436,10 +451,10 @@ Four Missiles deal 1d4+1 points of force damage each.}{} \\[-1em] %Medium (100ft
 \mbox{Ranged touch attack causes 1d6+3 penalty to strength (to a minimum of 1).  Cannot be stacked with itself.}}{} \\[-1em] %Close (25ft+5ft/2lvl). 1round/lvl. 1d6, +1/2lvl (max 1d6+5).
 
 \spell{Shield}{}{V S}{Abjur}{Standard Action / Self / 7 minute duration (D)}{%
-Negates \emph{magic missiles} targeted at you; grants +4 shield bonus to regular and touch AC.}{}\\[-1em] %1min/lvl
+Negates \e{magic missiles} targeted at you; grants +4 shield bonus to regular and touch AC.}{}\\[-1em] %1min/lvl
 
 \begin{adjustwidth}{3em}{0em}
-Others: \textbf{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Sleep, True Strike} \\[-2em]
+Others: \B{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Sleep, True Strike} \\[-2em]
 \end{adjustwidth}
 
 \fullline
@@ -452,7 +467,7 @@ Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] 
 \mbox{Target gains +4 enhancement bonus to Constitution (add usual benefits to HP, et cetera).} }{}\\[-1em] %1min/lvl Duration
 
 \spell{Blur}{}{V}{Illu}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 18 Negates (harmless)}}{%
-\mbox{Target gains concealment (20\% miss chance) \emph{See invisibility} does not counteract this effect, but \emph{true seeing} does} }{}\\[-1em] %1min/lvl Duration
+\mbox{Target gains concealment (20\% miss chance) \e{See invisibility} does not counteract this effect, but \e{true seeing} does} }{}\\[-1em] %1min/lvl Duration
 
 \spell{Bull's Strength}{}{V S M (bull dung)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}}{%
 \mbox{Target gains +4 enhancement bonus to Strength (add usual benefits to melee attack/damage rolls, et cetera).} }{}\\[-1em] %1min/lvl Duration
@@ -461,19 +476,20 @@ Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] 
 \mbox{Target gains +4 enhancement bonus to Dexterity (add usual benefits to range attack, et cetera).} }{}\\[-1em] %1min/lvl Duration
 
 \spell{Hideous Laughter}{}{V S M (tiny fruit tarts and a feather)}{Ench}{\mbox{Standard Action / 40ft Range / 7 rounds / Will DC 17 Negates }}{%
-Target collapses into gales of manic laughter, falls \emph{prone}, and is unable to take actions, but is not considered \emph{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em} %Close (25ft+5ft/2lvl). 1round/lvl.
+Target collapses into gales of manic laughter, falls \e{prone}, and is unable to take actions, but is not considered \e{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em} %Close (25ft+5ft/2lvl). 1round/lvl.
 
 \spell{Scorching Ray}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
 Two ranged touch attacks deal 4d6 fire damage each to their target(s).}{}\\[-1em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
 
-\spell{Spectral Hand}{}{V S}{Necro}{\emph{Standard Action / 170ft Range / 7 minutes (D)}}{%
-A ghostly hand materializes and moves as you desire, allowing you to deliver touch spells at a distance.  On casting, you lose 1d4 HP that returns when the spell ends (unless the hand is destroyed).  While it lasts, any 4th level or lower Touch range spell may be delivered by the \emph{hand}.  The spell grants a +2 bonus on m\^{e}l\'{e}e touch attacks. If moved beyond the max range, the hand re-materializes next to you.  It is incorporeal, has improved evasion (half damage on failed reflex save, none on successful), saves equal to yours, an AC of 27, and HP equal to the number you lost in creating it.}{2em}\\[-1em] % Medium (100ft+10ft/lvl). 1min/lvl. AC = 22+INT modifier.
+\spell{Spectral Hand}{}{V S}{Necro}{\e{Standard Action / 170ft Range / 7 minutes (D)}}{%
+A ghostly hand materializes and moves as you desire, allowing you to deliver touch spells at a distance.  On casting, you lose 1d4 HP that returns when the spell ends (unless the hand is destroyed).  While it lasts, any 4th level or lower Touch range spell may be delivered by the \e{hand}.  The spell grants a +2 bonus on m\^{e}l\'{e}e touch attacks. If moved beyond the max range, the hand re-materializes next to you.  It is incorporeal, has improved evasion (half damage on failed reflex save, none on successful), saves equal to yours, an AC of 27, and HP equal to the number you lost in creating it.}{2em}\\[-1em] % Medium (100ft+10ft/lvl). 1min/lvl. AC = 22+INT modifier.
 
 \begin{adjustwidth}{3em}{0em}
-Others: \textbf{Continual Flame, Glitterdust, Hypnotic Pattern} \\[-2em]
+Others: \B{Continual Flame, Glitterdust, Hypnotic Pattern} \\[-2em]
 \end{adjustwidth}
 
 \pagebreak
+\thispagestyle{empty}
 % White makes this invisible, but Latex doesn't seem to understand how to start the page correctly unless it starts with some text
 {\color{White} Yay Haxx}\\[-2em]
 
@@ -481,7 +497,7 @@ Others: \textbf{Continual Flame, Glitterdust, Hypnotic Pattern} \\[-2em]
 \spelllevel{31}{Fourth: 2/day}
 
 \spell{Displacement}{}{V M (a small loop of leather)}{Illu}{\mbox{Standard Action / Touch / 7 Rounds (D) / Will DC 19 Negates (Harmless)}}{%
-Target benefits from 50\% miss chance. May be negated by \emph{True Seeing}.}{}\\[-1em] %1round/lvl.
+Target benefits from 50\% miss chance. May be negated by \e{True Seeing}.}{}\\[-1em] %1round/lvl.
 
 \spell{Flame Arrow}{}{V S M (oil drop and flint)}{Trans}{\mbox{Standard Action / 40ft Range / 70 minutes}}{%
 \mbox{Turns up to 50 target projectiles into fiery ones which deal an extra 1d6 fire damage on hit, and can ignite a flamable object.}}{}\\[-1em] %Close (25ft+5ft/2lvl). 10min/lvl.
@@ -496,7 +512,7 @@ Conjure a Large quasi-real horselike creature, only rideable by you or one speci
 Creates an unmoving sphere, half outside the ground, opaque from the outside but transparent from within.  Caster plus 9 medium creatures can fit inside.  Temperature is 70$^{\circ}$F inside unless exterior is below 0$^{\circ}$ or above 100$^{\circ}$, in which case it raises or lowers the interior on a 1-for-1 degree basis.  The hut protects from wind less than 75mph, as well as rain, dust, sand, etc.  You can illuminate it dimly upon command or extinguish the light as desired.  Spells, missiles, and weapons pass through the hut without affecting it, although the opaque barrier grants occupants total concealment if attacked from outside.}{2em} %2hours/lvl
 
 \begin{adjustwidth}{3em}{0em}
-    Others: \textbf{Sepia Snake Sigil}\\[-2em]
+    Others: \B{Sepia Snake Sigil}\\[-2em]
 \end{adjustwidth}
 
 \fullline
@@ -520,7 +536,7 @@ Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\[
 \fullline
 \vspace{-1.25em}
 
-\noindent* May be made permanent with a \emph{permanency} spell \\
+\noindent* May be made permanent with a \e{permanency} spell \\
 \noindent$^\dag$ Ray spell: benefits from weapon focus (ray) \\
 \noindent\s Available on a scroll
 
@@ -541,7 +557,7 @@ Seven medium or smaller (or 3 large) target(s) fall slowly, taking no damage upo
 Creates a slightly concave, 3ft diameter disk that can hold 700lb or up to 2 gallons of liquid. Unless otherwise directed, it follows you at a 5-foot distance.  It winks out of existence at the end of the spell duration, or if you attempt to move beyond its range.}{0em} %Close (25ft+5ft/2lvl). 1hour/lvl. 100lb per level.
 
 \spell{Hold Portal}{Scroll}{V}{Abjur}{Standard Action / 170ft Range / 7 minute duration (D)}{%
-Holds shut a door, gate, window, or shutter of wood, metal, or stone.  A \emph{knock} or successful \emph{dispell magic} negates. Add 5 to the DC for forcing open the affected portal.}{} %Medium(100ft+10ft/lvl). Up to 20sq.ft./lvl. 1min/lvl.
+Holds shut a door, gate, window, or shutter of wood, metal, or stone.  A \e{knock} or successful \e{dispell magic} negates. Add 5 to the DC for forcing open the affected portal.}{} %Medium(100ft+10ft/lvl). Up to 20sq.ft./lvl. 1min/lvl.
 
 \spell{Magic Weapon}{}{V S}{Trans}{Standard Action / Touch / 7 minute duration / Will DC 16 Negates \mbox{(harmless)}}{%
 Target weapon gains +1 enhancement bonus to attack and damage rolls.}{}\\[-1em] %1min/lvl
@@ -553,255 +569,262 @@ Up to 4HD (lower HD creatures closest to origin affected first) fall unconscious
 \mbox{Your next single attack gains a +20 insight bonus, and is not affected by miss change from striking a concealed target.}}{}\\
 
 \spell{Continual Flame}{}{V S M (ruby dust worth 50ax)}{Evoc}{\mbox{Standard Action / Touch / Permanent}}{%
-A flame springs from target object.  It looks like a regular flame, but creates no heat, needs no oxygen, can't be smothered or quenched.  Counters \emph{darkness} spells of equal or lower level.}{}
+A flame springs from target object.  It looks like a regular flame, but creates no heat, needs no oxygen, can't be smothered or quenched.  Counters \e{darkness} spells of equal or lower level.}{}
 
 \spell{Glitterdust}{}{V S M (ground mica)}{Conj}{\mbox{Standard Action / 170ft Range / 10ft radius spread / 7 rounds / Will DC 17 Negates }}{%
-Creatures in area are \emph{blinded} and take a -40 penalty on Stealth checks; invisible creatures are revealed. The dust cannot be removed until the spell ends. \emph{Blinded} creatures may make a new save each round.}{} %Medium (100ft+10ft/lvl). 1round/lvl.
+Creatures in area are \e{blinded} and take a -40 penalty on Stealth checks; invisible creatures are revealed. The dust cannot be removed until the spell ends. \e{Blinded} creatures may make a new save each round.}{} %Medium (100ft+10ft/lvl). 1round/lvl.
 
 \spell{Hypnotic Pattern}{}{S M (crystal rod)}{Illu}{\mbox{Standard Action / 170ft Range / 10ft radius spread / concentration + 2 rounds / Will DC 18 Negates }}{%
 Pattern of subtle shifting colors fascinates creatures within the area of effect.  Up to 2d4+7 HD are effected, starting with those with the fewest HD, closest to the center.  Sightless creatures are not effected.}{} %Medium (100ft+10ft/lvl). 2d4+lvl HD effected (max 2d4+10)
 
-\spell{Sepia Snake Sigil}{}{V S M (500ax of powdered amber; a snake scale)}{Conj}{\emph{10 minutes / Touch / See Text / Reflex DC 18 Negates}}{%
-Cause a small symbol to appear in a written work or at least 25 words in length.  Anyone who reads the text triggers the spell, causing a large sepia snake to spring into being.  Target that fails to save is engulfed in an amber force field and immobilized for 1d4+7 days, or until you release them.  While immobilized, the target does not age, breathe, grow hungry, sleep, or regain spells: it is in a state of suspended animation.  It can be affected by its surroundings, but is unaware of them.  A \emph{detect magic} spell does not reveal this spell, only that the text is magical.  A \emph{dispell magic} spell can remove this sigil.  The \emph{erase} spell destroys the entire page of text.  This spell may be cast in combination with other text-affecting spells, such as \emph{secret page}.}{5em}\\[-1em] %1d4+1day/lvl immobilization
+\spell{Sepia Snake Sigil}{}{V S M (500ax of powdered amber; a snake scale)}{Conj}{\e{10 minutes / Touch / See Text / Reflex DC 18 Negates}}{%
+Cause a small symbol to appear in a written work or at least 25 words in length.  Anyone who reads the text triggers the spell, causing a large sepia snake to spring into being.  Target that fails to save is engulfed in an amber force field and immobilized for 1d4+7 days, or until you release them.  While immobilized, the target does not age, breathe, grow hungry, sleep, or regain spells: it is in a state of suspended animation.  It can be affected by its surroundings, but is unaware of them.  A \e{detect magic} spell does not reveal this spell, only that the text is magical.  A \e{dispell magic} spell can remove this sigil.  The \e{erase} spell destroys the entire page of text.  This spell may be cast in combination with other text-affecting spells, such as \e{secret page}.}{5em}\\[-1em] %1d4+1day/lvl immobilization
 
 \end{comment}
 
-\pagebreak
-
-\noindent {\huge \textbf{Campaign Notes}} \par
-\vspace{-0.75em}
-\fullline
-\textbf{Seven Settlements} Human settlements on the North part of the continent in a loose coalition, subject to the political influence of the nearby Mountain Dwarves. Each is home to four or five thousand residents: \textbf{Cerena}, home to many of the party members, ruled by \emph{Lord Kelvin} and protected by his Knights; \textbf{Baylith}, home to \emph{Trig's} Leatherworking shop, in a dispute with \emph{Painswick}, and primary exporter of Bog Iron; \textbf{Painswick}, home of family Oerth and center of woodcutting and charcoal-making industry in the area; \textbf{Lindstrom}, a small fishing town on a lake and home to \emph{Z} and most of the Gnomes of the North; \textbf{Haverton}, site of the Arcane Academy; \textbf{Meredith}, the agricultural heartland: known for both oat and barley crops and dairy farms; and \textbf{Stenwick}, the southernmost of the seven, home to \emph{Matthew Lanliss}.\\
-\textbf{Turnell} The ``Eighth settlement'' of the north, long ago burned to the ground by \emph{Ser Dyson Oerth} \\
-\textbf{The Frothy Jugs} Meeting point for the party in Cerena, starting point of the campaign\\
-\person{Trig}{F}{Gnome Artisan} Leatherworking shop owner in \emph{Baylith} \\
-\person{Philo Fixtell}{M}{Halfling Bard} Rescued along with \emph{Trig} and \emph{Gareth} from the orcs \\
-\person{Lord Duran}{M}{Dwarf} Son of \emph{King Kazim}, gave the former dwarven outpost to the party \\
-\person{King Kazim}{M}{Dwarf} King of the Mountain Dwarves north of the \emph{Seven Settlements} \\
-\person{Lord Kelvin}{M}{} Lord of \emph{Cerena} and emissary to the Dwarves on behalf of the \emph{Seven Settlements} \\
-\person{Ser Reisling}{M}{} Knight of \emph{Lord Kelvin} \\
-\person{Gregory Reisling}{M}{} Son of \emph{Ser Reisling}, party escorted him to negotiate peace between Painswick and Baylith \\
-\person{Ser Bolton}{M}{} Lord Kelvin's militia leader, gave the party the quest to escort \emph{Gregory Reisling} \\
-\person{Xander Grey}{M}{Human Wizard} Scholar in \emph{Cerena}; son of \emph{Ser Grey}; advisor, informant, and quest-giver for the party.\\
-\person{Old Man Worthington}{M}{Human Expert} Plantation owner near \emph{Cerena}; organizer of carpenters and laborers that repaired \emph{NM}.\\
-\person{Randall Riley}{M}{Human Artisan} Miner who excavated \emph{NM}'s basement and mined Mythrill for us \\
-\person{Tristan Moonstone}{M}{Elf} Seeker of a temple from his dreams in the woods in between Baylith and Cerena \\
-\person{Dr. Bernard Bozzle}{M}{Human Alchemist} Owner of the shop across from \emph{Trig's} in \emph{Baylith}, he sells strange potions, including healing potions that do not have a divine power source\\
-\person{Ivek}{M}{Dwarven Blacksmith} Armorer and member of Trig's guild, an outcast of the dwarven citadel, now a resident of Cerena \\
-\person{Merkel}{F}{Human Expert} A jeweler, with a shop in Cerena \\
-\person{Matthew Lanliss}{M}{Half-Elf Arcane Archer} Master archer trainer in \emph{Stenwick}, tutor to \emph{Whippoorwill} \\
-\noindent\textbf{The North Circle} A group of spellcasters in the Seven Setltements and the North, consisting of \emph{Z} and: \person{Zachary Bj\"{o}rtfiskur}{M}{Gnome Wizard}, \emph{Z}'s Uncle; \person{Elton Oerth}{M}{Human Wizard}, Son of Lord Oerth; \person{Nanny Oggle}{F}{Human Witch}, an elderly spellcaster form Haverton; and \person{Figgins Fixtell}{M}{Halfling}, \emph{Philo Fixtell's} cousin and peddler of magical wares of dubious origin. \\
+\twocolumn
+\begin{notesection}{People and Places}
+\B{Seven Settlements} Human settlements on the North part of the continent in a loose coalition, subject to the political influence of the nearby Mountain Dwarves. Each is home to four or five thousand residents: \B{Cerena}, home to many of the party members, ruled by \e{Lord Kelvin} and protected by his Knights; \B{Baylith}, home to \e{T}'s Leatherworking shop, in a dispute with \e{Painswick}, and primary exporter of Bog Iron; \B{Painswick}, home of family Oerth and center of woodcutting and charcoal-making industry in the area; \B{Lindstrom}, a small fishing town on a lake and home to \e{Z} and most of the Gnomes of the North; \B{Haverton}, site of the Arcane Academy; \B{Meredith}, the agricultural heartland: known for both oat and barley crops and dairy farms; and \B{Stenwick}, the southernmost of the seven, home to \e{Matthew Lanliss}.\\
+\B{Turnell} The ``Eighth settlement'' of the north, long ago burned to the ground by \e{Ser Dyson Oerth} \\
+\B{The Frothy Jugs} Tavern in Cerena; campaign start\\
+\person{Trig (T)}{F}{Gnome Artisan} Leatherworking shop owner in \e{Baylith} \\
+\person{Philo Fixtell}{M}{Halfling Bard} Rescued along with \e{T} and \e{Gareth}\\
+\person{King Kazim}{M}{Dwarf Noble} King of the Mountain Dwarves\\
+\person{Lord Duran}{M}{Dwarf} Son of \e{King Kazim}\\
+\person{Lord Kelvin}{M}{} Lord of \e{Cerena}; diplomat to the Mountain Dwarves for all of the \e{Seven Settlements}\\
+\person{Ser Reisling}{M}{} Knight of \e{Lord Kelvin}\\
+\person{Gregory Reisling}{M}{} Son of \e{Ser Reisling}, we escorted him to negotiate peace between \e{Painswick} and \e{Baylith}\\
+\person{Ser Bolton}{M}{} \e{Lord Kelvin}'s militia leader, gave the party the quest to escort \e{Gregory Reisling} \\
+\person{Xander Grey}{M}{Human Wizard} Scholar in \e{Cerena}; son of \e{Ser Grey}; advisor, informant, and quest-giver for the party\\
+\person{Old Man Worthington}{M}{Human Expert} Plantation owner near \e{Cerena}; organizer of carpenters and laborers that repaired \e{NM}\\
+\person{Randall Riley}{M}{Human Artisan} Miner who excavated \e{NM}'s basement and mined Mithril for us\\
+\person{Neville}{M}{Human Cavalier} Crimson cloak member who frequently brings news and comes to socialize with us at \e{NM}\\
+\person{Tristan Moonstone}{M}{Elf} Seeker of a temple from his dreams in the woods in between Baylith and Cerena\\
+\person{Dr. Bernard Bozzle}{M}{Human Alchemist} Shop-owner in \e{Baylith}, seller of strange regeneration potions\\
+\person{Ivek}{M}{Dwarf} Outcast from the citadel; armorsmith in \e{Cerena}\\
+\person{Merkel}{F}{Human Expert} A jeweler, with a shop in Cerena\\
+\person{Matthew Lanliss}{M}{Half-Elf Arcane Archer} \e{WW}'s trainer in \e{Stenwick}\\
+\noindent\B{The North Circle} A group of spellcasters in the Seven Setltements and the North, consisting of \e{Z} and: \person{Zachary Bj\"{o}rtfiskur}{M}{Gnome Wizard}, \e{Z}'s Uncle; \person{Elton Oerth}{M}{Human Wizard}, Son of Lord Oerth; \person{Nanny Oggle}{F}{Human Witch}, an elderly spellcaster form Haverton; and \person{Figgins Fixtell}{M}{Halfling}, \e{Philo Fixtell's} cousin and peddler of magical wares of dubious origin. \\
 \person{Viridian/Mertensia}{F}{Green Dragon} Often taking the guise of a beautiful elven woman, and playing ally of good, in reality a scheming dragon seeking to move up in social and politial standing among her kind \\
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
-
-\noindent\textbf{New Middleton} A former Dwarven scouting camp, now taken by the party with the consent of \emph{Lord Duran}.  Central 40x30ft ``keep'' with a forge, study, and sleeping quarters, complete with lookout cupola and basement, and two auxiliary buildings: a stable and a supply shack. Surrounded in all directions by a 5-ft high wall made of local stone. Outside the curtain wall are a few dozzen small houses and fields, and a distillery, run by halflings. \\
-\person{Bruno Fixtell}{M}{Halfling Expert} Fixtell Clan member, blacksmith for halflings of \emph{NM} \\
-\person{Bruno the Younger}{M}{Halfling Warrior} Son of \emph{Bruno Fixtell}, lead swordsman of the \emph{NM} militia \\
-\person{Bellis Bluebottle}{F}{Halfling Adept} \emph{NM}'s healer and herbalist \\
-\person{Hallis Littlefoot}{F}{Halfling Farmer} \emph{NM}'s agricultural expert \\
-\person{Byron Moonglove}{M}{Halfling Merchant} Owner and operator of \emph{NM}'s brewery, a de-facto leader of the Middleton halfling clans \\
-\person{Harp Moonglove}{M}{Halfling Warrior} Son of \emph{Byron Moonglove}, lead archer of the \emph{NM} militia \\
+\noindent\B{New Middleton} A former Dwarven scouting camp, now taken by the party with the consent of \e{Lord Duran}.  Central 40x30ft ``keep'' with a forge, study, and sleeping quarters, complete with lookout cupola and basement, and two auxiliary buildings: a stable and a supply shack. Surrounded in all directions by a 5-ft high wall made of local stone. Outside the curtain wall are a few dozzen small houses and fields, and a distillery, run by halflings. \\
+\person{Bruno Fixtell}{M}{Halfling Expert} Fixtell Clan member, blacksmith for halflings of \e{NM} \\
+\person{Bruno the Younger}{M}{Halfling Warrior} Son of \e{Bruno Fixtell}, lead swordsman of the \e{NM} militia \\
+\person{Bellis Bluebottle}{F}{Halfling Adept} \e{NM}'s healer and herbalist \\
+\person{Hallis Littlefoot}{F}{Halfling Farmer} \e{NM}'s agricultural expert \\
+\person{Byron Moonglove}{M}{Halfling Merchant} Owner and operator of \e{NM}'s brewery, a de-facto leader of the Middleton halfling clans \\
+\person{Harp Moonglove}{M}{Halfling Warrior} Son of \e{Byron Moonglove}, lead archer of the \e{NM} militia \\
 \person{Gareth}{M}{Half-Orc Artisan} Weaponsmith able to imbue weapons with magic. Former prisoner of orcs, forged their weapons for 4 years (since age 16) before being rescued by the party. \\
-\person{Regan}{M}{Orc Wizard} Rescued from the Broken Tusk tribe, now \emph{Zaru's} apprentice \\
-\person{Skel}{M}{Feral Halfling Barbarian} Young member of \emph{Shattered Fang's} obliterated tribe, now a major troublemaker and eyesore in \emph{NM} \\
-\person{Grundle Bolthammer}{F}{Dwarf Fighter} Short-lived Silverfish bandit, now a resident of \emph{NM}.\\
-\person{Shah-Yur}{M}{Crow} \emph{Shattered Fang's} spirit companion, who saved him and gave him a new path in life as a druid\\
-\noindent\textbf{Concluder} One of the nine swords of legend, each aligned to a particular moral outlook. With an alignment of chaotic good, it stands in contrast to two others we know of, \emph{Backbiter} and \emph{Retorter}. All of the nine have the capacity to ``get in the last word'' in a fight. (In combat rule terms, they act as +2 longswords, but also grant one additional attack at +4, which acts outside the normal initiative order, at the very end of a round.)\\
+\person{Regan}{M}{Orc Wizard} Rescued from the Broken Tusk tribe, now \e{Z}'s apprentice \\
+\person{Skel}{M}{Feral Halfling Barbarian} Young member of \e{SF}'s obliterated tribe, now a major troublemaker and eyesore in \e{NM} \\
+\person{Grundle Bolthammer}{F}{Dwarf Fighter} Short-lived Silverfish bandit, now a resident of \e{NM}.\\
+\person{Shah-Yur}{M}{Crow} \e{SF}'s spirit companion, who saved him and gave him a new path in life as a druid\\
+\noindent\B{Concluder} One of the nine swords of legend, each aligned to a particular moral outlook. With an alignment of chaotic good, it stands in contrast to two others we know of, \e{Backbiter} and \e{Retorter}. All of the nine have the capacity to ``get in the last word'' in a fight. (In combat rule terms, they act as +2 longswords, but also grant one additional attack at +4, which acts outside the normal initiative order, at the very end of a round.)\\
+\noindent\B{Rat's Tooth} Intelligent shortsword, cursed to turn both wielder and targets into were-rats\\
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\noindent\B{Horngrim} the large town and surrounding four counties (Seavos, Malluk, and two others), lying about mid-way between the \e{Seven Settlements} and \e{Givissel}.\\
+\person{Gil Demair} \e{Horngrim} knight we met at a tourney; later was killed on the King's road\\
+\noindent\B{Mage's Point} a hamlet outside \e{Horngrim}, in Seavos County, disappeared into a shadow realm by forces unknown.\\
+\person{Lord Vostel}{M}{Human Noble} Knight and minor lord of \e{Horngrim} 400 years ago. Executed for opposing his lord's war against the dwarves; later returned to unlife as a vampire.\\
+\noindent\B{Turnbull} a hamlet outside \e{Horngrim}.\\
+\noindent\B{Silverfish Bandits}, a group of half-orcs based outside \e{Turnbull}; hired to kill us and raze \e{NM} by unknown party.\\
 
-\noindent\textbf{Horngrim} the large town and surrounding four counties (Seavos, Malluk, and two others), lying about mid-way between the \emph{Seven Settlements} and \emph{Givissel}.\\
-\noindent\textbf{Mage's Point} a hamlet outside \emph{Horngrim}, in Seavos County, disappeared into a shadow realm by forces unknown.\\
-
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
-
-\noindent\textbf{Givissel} Port town far south of the \emph{Seven Settlements}, with garish sense of fashion and where political intrigue and assasination are seemingly commonplace \\
+\noindent\B{Givissel} Port town far south of the \e{Seven Settlements}, with garish sense of fashion and where political intrigue and assasination are seemingly commonplace \\
 \person{Lord Falcone}{M}{Human Noble} Givisselite who recruits/presses into service mercenaries and slaves to fight for his city's interests\\
-\person{Miranda}{F}{Human Assassin} Beautiful woman from \emph{Givissel} who was hired to kill \emph{Gregory Riesling} and slept with \emph{Barneby} \\
-\noindent\textbf{Rikante Family} A ruling merchant family of Givissel, and probable employer of \emph{Miranda}.\\
+\person{Miranda}{F}{Human Assassin} Beautiful woman from \e{Givissel} who was hired to kill \e{Gregory Riesling} and slept with \e{Barneby} \\
+\noindent\B{Rikante Family} A ruling merchant family of Givissel, and probable employer of \e{Miranda}.\\
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\noindent\B{Thrane Bog} A swamp lying between \e{Baylith} and \e{Painswick}.\\
+\person{Corpselight}{F}{Black Dragon} Former resident and assumed ruler of the Bog, departed around the time \e{Elton Oerth} began excavating Dyson's tomb.\\
+\person{Ser Dyson Oerth}{M}{Human Paladin} Long deceased, with a checkered history. Although a knight, burned \e{Turnell} and killed Lady Sylvia Gray after she refused his hand in marriage. Slain by a member of the Reisling family.\\
 
-\noindent\textbf{Thrane Bog} A swamp lying between \emph{Baylith} and \emph{Painswick}.\\
-\person{Corpselight}{F}{Black Dragon} Former resident and assumed ruler of the Bog, departed around the time \emph{Elton Oerth} began excavating Dyson's tomb.\\
-\person{Ser Dyson Oerth}{M}{Human Paladin} Long deceased, with a checkered history. Although a knight, burned \emph{Turnell} and killed Lady Sylvia Gray after she refused his hand in marriage. Slain by a member of the Reisling family.\\
+\noindent\B{Denoxian Empire} The primary political faction across the sea to the West, the Denoxians are an expansionist culture both historically and presently. In the past, they fought against the Estani Barbarians and their ``Sword Coven,'' which bore some resemblance to \e{Gareth} and his abilities, and may have been related to the temple in \e{Triastan Moonstone}'s dreams.\\
+\noindent\B{Lenoria} Island halfway across the sea to the \e{Denoxian Empire}, and home to the elves of the world.\\
+\end{notesection}
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\begin{notesection}{Quests}
+-Deliver garnets to \e{Horngrim} for \e{Merkel}, obtain the reward of a black pearl\\
+-Determine who summoned \e{Ser Dyson Oerth}'s shade, and stop him\\
+-Find out what \e{Elton Oerth} has discovered about the demonic statues\\
+-Investigate \e{Mertensia}'s claim of \e{Denoxian} princes fabricated the \e{Thrane Bog} incident\\
+-Investigate murder of \e{Gil Demair} and other \e{Horngrim} knights\\
 
-\noindent\textbf{Denoxian Empire} The primary political faction across the sea to the West, the Denoxians are an expansionist culture both historically and presently. In the past, they fought against the Estani Barbarians and their ``Sword Coven,'' which bore some resemblance to \emph{Gareth} and his abilities, and may have been related to the temple in \emph{Triastan Moonstone}'s dreams.\\
+\noindent-Expand \e{NM}'s keep and defenses\\
+-Reign in Skel and the feral halflings\\
+-Begin taking our share of proceeds form the \e{NM} brewery\\
+-Complete extraction of the Mithril vein in the cave near \e{NM}\\
+-Seek out who hired the \e{Silverfish Bandits} to raze \e{NM}\\
+-Visit the \e{Dead Man's Arms} tavern in \e{Horngrim}: someone there instigated the attack on \e{NM} by mercenaries of Azmodeus\\
+-Find family Garrett in \e{Horngrim}: source states they hired \e{Silverfish Bandits} to attack us\\
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\noindent-Determine cause of disappearance of \e{Mage's Point}\\
+-Return the bones of the elven ghost home, to \e{Lenoria}\\
+-Infiltrate \e{Lord Falcone}'s estate in \e{Givissel}\\
 
+\noindent-Confront \e{Bozzle} about his potions that turn you into a troll\\
+-Seek out the trail into the wastes detailed in the ancient map (see notes)\\
+-Continue investigation of the Nine Swords and their cults\\
+
+\noindent-Copy Ogre's and Elton's spellbooks into \e{Z}'s\\
+-Locate a champion to wield \e{Concluder}, and possibly to benefit from the \e{Strength of Ages} spell\\
+\end{notesection}
+
+\begin{notesection}{Notes}
 \noindent - Lands and settlements from north to south: The wastes, dwarven kingdom, 7 settlements, turnbull, horngrim, givissel.\\
 \noindent - Ogre Mage's spellbook contains: Summon Monster II, Detect Thoughts\\
-\noindent - Elton's spellbooks contain 1st: Chill Touch, Detect Undead, and Detect Secret Doors; 4th: Black Tentacles, Crushing Despair, Summon Monster IV, Phantasmal Killer, Locate Creature, Bestow Curse, Detect Scrying, and Animate Dead; 5th: Symbol of Pain, Dominate Person, Nightmare, Teleport, and Cloudkill; 6th: Create Undead, Undeath to Death, Chain Lightning, Acid Fog, Greater Dispel Magic, and Circle of Death.\\
+\noindent - Elton's spellbooks contain 1st: Chill Touch, Detect Undead, and Detect Secret Doors; 4th: Black Tentacles, Crushing Despair, Summon Monster IV, Phantasmal Killer, Locate Creature, Bestow Curse, Detect Scrying, and Animate Dead; 5th: Symbol of Pain, Dominate Person, Nightmare, Teleport, and Cloudkill; 6th: Create Undead, Undeath to Death, Chain Lightning, Acid Fog, Greater Dispel Magic, and Circle of Death.\\\\
+\end{notesection}
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\begin{notesection}{Events}
+\B{[Early Campaign]} At the \e{Frothy Jugs}, a tavern in the Northern town of \e{Cerena}, a group of young adventurous spirits formed a party to go forth into Dwarven territory in the high mountains, and put an end to the terror and banditry that the Orcs have visited upon the local people. The party consisted of \e{Zaru (Z)}, a gnomish wizard from the nearby town of \e{Lindstrom}; \e{Gavin}, an outcast half-elf would-be knight in these predominantly human lands; \e{Whippoorwill (WW)}, a quiet and decisive Ranger of the nearby forest; \e{Hifos}, a mad barbarian from the wastes of the far north; and \e{Wren}, a local cleric.
 
-\noindent \textbf{Plot Loose Ends:} \\
-Confront the lord of the Castle outside \emph{Shadow Point}.\\
-Return the people of \emph{Mage's Point} to the land of the living, and investigate what happened in the first place.\\
-Confront Dr. Bozzle about his potions that turn you into a troll.\\
-Reign in Skel and the feral halflings, or find some other way to deal with their behavior.\\
-Meet with Elton Oerth, who promised to research the demonic statues we found in Dyson Oerth's tomb.\\
-Expand \emph{NM}.
-Investigate the plot to ``summon'' Ser Dyson Oerth's shade ``South, to the city by the sea''. Possibly stop him.\\
-Reap our agreed upon 15\% profit from the halfling brewery.\\
-Inflitrate Lord Falcone's estate in Givissel, determine if they pose a threat to the North, thwart them.\\
-Complete extraction of the mithril vein in the cave near \emph{NM}.\\
-Investigate Viridian/Mertensia/Corpselight, the rumored Denoxian princes, and their connection, if any, to Dyson Oerth and the Thrane Bog incident.\\
-Investigate the murder of Horngrim knights along the Merchant's road, including that of Gil Demair (12/5).\\
-Continue investigation of the Nine Swords and their cults.\\
-Deliver the garnets to Horngrim for Merkel the Jeweler, and obtain the reward of a black pearl, which Kallus was going to use in his sword.\\
-Seek out the trail into the wastes detailed in Heath's book (from 11/14).\\
+Following the lead of \e{WW}'s tracking skill, they set out after the latest raiding party, eventually coming across an abandoned Dwarven outpost, where they found the orcs, and killed them.  Inside the main building, they freed three former prisoners: \e{Philo Fixtell}, a halfling bard, \e{Trig (T)}, a halfling leatherworker, and \e{Gareth}, a half-orc blacksmith, with the mysterious skill to produce weapons with magical qualities despite possessing no skill in the arcane arts in any traditional sense.
 
-\noindent\textbf{Personal tasks for Zaru:}\\
-Copy Elton's spellbooks into mine.\\
-Locate a champion to wield Concluder, and possibly to benefit from the \emph{Strength of Ages} spell.\\
+After resting and resupplying, the adventurers made their way further into the mountains, where they clear out more orcs, an ogre sorcerer, and their beasts. Taking a daring step, \e{Z} freed another prisoner, this one an orc of the tribe itself, though a cowardly, outcast one.  \e{Regan}, a frail (by orcish standards) but intelligent (again, by orcish standards) orc promised loyalty in exchange for protection, and became \e{Z}'s apprentice. Not daring to go any further into the mountain tomb, where likely worse things than orcs lived, the adventurers returned to the Dwarven outpost, and claim it as their own, dubbing it \e{New Middleton (NM)}.
 
-\vspace{-1.75em}
-\fullline
-\vspace{-1.5em}
+\B{[Sessions prior to August 2012]} \e{Lord Duran} arrived at \e{NM}, gave permission to occupy the area; promised to recommend us to \e{Lord Kelvin}, as reward for clearing out the local orcs; suggested future work in taking back more orc-controlled areas in the Mountains. 
 
-\textbf{[Early Campaign]} At the \emph{Frothy Jugs}, a tavern in the Northern town of \emph{Cerena}, a group of young adventurous spirits form a party to go forth into Dwarven territory in the high mountains, and put an end to the terror and banditry that the Orcs have visited upon the local people. The party consists of \emph{Zaru (Z)}, a gnomish wizard from the nearby town of \emph{Lindstrom}, \emph{Gavin}, an outcast half-elf would-be knight in these predominantly human lands, \emph{Whippoorwill (WW)}, a quiet and decisive Ranger of the nearby forest, \emph{Hifos}, a mad barbarian from the wastes of the far north, and \emph{Wren}, a local cleric.\par
-Following the lead of \emph{WW}'s tracking skill, they set out after the latest raiding party, eventually coming across an abandoned Dwarven outpost, where they encounter the orcs, and slay them.  Inside the main building, they free three former prisoners: \emph{Philo Fixtell}, a halfling bard, \emph{Trig}, a halfling leatherworker, and \emph{Gareth}, a half-orc blacksmith, with the mysterious skill to produce weapons with magical qualities, though he has no skill in the arcane arts in any traditional sense.\par
-After resting and resupplying, the adventurers make their way further into the mountains, where they clear out more orcs, an ogre sorcerer, and their beasts. Taking a daring step, \emph{Z} decides to free yet another prisoner, this one an orc of the tribe itself, though a cowardly, outcast one.  \emph{Regan}, a frail (by orcish standards) but intelligent (again, by orcish standards) orc promises loyalty in exchange for protection, and becomes \emph{Z}'s apprentice. Not daring to go any further into the mountain tomb, where likely worse things than orcs reside, the adventurers return to the Dwarvish outpost, and begin to consider claiming it as their own home.\\
+At the direction of \e{Ser Bolton}, we agreed to escort \e{Gregory Reisling} on his way to \e{Baylith}, for negotiations between \e{Painswick} and \e{Baylith}.  Along the way, we encountered \e{Tristan Moonstone} and his escort \e{Shattered Fang (SF)} seeking a temple from Tristan's dreams. We detour to investigate; eventually we stumbled upon the temple.  Inside we found a statue of the ``Prince of Swords'', mysterious iconography depicting 7 swords, and the broken parts of \e{Concluder}, which we took back to \e{Gareth} for repairs.
 
-\noindent\textbf{[Sessions prior to August 2012]} \emph{Lord Duran} arrived at \emph{NM}, gave permission to occupy the area; promised to recommend us to \emph{Lord Kelvin}, as reward for clearing out the local orcs; suggested future work in taking back more orc-controlled areas in the Mountains. \par
-At the direction of \emph{Ser Bolton}, we agreed to escort \emph{Gregory Reisling} on his way to \emph{Baylith}, for negotiations between \emph{Painswick} and \emph{Baylith}.  Along the way, we encountered \emph{Tristan Moonstone} and his escort \emph{SF} seeking a temple from Tristan's dreams. We detour to investigate; eventually we stumbled upon the temple.  Inside we found a statue of the ``Prince of Swords'', mysterious iconography depicting 7 swords, and the broken parts of \emph{Concluder}, which we took back to \emph{Gareth} for repairs.\par
-After arriving at \emph{Baylith}, \emph{Reisling} was attacked by assassins and killed; we begged a local temple for a resurection spell, which they provided. We determined the assassins were from Givissel. They had already left, killing a city guard on the way out.  \emph{WW} found their tracks leading south, but we decided not to pursue.\par
-Negotiations begin concerning the \emph{Thrane Bog}, a bit of swamp owned by the Thranes of \emph{Baylith}, and claimed by the Oerths of \emph{Painswick}, after an inter-family marriage.  We investigated why they want a swamp, and found evidence of a dragon lair and some sort of temple, but didn't have time to determine which if either was important.  We killed a pair of Wyverns on the trip, and hauled back the scales for Trig to work on making armor.\par
-\emph{Trig} gave \emph{Z} a book, detailing the \emph{Denoxian Empire}. It lead us to suspect some connection between a ``Sword Coven'' that was wiped out there a long time ago, and Gareth's abilities. The coven also bears resemblance to the temple of \emph{Tristan Moonstone}'s dreams). Trig also investigated Miranda's armor, and determined it was made by the armorers of the \emph{Rikante family}, of Givissel.\par
-We returned to \emph{NM} to find it under siege. After routing the troll assailants, tracking them to a cave, and wiping them out, we found an ore vein we later identify as Mithri.\par
-\emph{NM} again attacked, this time by Mercenaries, some bearing the symbol of Azmodeus.  They carried parchment mentioning the ``Dead Man's Arms'' tavern in Horngrim.  After the battle, we took their equipment to town and sold it to the master-at-arms for a large sum of axes.\\
+After arriving at \e{Baylith}, \e{Reisling} was attacked by assassins and killed; we begged a local temple for a resurection spell, which they provided. We determined the assassins were from Givissel. They had already left, killing a city guard on the way out.  \e{WW} found their tracks leading south, but we decided not to pursue.
 
-\noindent \emph{Z} recieved a package from Trig of a woodprint of a coat of arms and a knight lying at peace labeled as Ser Dyson Oreth and dated to 800 years ago.  Trig believed it to be his tomb that lies at the center of the hotly-contested Thrane bogs.\\
+Negotiations began concerning the \e{Thrane Bog}, a bit of swamp owned by the Thranes of \e{Baylith}, but claimed by the Oerths of \e{Painswick} after an inter-family marriage.  We investigated why they wanted a swamp, and found evidence of a dragon lair and some sort of temple, but didn't have time to determine which if either was important.  We killed a pair of Wyverns on the trip, and hauled back the scales for \e{T} to work on making armor.
 
-\noindent We contacted Randall Riley, an expert miner, who determined the ore vein in the old troll cave is Mithiril, and negotiated the rate of 1000ax plus 1.5\% of any profits for extraction, plus a promise to excavate \emph{NM}'s basement for free.\\
+\e{T} gave \e{Z} a book, detailing the \e{Denoxian Empire}. It lead us to suspect some connection between a ``Sword Coven'' that was wiped out there a long time ago, and Gareth's abilities. The coven also bears resemblance to the temple of \e{Tristan Moonstone}'s dreams. \e{T} also investigated Miranda's armor, and determined it was made by the armorers of the \e{Rikante family}, of \e{Givissel}.
 
-\noindent Neville, a Crimson Cloak warned us of the ``Silverfish Bandits'', a group near Turnbull, made up of half-orcs and humans, that was rumored to be have been hired to kill us (by whom and why unknown). Neville also shared rumors of a cult to Azmodeus in Horngrim, and that Givissel was hiring mercenaries from across the sea.\\
+We returned to \e{NM} to find it under siege. After routing the troll assailants, tracking them to a cave, and wiping them out, we found an ore vein we later identify as Mithril.
 
-\noindent Whippoorwill scouted the road to Horngrim, encounterd a Givisselian caravan under heavy guard, bearing the coat-of-arms of a black candle on a yellow background.  He met Grundle Bolthammer, a dwarf sellsword from Horngrim who joined the Silverfish Bandits, but realized it was bad company, and then was almost killed for trying to leave. She and Whippoorwill returned to \emph{NM}.\\
+\e{NM} again attacked, this time by Mercenaries, bearing the symbol of Azmodeus.  After defeating them, we found they carried a bounty notice from the \e{Dead Man's Arms} tavern in \e{Horngrim}.
 
-\noindent Regan learned the new spell Shocking Grasp, and tried to test it on \emph{Z} ``because it's funny''; he progresses as a wizard, but not as a member of non-orcish society.\\
+\e{T} sent \e{Z} a wood-print of a coat of arms and a knight lying at peace labeled as \e{Ser Dyson Oreth} and dated to 800 years ago.  \e{T} believed it to be his tomb that lies at the center of the hotly-contested \e{Thrane Bog}.
 
-\noindent Randall Riley's excavation of the Mithril is interrupted by the attack of a Golden Gorger, we ran and resolved to return, better prepared.\\
+We contacted \e{Randall Riley}, who determined the ore vein in the old troll cave is Mithril, and paid him to extract it for us, as well as excavate the basement of \e{NM}'s keep.
 
-\noindent Grundle offerd to help take on the Gorger in exchange for us providing equipment. We succeed in slaying the gorger by a hairsbreadth, expending numerous charges form our magic items in the process. We salvaged gems and gold from the Gorger's stomach, and take its hide to make into armor.\\
+\e{Neville} arrived and warned us that the \e{Silverfish Bandits}, may have been hired to come wipe out \e{NM}.  Neville also shared rumors of a cult to Azmodeus in \e{Horngrim}, and that \e{Givissel} was hiring mercenaries from across the sea.
 
-\noindent Randall Riley and crew finished excavating the basement, a 20 by 30 foot area with finished floor and walls, with numerous empty wine racks and casks.  \emph{Z} and Shattered Fang find a hidden door behind a wine rack, wade through a trap without Rogue assistance, and pulled a chest from the bottom of a pit in the next room.  After triggering another trap, we found \emph{Rat's Tooth} inside, a shortsword with a rat's face in the basket hilt.  It is intelligent, and cursed to turn both wielder and targets into were-rats.  \\
+\e{WW} scouted the road to \e{Horngrim}, encountered a Givisselian caravan under heavy guard, bearing the coat-of-arms of a black candle on a yellow background.  He met \e{Grundle Bolthammer}, a dwarf sell-sword from \e{Horngrim} who joined the \e{Silverfish Bandits}, but realized it was bad company, and then was almost killed for trying to leave. She and \e{WW} returned to \e{NM}.
 
-\noindent Whippoorwill gave Concluder to Gareth, who seemed confident in his ability to re-forge it while retaining its magical properties. \emph{Z} and Shattered Fang guard the mining operation while the others travel to give Trig the Gorger hide, and to repay the church that resurrected Gregory Riesling, by giving them an enchanted mace. Whippoorwill buys a ruby for Gareth to set in Concluder's hilt. \emph{Z} and Shattered Fang ambushed and killed a half-orc at the mining camp, captured another and interrogated him, revealing that the Silverfish bandits are hiding out at the Seven Swords Temple. \emph{Z} kills the prisoner to save him from suffering, and the two meet back up with the party, and pick up newly completed acid-resistant armor Trig made from the Wyvern hide.  She passes on info that Oerth men-at-arms were sent into the swamp but never returned, and now knights are hunting the dragon (the younger one may have left already).\\
+Regan learned \e{Shocking Grasp}, tried to test it on \e{Z} as a joke; it didn't go well.
 
-\noindent Neville reported that the mercenaries that were coming for us tried to ambush a Oerth caravan, took heavy losses, and so won't likely be a threat anymore.  He also offered to give us trustworthy contacts in Horngrim, if we decide to go there.\\
+\e{Riley}'s excavation of the Mithril is interrupted by a Golden Gorger, we fled but resolved to return.
 
-\noindent We go to the Seven Swords Temple, and slaughtered the Silverfish Bandits, one Dwarf, possibly not a Silverfish himself, escaped to the road back to Cerena. We pursued him, and encounter two knights of Demair (a Horngrim family) who had taken him captive. The knights, Agee and Gil (brothers), invite Kallus to the tournament taking place soon in Baylith, and agree to turn the dwarf, Darren Daggersheen, over to us.\\
+\e{Grundle} offerd to help take on the Gorger if we would provide equipment. We succeed in slaying the gorger by a hairsbreadth, expending numerous charges form our magic items in the process; salvaged its hide to make into armor.
 
-\noindent We questioned Daggersheen, who admits to being a Silverfish and an outcast from Dwarven society, and claimed that someone with the last name ``Garret'' was the one sending the Silverfish out against us from Horngrim and Givissel. He also claimed to be headed to Cerena to meet a human spy (wouldn't give a name).  Other than that, he claimed to have no information, and demanded a trial by the Dwarfs, as he comes from a dwarven noble family.\\
+\e{Riley} and crew finished excavating the basement. \e{Z} and \e{SF} found a hidden door inside, wade through traps without Rogue assistance, and retrieved \e{Rat's Tooth} from inside a pit dug inside the hidden room.
 
-\noindent We went to the tourney in Baylith and participated in all three competitions, but won none of them. Kallus met Samuel Riesling, older brother to our friend Gregory.  Met Dr.\ Bernard Bozzle, the Alchemist who has opened up shop across from Trig; he sells all manner of potions, but something seemed fishy about his operation, not the least of which was that he sells healing potions that do not draw from a divine source.  Trig completed a suit of armor from the Gorger's hide. Back at the Frothy Jugs, Philo's cousin, Figgins, tried to sell numerous magical items to Shattered Fang and \emph{Z}, but they were overpriced and his claims of their power were questionable. Still, \emph{Z} decided to buy scrolls of Ice Storm and Mage's Sword, which a \emph{Read Magic} showed will work (though the scroll wording is archaic).\\
+\e{WW} gave \e{Concluder} to \e{Gareth}, who seemed confident he could re-forge it.  \e{Z} and \e{SF} guarded the mining operation while the others travel to give \e{T} the Gorger hide. We repay the church that resurrected \e{Gregory Riesling} by giving them an enchanted mace. \e{WW} bought a ruby for \e{Concluder}'s hilt.
 
-\textbf{8 Aug 2012} We met \emph{Lord Falcone}, a `Factor' in Givissel who hires mercenaries for his city, at the Frothy Jugs.  He suggested that trouble is brewing, so mercenary help is in high demand; he also implicated the Oerth family in helping draft soldiers into a Givisselian army.  He asked \emph{Z} and \emph{SF} to join as mercenaries, but we declined; we instead asked for directions to the Falcone family compound so we could join later (really with indent to infiltrate and investigate).\par
-As all the inns were full from the tourney, \emph{Trig} invited us to stay at her townhouse for the night. Trig gave Barneby a gift of leather boots with a concealed blade in the toe. She also urged us to further investigate the swamp, as she heard that the dragons had all died or left, leaving the Oerths close to uncovering their ancestor's tomb for unknown (probably nefarious) purpose.\\
+\e{Z} and \e{SF} ambushed, captured, and interrogated a half-orc near the mine; he admitted the \e{Silverfish Bandits} were hiding out at the Seven Swords Temple. \e{Z} killed him to end his suffering. Then the two rejoined the group; pick up acid-resistant armor \e{T} made from the Wyvern hide.  \e{T} reported that Oerth knights were sent to hunt the dragon in the swamp.
 
-\textbf{15 Aug 2012} The next day dawned with the cool of fall, and we set out toward the marsh. Few travelers remained other than us, only a group of laborers with empty carts. When questioned, they reported being hired to move earth from a dig site in the swamp.  Barneby and Suk disabled their carts to delay them.\par
-Deep in the marsh, we were nearly trampled by a pack of panicked horses.  \emph{WW} calmed one, then \emph{SF} shape-shifted into a pony and speak with it; it reluctantly agreed to show us what had him so spooked.  After leading us near enough to see a black dragon, it departed in a hurry. Unable to escape notice, we fought both it and another of its kind, and with difficulty, defeated both. \emph{WW} butchered the corpses, recovering both acid sacs and some intact scales for armor. \emph{WW} then followed their tracks to their lair, a fascinating construction like a teepee, but made of massive trees rather than sticks. Inside, we pilfered an assortment of magic items and coins.\\
+We went to the Seven Swords Temple, slaughtered the \e{Silverfish Bandits}; one Dwarf ran from the area, we pursued him to the road. There, \e{Gil Demair} and his brother \e{Agee} had taken him captive. \e{Gil} invited \e{Kallus} to a tourney soon taking place in \e{Baylith}, and agreed to turn the dwarf, \e{Darren Daggersheen}, over to us.
 
-\textbf{22 Aug 2012} That night, we continued from the lair to the tomb of \emph{Ser Dyson Oerth}, encountering a young girl, \emph{Sarsha}, fleeing not unlike the horses from earlier. In a panic, she tried to cast a sleep spell on us, but then simply fainted. After waking and calming down, she explains that the Oerths planned to sacrifice her in a ritual to open the tomb. \emph{Z} then conjured his hut and stayed with \emph{Sarsha} while the others headed to the dig site to investigate.\par
-At the tomb, a throng of laborers was excavating the tomb, while archers stood guard. Three large tents bore the red-on-black heraldry of house Oerth. \emph{Barneby} disguised \emph{Suk} as \emph{Sarsha}, sending him into the camp. Meanwhile a worker was dragged from the tomb, screaming, covered in acid, which quickly dissolved armor and flesh alike, killing him. The workers seemed shocked only for a moment, then quickly returned to their work, either too numb or too scared to care. Soon, \emph{Elton Oerth} emerges to get \emph{Suk} ready for the sacrifice. While \emph{WW} caused mass confusion by setting the tents on fire, we stole documents, books, and even magic items from \emph{Elton's} tent, then escaped with \emph{Suk}; somehow, all without being caught or killed.\\
+We questioned \e{Daggersheen}, who admitted being a \e{Silverfish}; lets slip that someone with the last name ``Garret'' in \e{Horngrim} hired them to attack us and that he was headed to \e{Cerena} to meet a human spy.  He then demanded a trial by the Dwarfs, as is customary for his race.
 
-\noindent \textbf{9/5} \emph{Z} discovered that Elton was researching a new spell, and had made notes in his books.  The magic appeared to be very difficult and complex, even beyond the normal reach of a mortal.  Against \emph{Z}'s advice, we went back towards the tomb; still fifteen minutes out, we saw explosions and flashes of lightning spells, and heard screams.  Soon after, the workmen's carts came rushing away from the site, worker, horse, and knight alike fleeing.  Finally, following in a seemingly calm manner came an undead knight on a dissicated horse, wearing ancient armor and wielding a greatsword larger than we had ever seen.\\
+We went to the tourney in \e{Baylith} and participated in all three competitions, but won none. \e{T} completed a suit of armor from the Gorger's hide. Back at the \e{Frothy Jugs}, \e{Philo}'s cousin, \e{Figgins}, sells magical items of dubious origin to \e{Z}.
 
-\noindent \emph{Z} attempted to speak with him, naming him Ser Dyson Oerth, and kissing his signet ring when prompted.  Dyson would only respond that he ``has been summoned.'' Narssisco attempts to turn undead, but Dyson resists it and fells Narssisco in a single strike.  In a panic, most of us fled, while Korvek attempted to delay Dyson, Shattered Fang attempted to heal Korvek and Narssisco, and \emph{Z} continuted to attempt to speak with Dyson.  After Korvek too was struck within a hairsbreadth of oblivion, Dyson stated simply that he ``Must go South, to the city by the sea,'' seemingly to complete the task for which he was summoned.  \emph{Z} then told him to go, and ignore the party; wether by his own volition, \emph{Z}'s words, or magic compulsion, he departed.\\
+\B{8 Aug 2012} We met \e{Lord Falcone} at the \e{Frothy Jugs}, who suggested that trouble is brewing, so mercenary help is in high demand; he also implicated the Oerth family in helping draft soldiers into a Givisselian army.  He asked \e{Z} and \e{SF} to join as mercenaries, but we declined; we instead asked for directions to the Falcone family compound so we could join later (really with indent to investigate).
 
-\noindent After reviving our unconscious companions, we sent an animal messenger to Xander Grey, stating that Ser Dyson Oerth was awake, to warn whomever he saw fit, and to expect us to meet him in person as soon as we were able.  We then returned to the tomb to search for clues as to what happened, and encountered one knight of Oerth, seemingly in shock.  He told us that Elton sacrificed a young Oerth knight of some magical aptitude, one ``Renyard,'' in a ritual to open the tomb doors.  Elton seemed surprised that Dyson attacked him, but fought back viciously until run through with Dyson's greatsword; he simply disappeared after.  The rest of the Oerths and workers tried to fight, but it was soon clear they stood no chance, so those remaining alive fled.  Inside the tomb we encountered lesser undead and dispatched them, and found a cache of magical items. \\
+As all the inns were full from the tourney, \e{T} invited us to stay at her townhouse for the night. \e{T} gave Barneby a gift of leather boots with a concealed blade in the toe. She also urged us to further investigate the swamp, as she heard that the dragons had all died or left, leaving the Oerths close to uncovering their ancestor's tomb for unknown (probably nefarious) purpose.
 
-\noindent \textbf{9/12} SF found a bronze sculpture of two fiendish figures, male and female; it was strangely sexual in appearance. Korvek found a loose stone in the floor, and under it finds a +2 dagger, that \emph{Z} determines probably belonged to Oerth.  It is a Oerth rite of passage for a boy to recieve a dagger at his entrance to manhood.  \\
+\B{15 Aug 2012} The next day dawned with the chill of late fall; we set out toward the marsh. Few travelers remained other than us, only a group of laborers with empty carts. When questioned, they reported being hired to move earth from a dig site in the swamp.  \e{Barneby} and \e{Suk} disabled their carts to delay them.
 
-\noindent We returned to Baylith.  Encountered Xander Gray's red-haired young apprentice, spewing anti-gnomish slurs, at Dr. Bozzle's apothecary.  She and Barneby flirted.  Barneby nearly ignores her companion, a young man named Miles, of a weathy farming family in Meredith. Trig was happy to find us alive after so many of the Oerth workers returned bearing injuries and terrible stories.  Trig delivers a message to \emph{Z}, which a house Gray squire left in her care.  It invites \emph{Z} to meet with Xander Gray as soon as possible, at his tower.  We stayed the night at Trig's.\\
+Deep in the marsh, we were nearly trampled by a pack of panicked horses.  \e{WW} calmed one, then \e{SF} shape-shifted into a pony and speak with it; it reluctantly agreed to show us what had him so spooked.  After leading us near enough to see a black dragon, it departed in a hurry. Unable to escape notice, we fought both it and another of its kind, and with difficulty, defeated both. \e{WW} butchered the corpses, recovering both acid sacs and some intact scales for armor. \e{WW} then followed their tracks to their lair, a fascinating construction like a teepee, but made of massive trees rather than sticks. Inside, we pilfered an assortment of magic items and coins.
 
-\noindent \emph{Z} rides ahead to \emph{NM} on his phantom steed, with Sarsha. The rest met a traveling group of halfling clans on the road to Cerena, 63 in all. Their leaders explained that they were looking for us.  They were displaced from near Horngrim, and want to settle at \emph{NM}.  Among them were Bruno Fixtell (a blacksmith), Bellis Bluebottle (an adept), Hallus Littlefoot (a farmer), and Byron Moonglove (a brewer).  We agreed to give them 5 acres to farm, and protection, in exchange for service and food.  SF discovered that one of his tribesmen may yet live, as he found an arrow unique to his tribe, used only recently to kill merchants on the road.\\
+\B{22 Aug 2012} That night, we continued from the lair to the tomb of \e{Ser Dyson Oerth}, encountering a young girl, \e{Sarsha}, fleeing not unlike the horses from earlier. In a panic, she tried to cast a sleep spell on us, but then simply fainted. After waking and calming down, she explains that the Oerths planned to sacrifice her in a ritual to open the tomb. \e{Z} then conjured his hut and stayed with \e{Sarsha} while the others headed to the dig site to investigate.
+At the tomb, a throng of laborers was excavating the tomb, while archers stood guard. Three large tents bore the red-on-black heraldry of house Oerth. \e{Barneby} disguised \e{Suk} as \e{Sarsha}, sending him into the camp. Meanwhile a worker was dragged from the tomb, screaming, covered in acid, which quickly dissolved armor and flesh alike, killing him. The workers seemed shocked only for a moment, then quickly returned to their work, either too numb or too scared to care. Soon, \e{Elton Oerth} emerges to get \e{Suk} ready for the sacrifice. While \e{WW} caused mass confusion by setting the tents on fire, we stole documents, books, and even magic items from \e{Elton's} tent, then escaped with \e{Suk}; somehow, all without being caught or killed.
 
-\noindent \emph{Z} arrived at \emph{NM} to find a group of mages had teleported there only recently: Elton Oerth, Xander Gray, \emph{Z}'s uncle, Zachary, Nanny Oggle (a renown witch from Haverton), and Figgins Fixtell are all sitting around waiting for him. Elton turns out to be abrasive, but not dangrous. Xander explains that Elton was deceeved into opening the tomb, and expected an artifact, not Dyson's wraith.  Zachary chuckled at Elton's discomfort, and quipped ``he has so much power, but not the sense to use it.'' Figgins takes over explaining that the group represents the most powerful spellcasters in the North, and that they seek to identify and educate younger talent, as well as to protect the North from Givisselian aggression.  Although \emph{Z} was reluctant to trust Elton, the others vouched for him.  They invited \emph{Z} to join the group, and he accepted.  Elton then told \emph{Z} that the ritual dagger will be particularly effective against Dyson Oerth (acting as a +4 and ignoring his piercing DR), and that his shade should furthermore be vulnerable to fire.  Elton also promises to research and report back about the demonic statue in the tomb.  Soon after trading that information, the wizards departed, save Zachary, who stayed long enough to give \emph{Z} a gift: a Tome of Empowered Sorcel.  A few hours later, the rest of the party arrived back at \emph{NM}. \\
+\B{5 September 2012} \e{Z} found \e{Elton}'s research on a new spell in the books, a spell likely beyond even the most powerful mortal. Against \e{Z}'s advice, we returned to the tomb; still far out, we saw explosions and flashes of spells, heard screams. Soon after, workmen, horses, and knights alike all came past us, fleeing in panic. Following them came a knight on a dessicated horse, wearing ancient armor and wielding a massive great-sword.
 
-\noindent \textbf{9/25} Miners finished harvesting a cartload of mithril, 150lbs of unrefined ore, which they expected to yield 50 pounds after smelting. Kallus took 6 of the 150 pounds to make a new sword.  Byron Moonglove met us to ask for permission to establish a brewery.  We agreed to obtain the required copper sheeting and help set up in exchange for 15\% of the profits. We prepared to head to Cerena to purchase equipment, but before departing, were called to defend the halflings from a hill giant and a pair of ogres.  We dispatched them, but the halflings became nervous, and request we train a standing militia for their future protection. \\
+\e{Z} attempted to speak with him, addressing him by name, kissing his signet ring when prompted.  \e{Dyson} only responded that he ``has been summoned.'' \e{Narssisco} attempts to turn undead, but \e{Dyson} resists it and fells \e{Narssisco} in a single strike.  Some of us fled while \e{Korvek} attempted to delay \e{Dyson}, \e{SF} attempted to heal \e{Korvek} and \e{Narssisco}, and \e{Z} continued to speak with \e{Dyson}.  After \e{Korvek} too was struck within a hairsbreadth of oblivion, \e{Dyson} stated simply that he ``Must go South, to the city by the sea,'' and he simply departs as calmly as he arrived and fought. 
 
-\noindent WW and SF explored off on their own, coming across a disgusting barbarian wearing the armor of SF's old tribe.  They fight and defeat him, ending his ability to tarnish the tribe's memory. \\
+After reviving our companions, we sent a message to \e{XG}, stating that \e{Dyson} was awake, to warn whomever he saw fit, and to expect us to meet him in person as soon as we were able.  We then returned to the tomb to search for clues as to what happened, and encountered one knight of Oerth left alive. He told us that \e{Elton} ritually sacrificed a young Oerth knight possessing magical aptitude, which opened the tomb doors. \e{Elton} seemed surprised at \e{Dyson}'s presence, but fought back viciously until hit with \e{Dyson}'s great-sword, when he teleported away. The rest of the Oerths tried to fight, but as they began dying by the dozen, those remaining alive fled.
 
-\noindent \textbf{10/3} Korvek was the first to try a potion from Dr. Bozzle's shop, which granted him regeneration by temporarily changing him into a troll. \\
+\B{9/12} SF found a bronze sculpture of two fiendish figures, male and female; it was strangely sexual in appearance. Korvek found a loose stone in the floor, and under it finds a +2 dagger, that \e{Z} determines probably belonged to Oerth.  It is a Oerth rite of passage for a boy to receive a dagger at his entrance to manhood.
 
-\noindent \emph{Z} recieved word that Zachary intended to establish an ``Arcane Academy'' in Lindstrom, with the assistance of Philo.  The halflings pooled together money for us to purchase equipment for their new militia, then we went to Cerena, visiting Merkel the Jeweler and Ivek the armorer.  At Ivek's, \emph{Z} bought 6 large sheets of copper, and ran into Thrane Duran and two guards.  He asked \emph{Z} to take his group (us) and create a distraction so the dwarves can retake a tower from the orcs, 4 days hence. \emph{Z} agreed to help, in exchange for 12 of each dwarven-crafted chain shirts, handaxes, and small shields (for the militia), and 4 potions of cure serious wounds (for us).  The Thrane then promised to meed us at \emph{NM} in 2 weeks to follow up.  Before leaving Ivek's, \emph{Z} also bought 25 pounds of adamantium for only 900 axes, using some aggressive persuasion tactics (using Ivek's oathbreaker status and hatred of the Thrane against him).  Over at Merkel's jewelery shop, we obtained a promise of a black pearl for Kallus' sword, in exchange for guarding a wagon to Horngrim laden with garnets for trade: to depart two weeks hence. While in town, we heard that a group of Horngrim knights were assaulted on the Merchant's road, and several died. \\
+We returned to Baylith.  Encountered Xander Gray's red-haired young apprentice, spewing anti-gnomish slurs, at Dr. Bozzle's apothecary.  She and Barneby flirted.  Barneby nearly ignores her companion, a young man named Miles, of a weathy farming family in Meredith. \e{T} was happy to find us alive after so many of the Oerth workers returned bearing injuries and terrible stories.  \e{T} delivers a message to \e{Z}, which a house Gray squire left in her care.  It invites \e{Z} to meet with Xander Gray as soon as possible, at his tower.  We stayed the night at \e{T}'s.
 
-\noindent Suk heads to the Dwarven Citadel, about a day-and-a-half ride from \emph{NM}, to perform at a dinner event. \\
+\e{Z} rides ahead to \e{NM} on his phantom steed, with Sarsha. The rest met a traveling group of halfling clans on the road to Cerena, 63 in all. Their leaders explained that they were looking for us.  They were displaced from near Horngrim, and want to settle at \e{NM}.  Among them were Bruno Fixtell (a blacksmith), Bellis Bluebottle (an adept), Hallus Littlefoot (a farmer), and Byron Moonglove (a brewer).  We agreed to give them 5 acres to farm, and protection, in exchange for service and food.  SF discovered that one of his tribesmen may yet live, as he found an arrow unique to his tribe, used only recently to kill merchants on the road.
 
-\noindent SF and WW found a collection of skulls in a hollowed-out tree near the road, with footprints all around.  Shah-yur suddenly warned that something invisible was watching them all.  After investigating, they met a green dragon, named Viridian, and her tribe of Feral halfling worshipers, possibly members of SF's tribe.  WW and SF try to convince them to return to \emph{NM}, but weren't successful. \\
+\e{Z} arrived at \e{NM} to find a group of mages had teleported there only recently: Elton Oerth, Xander Gray, \e{Z}'s uncle, Zachary, Nanny Oggle (a renown witch from Haverton), and Figgins Fixtell are all sitting around waiting for him. Elton turns out to be abrasive, but not dangrous. Xander explains that Elton was deceeved into opening the tomb, and expected an artifact, not Dyson's wraith.  Zachary chuckled at Elton's discomfort, and quipped ``he has so much power, but not the sense to use it.'' Figgins takes over explaining that the group represents the most powerful spellcasters in the North, and that they seek to identify and educate younger talent, as well as to protect the North from Givisselian aggression.  Although \e{Z} was reluctant to trust Elton, the others vouched for him.  They invited \e{Z} to join the group, and he accepted.  Elton then told \e{Z} that the ritual dagger will be particularly effective against Dyson Oerth (acting as a +4 and ignoring his piercing DR), and that his shade should furthermore be vulnerable to fire.  Elton also promises to research and report back about the demonic statue in the tomb.  Soon after trading that information, the wizards departed, save Zachary, who stayed long enough to give \e{Z} a gift: a Tome of Empowered Sorcel.  A few hours later, the rest of the party arrived back at \e{NM}.
 
-\noindent \textbf{10/10} \emph{Z} read his Tome of Brilliant Thought, while Kallus and Barneby trained the halfling militia (and gave it a name: The Stout Defenders). On the 3rd day before our scheduled departure into the mountains, Bruno the Younger (of the Fixtell clan) distinguished himself as one of the strongest trainee.  Harp Moonglow showed potential with finesse weaponry, as well as natural leadership qualities.  \\
+\B{9/25} Miners finished harvesting a cartload of mithril, 150lbs of unrefined ore, which they expected to yield 50 pounds after smelting. Kallus took 6 of the 150 pounds to make a new sword.  Byron Moonglove met us to ask for permission to establish a brewery.  We agreed to obtain the required copper sheeting and help set up in exchange for 15\% of the profits. We prepared to head to Cerena to purchase equipment, but before departing, were called to defend the halflings from a hill giant and a pair of ogres.  We dispatched them, but the halflings became nervous, and request we train a standing militia for their future protection.
 
-\noindent On their separate excursion, WW and SF continued interacting with Viridian and trying to get the feral halflings to return to \emph{NM} with them.  \\
+WW and SF explored off on their own, coming across a disgusting barbarian wearing the armor of SF's old tribe.  They fight and defeat him, ending his ability to tarnish the tribe's memory.
 
-\noindent For our impending excursion, Bellis Bluebottle prepared six cure light wounds potions, and six cure moderate wounds potions.  WW and SF arrived home just in time to join us on the journey North.  On the scheduled morning, in the cold of early winter, we set out toward the old Dwarven stronghold.  The tunnel we entered previously had been enlarged by crude workmanship, probably orcish.  Inside, we found an ettin and a band of orcs had taken up residence, and defeated them. Suk finds a magic staff and a ring on a magic-using orc sorceress. \\
+\B{10/3} Korvek was the first to try a potion from Dr. Bozzle's shop, which granted him regeneration by temporarily changing him into a troll.
 
-\noindent \textbf{10/16} We delved further into the stronghold, and found a huge store of provisions, likely looted from nearby caravans.  In the storeroom, we found a magic coin mounted to a necklace: a coin of luck, which we gave to Suk.  Behind a closed double-door, we encountered a trio of trolls.  We fight valiantly, and ultimately defeat them, but not before Kallus is slain to a massive series of hits in a short period of time. Suk vows to sing of his valor, and the rest of us grimly prepare to move on.  In the jail room, the furthest we entered the stronghold previously, we find stairs leading down, and we began to descend\ldots \\
+\e{Z} received word that Zachary intended to establish an ``Arcane Academy'' in Lindstrom, with the assistance of Philo.  The halflings pooled together money for us to purchase equipment for their new militia, then we went to Cerena, visiting Merkel the Jeweler and Ivek the armorer.  At Ivek's, \e{Z} bought 6 large sheets of copper, and ran into Thrane Duran and two guards.  He asked \e{Z} to take his group (us) and create a distraction so the dwarves can retake a tower from the orcs, 4 days hence. \e{Z} agreed to help, in exchange for 12 of each dwarven-crafted chain shirts, handaxes, and small shields (for the militia), and 4 potions of cure serious wounds (for us).  The Thrane then promised to meed us at \e{NM} in 2 weeks to follow up.  Before leaving Ivek's, \e{Z} also bought 25 pounds of adamantium for only 900 axes, using some aggressive persuasion tactics (using Ivek's oathbreaker status and hatred of the Thrane against him).  Over at Merkel's jewelery shop, we obtained a promise of a black pearl for Kallus' sword, in exchange for guarding a wagon to Horngrim laden with garnets for trade: to depart two weeks hence. While in town, we heard that a group of \e{Horngrim} knights were assaulted on the Merchant's road, and several died.
 
-\noindent \textbf{10/25} Just before we descend, we encountered a rogue-sorcerer who had been sneaking about since before we arrived, named Evan Ridell. For the benefit of protection in numbers, he agreed to join us.  At the bottom of the steps, the darkness transforms from natural to arcane in nature.  Blind but able to feel our way around, we found a statue, and upon touching it, the darkness was dispelled: revealing a massive half-spider half-elf abomination guarded by goblinoids bearing maces. We fight and defeat them, this time without mortal casualties. Very battered and with neither magic nor vitality remaining in much of a supply, we decided to loot quickly and return to the upper-level storeroom to rest and recover.  \\
+Suk heads to the Dwarven Citadel, about a day-and-a-half ride from \e{NM}, to perform at a dinner event.
 
-\noindent \textbf{11/7} A Halfling Cavalier from Horngrim, named Antal, arrived at the stronghold, riding his war dog.  He cautiously explored, taking note of the recent destruction left in our wake.  While exploring, he encountered orcs waiting outside the storeroom door, and decided to engage them.  His battle cry roused the rest of us to come join the fight, where we struggled against not just orcs, but also a naga spellcaster.  After eventually defeating them all, we explored further on the upper level of the stronghold, fearing to delve too deep: we began to suspect that the stronghold may connect all the way through to the underdark.  WW found a secret door, and behind it, an armory.  Inside, we located a few magical weapons, and a very large supply of mundane ones (6 dwarven waraxes, 10 battle axes, 20 hand axes, 6 warhammers, 6 light hammers, 20 shortswords, 20 crossbows, 20 large steel shields, 20 small steel shields, and 20 helms), as well as a brass adorned silver mug bearing the image of a drinking dwarf: which we determined to be an \emph{Everfull Mug}, capable of filling itself up to five times a day upon command. \\ 
+SF and WW found a collection of skulls in a hollowed-out tree near the road, with footprints all around.  Shah-yur suddenly warned that something invisible was watching them all.  After investigating, they met a green dragon, named Viridian, and her tribe of Feral halfling worshipers, possibly members of SF's tribe.  WW and SF try to convince them to return to \e{NM}, but weren't successful.
 
-\noindent \textbf{11/14} After setting a trap to warn of intruders, we went to clear the remainder of the main level.  Where we had previously fought and defeated the ogre mage, we found the orc's home, filled with filthy animal skin beds.  Under a bed, WW finds a secret compartment holding a bardic wand.  In another room further in, we encountered a Behir---a blue-scaled reptile with six legs and curved horns---and its retinue of orcs.  After dispatching them, WW and SF harvested the scales to make armor, and its glands---which may be processed into ink, able to grant a +1 to each die of a lightning bolt spell scroll. On a bookshelf in the room, we discovered a book signed ``Heath'', who claims to have located a trail into the wastes over 100 years ago; the trail does not appear on any modern map known to us. \\
+\B{10/10} \e{Z} read his Tome of Brilliant Thought, while Kallus and Barneby trained the halfling militia (and gave it a name: The Stout Defenders). On the 3rd day before our scheduled departure into the mountains, Bruno the Younger (of the Fixtell clan) distinguished himself as one of the strongest trainee.  Harp Moonglow showed potential with finesse weaponry, as well as natural leadership qualities.
 
-\noindent\textbf{11/28} WW left to train under Matthew Lanliss in Stenwick.   Gareth, meanwhile, presented his accomplishments from while we have been away: 9 masterwork longswords, 1 of which was enchanted. In addition, 1 enchanted bastard sword, and 10 halfling shortswords (2 of them magic), for the militia. Finally, in the relative privacy of \emph{Z}'s lab, he nervously presented Concluder, in its completed form.  \\
+On their separate excursion, WW and SF continued interacting with Viridian and trying to get the feral halflings to return to \e{NM} with them.
 
-\noindent The feral halflings in \emph{NM} have been pestering Grundle, from spying on her to drawing hearts on all her bloomers. SF found her sharpening her axe, ready to exact her revenge.  SF tried to calm her, and then reign in the halfling's behavior.  It seemed that Skel was the real problem among them, the other three merely a filthy eyesore.  \\
+For our impending excursion, Bellis Bluebottle prepared six cure light wounds potions, and six cure moderate wounds potions.  WW and SF arrived home just in time to join us on the journey North.  On the scheduled morning, in the cold of early winter, we set out toward the old Dwarven stronghold.  The tunnel we entered previously had been enlarged by crude workmanship, probably orcish.  Inside, we found an ettin and a band of orcs had taken up residence, and defeated them. Suk finds a magic staff and a ring on a magic-using orc sorceress.
 
-\noindent Antal and Korvek continued training the militia, teaching formations, flanking, and other tactics, and providing them with banners.\\
+\B{10/16} We delved further into the stronghold, and found a huge store of provisions, likely looted from nearby caravans.  In the storeroom, we found a magic coin mounted to a necklace: a coin of luck, which we gave to Suk.  Behind a closed double-door, we encountered a trio of trolls.  We fight valiantly, and ultimately defeat them, but not before Kallus is slain to a massive series of hits in a short period of time. Suk vows to sing of his valor, and the rest of us grimly prepare to move on.  In the jail room, the furthest we entered the stronghold previously, we find stairs leading down, and we began to descend\ldots 
 
-\noindent Barneby met a beautiful woman who introduced herself as ``Mertensia'', but was likely Viridian in a new guise; she asked to see \emph{Z}. Barneby brings her into the lab just after \emph{Z} hid Concluder.  She claimed to hail from Horngrim, but didn't bear their accent.  She inquires whether I have Elton's books, and seems to know quite a bit of them.  ``If you happen to have one in particular,'' she said, ``you might find his research of a certain spell that was never meant for him---a gift from us to lesser races.'' She went on to detail the spell, ``Strength of Ages'', stating that it required a dragon to part with its power, something the likes of Corpselight would never do, but a metallic might, to cristen a champion of good.  She claimed she wishes us to win, wants only the best for us, but she obviously had her own agenda in lending support.  She implied that a certain merchant house is harboring princes in exile from the Denoxian Empire---a place infamous for its cruel imperialistic expansion.  She also claimed that Elton tried to make an ally of Corpselight, but that he is a fool, as that dragon would as likely burn the North to ash as help against the would-be conquerors. Before leaving, she gave \emph{Z} a gift, a clear orb, obviously magical, and left \emph{Z} to research it.\\
+\B{10/25} Just before we descend, we encountered a rogue-sorcerer who had been sneaking about since before we arrived, named Evan Ridell. For the benefit of protection in numbers, he agreed to join us.  At the bottom of the steps, the darkness transforms from natural to arcane in nature.  Blind but able to feel our way around, we found a statue, and upon touching it, the darkness was dispelled: revealing a massive half-spider half-elf abomination guarded by goblinoids bearing maces. We fight and defeat them, this time without mortal casualties. Very battered and with neither magic nor vitality remaining in much of a supply, we decided to loot quickly and return to the upper-level storeroom to rest and recover. 
 
-\noindent\textbf{12/5} SF again spoke with the feral halflings, but had trouble keeping their attention.  He tasked them with patrolling the woods, though they only seem to see it as permission to kill. He also made them blood--swear to leave Grundle alone.\\
+\B{11/7} A Halfling Cavalier from Horngrim, named Antal, arrived at the stronghold, riding his war dog.  He cautiously explored, taking note of the recent destruction left in our wake.  While exploring, he encountered orcs waiting outside the storeroom door, and decided to engage them.  His battle cry roused the rest of us to come join the fight, where we struggled against not just orcs, but also a naga spellcaster.  After eventually defeating them all, we explored further on the upper level of the stronghold, fearing to delve too deep: we began to suspect that the stronghold may connect all the way through to the underdark.  WW found a secret door, and behind it, an armory.  Inside, we located a few magical weapons, and a very large supply of mundane ones (6 dwarven waraxes, 10 battle axes, 20 hand axes, 6 warhammers, 6 light hammers, 20 shortswords, 20 crossbows, 20 large steel shields, 20 small steel shields, and 20 helms), as well as a brass adorned silver mug bearing the image of a drinking dwarf: which we determined to be an \e{Everfull Mug}, capable of filling itself up to five times a day upon command. 
 
-\noindent Neville arrives with a message from Xander Gray, stating that Gil Demair (a knight we met at the tourney) was killed on the road, reportedly by an undead horseman. It also inquired about sending Sarsha to the Arcane Academy.  Neville himself reported giant tracks near Baylith, likely from something driven out of hiding by the Dwarves' recapture of their tower.  \emph{Z} stayed in \emph{NM} to study his Tome of Empowered Sorcel, while the rest went to help hunt the beast outside Baylith. \emph{Z} also studied the orb given by Mertensia, with Regan's help.  Regan learned to fire it, but it causes pain to do so: the orb does not have charges, but instead feeds on its wielder's life force.  It can fire up to 5 bolts of arcing lightning up to 100 feet, each dealing d10+2 damage on a touch attack.  Firing 1 bolt saps only 1 hp, 2---5hp, 3--10hp, 4--15hp, and 5--20hp.  On the Road to Baylith, as SF examines the tracks, the party was ambushed by their makers: a pair of frost giants, which they defeated with the help of a newcomer: Clay Blackpool (Jeremy).  \\
+\B{11/14} After setting a trap to warn of intruders, we went to clear the remainder of the main level.  Where we had previously fought and defeated the ogre mage, we found the orc's home, filled with filthy animal skin beds.  Under a bed, WW finds a secret compartment holding a bardic wand.  In another room further in, we encountered a Behir---a blue-scaled reptile with six legs and curved horns---and its retinue of orcs.  After dispatching them, WW and SF harvested the scales to make armor, and its glands---which may be processed into ink, able to grant a +1 to each die of a lightning bolt spell scroll. On a bookshelf in the room, we discovered a book signed ``Heath'', who claims to have located a trail into the wastes over 100 years ago; the trail does not appear on any modern map known to us.
 
-\textbf{12 December 2012} Barneby was grievously injured by giants, but uses a Regen potion and succeeded at shrugging off its deformative effects. Back in \emph{NM}, \emph{XG} brings a gift to \emph{Z}: a ``spell golem'', capable of defending itself from magical assault as a training dummy, and capable of casting preprogrammed array of spells of its own.\par
-Next morning, the first snowfall marked the official beginning of winter.  Party found Clay at his own camp, and asked for him to join.  Further along the road, all encountered \emph{XG}'s former apprentice dissecting and storing parts of troll corpses in preservative jars.  Guessed the parts are likely for Bozzle's poritions, but when confronted later, Bozzle seemed genuinely surprised at the ``resurrection'' capacity of his goods.  Clay stole a sample to study further. \\
+\B{11/28} WW left to train under Matthew Lanliss in Stenwick.   Gareth, meanwhile, presented his accomplishments from while we have been away: 9 masterwork longswords, 1 of which was enchanted. In addition, 1 enchanted bastard sword, and 10 halfling shortswords (2 of them magic), for the militia. Finally, in the relative privacy of \e{Z}'s lab, he nervously presented Concluder, in its completed form.
 
-\textbf{6 February 2013} Neville stopped by \emph{NM} with news from Seavos County, \emph{Horngrim}.  There, the hamlet of \emph{Mage's Point} had simply vanished.  We promised to investigate.\par
-Rest of the group headed back to \emph{NM}, where the militia had completed training. \emph{Harp Moonglow} and \emph{Bruno the Younger} became 2nd level fighters, and the other 18 militia, 1st level warriors. Once all back together, we headed south to stop by \emph{Cerena} and bring a delivery of garnets to \emph{Horngrim}, planning to stop and investigate \emph{Mage's Point} along the way.  The eventual plan was to continue onward to \emph{Givissel}, and inflitrate \emph{Lord Falcone}'s estate.\par
-Arriving at the point where the \emph{Trade Road} divides Seavos and Malluk Counties, we found massive auras of Necromancy and Trnasmutation around where \emph{Mage's Point} once lay. \emph{Clay} sensed the whole area and everything in it is evil, but as it was dusk, we had to camp for the night.  In the middle of the night, a scream awoke us, and we see a large half humanoid half vortex floating toward us.\\
+The feral halflings in \e{NM} have been pestering Grundle, from spying on her to drawing hearts on all her bloomers. SF found her sharpening her axe, ready to exact her revenge.  SF tried to calm her, and then reign in the halfling's behavior.  It seemed that Skel was the real problem among them, the other three merely a filthy eyesore.
 
-\textbf{13 February 2013} \emph{Antal} laid the killing blow on the wraith after contributing little, and a heavy feeling leaves the area.  On further investigation, we found the central tower of \emph{Mage's Point}'s namesake appear under moonlight, and disappear under clouds.  \emph{Clay} attempted to knock on the door, but disappeared, and \emph{Z} determied he inadventantly traversed a weak point between planes. The rest of us followed, each knocking \emph{Clay} back down into the swamppy water, except \emph{Z}, who makes it through unscathed. The swamp on the other side was warm, but dark. \emph{Z} determined it wasn't an illusion, but likely a pocket plane, with necromantic energy everywhere. We moved toward a town, and found it to be \emph{Mage's Point}, apparently somehow transported here.  The villagers were all afraid: they describe the place as eternally night-time, and that their fields and livestock had disappeared, though an unknown force leaves provisions whenever they are needed near the edge of town.  And then, there are the disappearing people near the edge of town, and the dead of the village walking among the living, seemingly not as zombies, but like they had never died.\par
-Near where the provisions appeared, we found tracks leading away from town.  We followed until we found a castle, though before we reached it, encountered a horse and card traveling the other way.  The young woman driver claimed to be a healer heading to town to sell her cures.  She seemed suspicious to most of the party members, so rather than continuing toward the keep, we followed her back, leaving \emph{SF} alone to scout nearer the castle.\\
+Antal and Korvek continued training the militia, teaching formations, flanking, and other tactics, and providing them with banners.
 
-\textbf{20 February 2013} \emph{SF} encountered the headless undead of our late companion \emph{Kallus} further up the road, but he returned unseen.  Back in town, we spoke with the mayor, who asked again for our help returning everyone home, but as we were unsure how to help, we only promise to help stop the disappearances at the edge of town, if we can.\par
-\emph{Pellagius} and \emph{Sajitz} were traveling together and investigated the missing town like the rest of us, and found the entrance to the shadow realm as well.  The eldest animated-dead woman in town told \emph{Pellagius} that he doesn't belong, though he insisted that at age 105, she is the one unlike the rest.  From the shadows nearby, \emph{Clay} casts \emph{Disrupt Undead} on her, and she charged at him screaming, before simply exploding.  The villagers were stunned by the sudden commotion, but resigned to accept it as they have the rest of their situation.  \emph{Pellagius} encourages \emph{Clay} to slay more with him, but \emph{Clay} denies even knowing how to do such a thing.\par
-The two intestigated a nearby house with a little girl swinging out front, her parents wathcing her, fearful. They told us the girl died months ago, that the ``thing'' wasn't their daughter, really, just as we were no longer really in \emph{Mage's Point}.\par
-\emph{Z} proposed a plan to hold a feast to use up the town's provisions, thus luring whoever leaves them into a trap.  Meanwhile, \emph{Sajitz} suggested torturing the so-called healer, \emph{Lena}, for information; \emph{Z} angrily suggested \emph{SF} is best suited for that sort of work, and stormed off.\par
-The next ``day'' the dead of the town confronted us and demand that we leave them to ``live'' in peace.  We made no concrete promises, but managed to placate them with words, though we were unable to convince any of them that they were truly dead, despite their unnatural ``age'' and inability to remember beyond a week past.  \emph{Pellagius} conferred with his deity, and decided the dead aren't animated remains at all, but constructs.\par
-Just as the town began to prepare for the feast, screams came from the edge of town, and we investigated: we found \emph{Kallus}' shade-thing near a half--destroyed cottage, just dropping the body of an unconcious girl.  He engaged us with a blue-hued longsword unlike any he owned in life; we dispatch him, and took his armor and sword, which though still magic, no longer glowed.\\
+Barneby met a beautiful woman who introduced herself as ``Mertensia'', but was likely Viridian in a new guise; she asked to see \e{Z}. Barneby brings her into the lab just after \e{Z} hid Concluder.  She claimed to hail from Horngrim, but didn't bear their accent.  She inquires whether I have Elton's books, and seems to know quite a bit of them.  ``If you happen to have one in particular,'' she said, ``you might find his research of a certain spell that was never meant for him---a gift from us to lesser races.'' She went on to detail the spell, ``Strength of Ages'', stating that it required a dragon to part with its power, something the likes of Corpselight would never do, but a metallic might, to cristen a champion of good.  She claimed she wishes us to win, wants only the best for us, but she obviously had her own agenda in lending support.  She implied that a certain merchant house is harboring princes in exile from the Denoxian Empire---a place infamous for its cruel imperialistic expansion.  She also claimed that Elton tried to make an ally of Corpselight, but that he is a fool, as that dragon would as likely burn the North to ash as help against the would-be conquerors. Before leaving, she gave \e{Z} a gift, a clear orb, obviously magical, and left \e{Z} to research it.
 
-\textbf{27 February 2013} \emph{Sajitz} stabilized the girl, and \emph{Pellagius} saved her father, Cole; their home was utterly destroyed, though.  Cole was unable to guess why they were attacked, but told us a tale of \emph{Barnett}, the captain of the guard, driving off a batlike assailant a few nights prior. We rested the night at the mayor's house.\par
-\emph{Clay} returned to the family with the dead girl, and offered to destroy her, but they refuse.  After the girl drew a picture for the ``visitor'', depicting \emph{Clay} dying horribly, he left.\par
-We set out for the castle. On the road, we encountered a pair of flesh golems, and would have had to run, save for \emph{Pellagius}' adamantine weapon.  We freed a prisoner from the nearby gatehouse (Patrick's character), who joined us.  Further along, the swamp receeded, ground became firmer, trees change to evergreen.  We encounter one last traveler on the road, a Night Hag, who warns us that if we fail to slay the lord of the keep, who she claimed is a vampire, that we will never be able to leave.  She then showed us a postern gate entrance, and departed.  \\\\\\
+\B{12/5} SF again spoke with the feral halflings, but had trouble keeping their attention.  He tasked them with patrolling the woods, though they only seem to see it as permission to kill. He also made them blood--swear to leave Grundle alone.
 
-\textbf{6 March 2013}
+Neville arrives with a message from Xander Gray, stating that Gil Demair was killed on the road, reportedly by an undead horseman. It also inquired about sending Sarsha to the Arcane Academy.  Neville himself reported giant tracks near Baylith, likely from something driven out of hiding by the Dwarves' recapture of their tower.  \e{Z} stayed in \e{NM} to study his Tome of Empowered Sorcel, while the rest went to help hunt the beast outside Baylith. \e{Z} also studied the orb given by Mertensia, with Regan's help.  Regan learned to fire it, but it causes pain to do so: the orb does not have charges, but instead feeds on its wielder's life force.  It can fire up to 5 bolts of arcing lightning up to 100 feet, each dealing d10+2 damage on a touch attack.  Firing 1 bolt saps only 1 hp, 2---5hp, 3--10hp, 4--15hp, and 5--20hp.  On the Road to Baylith, as SF examines the tracks, the party was ambushed by their makers: a pair of frost giants, which they defeated with the help of a newcomer: Clay Blackpool (Jeremy).
+
+\B{12 December 2012} Barneby was grievously injured by giants, but uses a Regen potion and succeeded at shrugging off its deformative effects. Back in \e{NM}, \e{XG} brings a gift to \e{Z}: a ``spell golem'', capable of defending itself from magical assault as a training dummy, and capable of casting preprogrammed array of spells of its own.
+
+Next morning, the first snowfall marked the official beginning of winter.  Party found Clay at his own camp, and asked for him to join.  Further along the road, all encountered \e{XG}'s former apprentice dissecting and storing parts of troll corpses in preservative jars.  Guessed the parts are likely for Bozzle's poritions, but when confronted later, Bozzle seemed genuinely surprised at the ``resurrection'' capacity of his goods.  Clay stole a sample to study further.
+
+\B{6 February 2013} Neville stopped by \e{NM} with news from Seavos County, \e{Horngrim}.  There, the hamlet of \e{Mage's Point} had simply vanished.  We promised to investigate.
+
+Rest of the group headed back to \e{NM}, where the militia had completed training. \e{Harp Moonglow} and \e{Bruno the Younger} became 2nd level fighters, and the other 18 militia, 1st level warriors. Once all back together, we headed south to stop by \e{Cerena} and bring a delivery of garnets to \e{Horngrim}, planning to stop and investigate \e{Mage's Point} along the way.  The eventual plan was to continue onward to \e{Givissel}, and inflitrate \e{Lord Falcone}'s estate.
+
+Arriving at the point where the \e{Trade Road} divides Seavos and Malluk Counties, we found massive auras of Necromancy and Trnasmutation around where \e{Mage's Point} once lay. \e{Clay} sensed the whole area and everything in it is evil, but as it was dusk, we had to camp for the night.  In the middle of the night, a scream awoke us, and we see a large half humanoid half vortex floating toward us.
+
+\B{13 February 2013} \e{Antal} laid the killing blow on the wraith after contributing little, and a heavy feeling leaves the area.  On further investigation, we found the central tower of \e{Mage's Point}'s namesake appear under moonlight, and disappear under clouds.  \e{Clay} attempted to knock on the door, but disappeared, and \e{Z} determied he inadventantly traversed a weak point between planes. The rest of us followed, each knocking \e{Clay} back down into the swamppy water, except \e{Z}, who makes it through unscathed. The swamp on the other side was warm, but dark. \e{Z} determined it wasn't an illusion, but likely a pocket plane, with necromantic energy everywhere. We moved toward a town, and found it to be \e{Mage's Point}, apparently somehow transported here.  The villagers were all afraid: they describe the place as eternally night-time, and that their fields and livestock had disappeared, though an unknown force leaves provisions whenever they are needed near the edge of town.  And then, there are the disappearing people near the edge of town, and the dead of the village walking among the living, seemingly not as zombies, but like they had never died.
+
+Near where the provisions appeared, we found tracks leading away from town.  We followed until we found a castle, though before we reached it, encountered a horse and card traveling the other way.  The young woman driver claimed to be a healer heading to town to sell her cures.  She seemed suspicious to most of the party members, so rather than continuing toward the keep, we followed her back, leaving \e{SF} alone to scout nearer the castle.
 
 
+\B{20 February 2013} \e{SF} encountered the headless undead of our late companion \e{Kallus} further up the road, but he returned unseen.  Back in town, we spoke with the mayor, who asked again for our help returning everyone home, but as we were unsure how to help, we only promise to help stop the disappearances at the edge of town, if we can.
 
+\e{Pellagius} and \e{Sajitz} were traveling together and investigated the missing town like the rest of us, and found the entrance to the shadow realm as well.  The eldest animated-dead woman in town told \e{Pellagius} that he doesn't belong, though he insisted that at age 105, she is the one unlike the rest.  From the shadows nearby, \e{Clay} casts \e{Disrupt Undead} on her, and she charged at him screaming, before simply exploding.  The villagers were stunned by the sudden commotion, but resigned to accept it as they have the rest of their situation.  \e{Pellagius} encourages \e{Clay} to slay more with him, but \e{Clay} denies even knowing how to do such a thing.
 
+The two intestigated a nearby house with a little girl swinging out front, her parents wathcing her, fearful. They told us the girl died months ago, that the ``thing'' wasn't their daughter, really, just as we were no longer really in \e{Mage's Point}.
 
+\e{Z} proposed a plan to hold a feast to use up the town's provisions, thus luring whoever leaves them into a trap.  Meanwhile, \e{Sajitz} suggested torturing the so-called healer, \e{Lena}, for information; \e{Z} angrily suggested \e{SF} is best suited for that sort of work, and stormed off.
+
+The next ``day'' the dead of the town confronted us and demand that we leave them to ``live'' in peace.  We made no concrete promises, but managed to placate them with words, though we were unable to convince any of them that they were truly dead, despite their unnatural ``age'' and inability to remember beyond a week past.  \e{Pellagius} conferred with his deity, and decided the dead aren't animated remains at all, but constructs.
+
+Just as the town began to prepare for the feast, screams came from the edge of town, and we investigated: we found \e{Kallus}' shade-thing near a half--destroyed cottage, just dropping the body of an unconcious girl.  He engaged us with a blue-hued longsword unlike any he owned in life; we dispatch him, and took his armor and sword, which though still magic, no longer glowed.
+
+\B{27 February 2013} \e{Sajitz} stabilized the girl, and \e{Pellagius} saved her father, Cole; their home was utterly destroyed, though.  Cole was unable to guess why they were attacked, but told us a tale of \e{Barnett}, the captain of the guard, driving off a batlike assailant a few nights prior. We rested the night at the mayor's house.
+
+\e{Clay} returned to the family with the dead girl, and offered to destroy her, but they refuse.  After the girl drew a picture for the ``visitor'', depicting \e{Clay} dying horribly, he left.
+
+We set out for the castle. On the road, we encountered a pair of flesh golems, and would have had to run, save for \e{Pellagius}' adamantine weapon.  We freed a prisoner from the nearby gatehouse (Patrick's character), who joined us.  Further along, the swamp receeded, ground became firmer, trees change to evergreen.  We encounter one last traveler on the road, a Night Hag, who warns us that if we fail to slay the lord of the keep, who she claimed is a vampire, that we will never be able to leave. To help, she told us about a drainage hole in the castle wall that could be used to gain entry; then she departed.
+
+\B{6 March 2013} Seeing no guard or any movement on the walls, we entered through the water entrance; the courtyard showed the decay of long neglect, and was scattered with skeletal remains of the inhabitants. \e{Leaf} checked the doors to the keep proper, and finding them unlocked, we proceeded inside.  \e{Korvek} led us up the grand staircase in the foyer, where eight sheilds bearing coat-of-arms adorned the walls; only two were recognizable to us: one bearing House Oerth's morningstar, the other the ancient sheild of a Denoxian legionaire.
+
+The stairs led to a great dining hall, where the sound of a harp emanated softly from an alcove.  Approaching cautiously, we encountered the shade of a weeping elven woman, who led us about the room, showing us her own remains, pinned to the wall by a sword, and two mural tapestries.  The first depicted the dwarven victory over an aggressive lord of \e{Horngrim} some 400 years past.  The next, the execution of a knight, which the shade, in a whispering echo, says is \e{Lord Vostel}, the lord of this keep.  Just then, a figure materialized from the shadows, tall and handwome, ornately armed and armored.  \e{Z} opened with attempted diplomacy, but when Vostel began speaking of feeding on us, we quickly changed tactics.  \e{SF} and \e{Sajitz} delayed the arrival of several minions by filling the entrance hall with darkness and explosions, as we focused on Vostel himself.  After \e{Clay} disarmed him, \e{Korvek} makes short work of him, forcing Vostel to retreat in gaseous form. The Night Hag, who had apparently observed the whole thing, cackled madly with glee at our victory, until \e{Clay} threatened her, and she teleported away. The elven ghost reformed after the battle, and pleads with us to return her remains home, to \e{Lenoria}.
+
+Grabbing Vostel's weapon, we pursued his mist, finding his bones in a tomb defaced with graffiti of \e{traitor!}.  \e{Clay} stopped the vampire from reforming with his magic, while \e{Pellagius} drove a stake through him.  Just before turning to dust, the vampire grabbed \e{Pellagius}, seemingly about to tell him something.  Searching the tomb, we found two magical tomes, and Vostel's enchanted armor. Only moments later, the world around us faded to black, and then was replaced by the chill air of winter; we found ourselves standing in a field outside \e{Mage's Point}, and \e{Bim}, who we nearly knocked over on our arrival, demands to know, ``Where have you been?''
+
+\B{13 March 2013}
+
+\end{notesection}
 \end{document}
