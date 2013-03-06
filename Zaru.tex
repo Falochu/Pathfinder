@@ -2,7 +2,7 @@
 \usepackage{graphicx}                    % PNG images
 \usepackage{wrapfig}                     % Wrap text around images
 \usepackage{color}                       % Set the color of text
-\usepackage[usenames,dvipsnames]{xcolor} % Import set of color names, like "Plum"
+\usepackage[usenames,dvipsnames,table]{xcolor} % Import set of color names, like "Plum"
 \usepackage[margin=0.5in]{geometry}      % Easy way to set margins
 \usepackage{subfigure}                   % Allow side-by-side figures
 \usepackage{multirow}                    % Allow "merged cells" in tables
@@ -71,6 +71,7 @@
 
 % Command to print sideways text in spellbook left margin
 \definecolor{light-gray}{gray}{0.7}
+\definecolor{pathfinder-tan}{RGB}{224,223,151}
 \newcommand{\spelllevel}[2]{
 \begin{textblock}{1}(0.5,#1)
 \begin{sideways}
@@ -87,145 +88,117 @@
  \B{\huge{Zaru Bj\"{o}rtfiskur }\Large{Gnome Wizard 7}} \\
 \e{Chaotic Good} \hspace{2em} \e{Age 57y} \hspace{2em} \e{Height 3ft} \hspace{2em} \e{Weight 37lb} \par
 \hrule
-\begin{table}[h!]
-\sffamily
-\vspace{-1em}
-\hspace{-1.5em}
-\mbox{
-    \subfigure{
-        \begin{tabular}{l | c | c}
-        \multicolumn{3}{c}{\e{Ability Scores}} \\
-        \B{Strength} & 9  & -1 \\
-        \B{Dexterity} & 14 & +2 \\
-        \B{Constitution} & 12 & +1 \\
-        \B{Intelligence} & 20 & +5 \\
-        \B{Wisdom} & 12 & +1 \\
-        \B{Charisma} & 12 & +1 \\
-        \end{tabular}
-    }
 
-    \hspace{11em}
-
-    \subfigure{
-        \begin{tabular}{l | c}
-        \multicolumn{2}{c}{\e{Defenses}} \\
-        \B{Armor Class} & 16 \\
-        Touch & 14 \\
-        Flat Footed & 14 \\
-        \B{Fortitude} & 4 \\
-        \B{Reflex} & 5 \\
-        \B{Will} & 7 \\
-        \end{tabular}
-    }
-
-    \hspace{11em}
-
-    \subfigure{
-        \begin{tabular}{l | c}
-        \multicolumn{2}{c}{\e{Movement}} \\
-        \B{Speed} & 20 ft \\
-        \B{Initiative} & +2 \\ 
-        \multicolumn{2}{c}{~} \\
-        \multicolumn{2}{c}{\e{Health}} \\
-        \B{Hit Points} & 38 \\
-        \e{Current HP} & 38 \\
-        \end{tabular}
-    }
-}
-\end{table}
-\hrule
-\begin{table}[h!]
-\sffamily
-\vspace{-1em}
-\hspace{-1.5em}
-\mbox{
-    \subfigure{
-        \begin{tabular}{l c c l}
-        \multicolumn{4}{c}{\e{Attacks and Damage}} \\
-        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} \\
-        \B{Base Attack Bonus} & +3 \\
-        \B{Combat Maneuver} & +1 \\
-        \B{Combat Defense} & 13 \\ \hline
-        \B{M\^{e}l\'{e}e Touch Attack} & +2 \\
-        \B{Ranged Touch Attack} & +5 & \multicolumn{2}{l}{(+6 on ray spells)} \\ 
-        \\
-        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
-        {\footnotesize \e{Damage}} & {\footnotesize \e{Critical}} \\
-        \B{Hand of the Apprentice} & +10 & 1d4+3* & 19-20x2 \\
-        \multicolumn{4}{l}{\e{Piercing, 30 ft range, usable 8x/day}} \\ \hline
-        \B{+2 Oerth Ritual Dagger} & +4 & 1d4+3* & 19-20x2 \\
-        \multicolumn{4}{l}{\e{Piercing}} \\\hline
-        \B{Wand: Max. Magic Missile} & - & 10 Force & - \\
-        \multicolumn{4}{l}{\e{Caster Level 3, 37 Charges}} \\ \hline
-        \multicolumn{4}{l}{* Includes bonus from \e{Arcane Strike}} \\
-        \end{tabular}
-    }
-
-    \hspace{3.7em}
-
-    \subfigure{
-        \begin{tabular}{l  c  c  c}
-        \multicolumn{4}{c}{\e{Skills}} \\
-        % 2+INT mod/level +1 for favored class 5 times = 54 ranks
-        {\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
-        {\footnotesize \e{Ability}} & {\footnotesize \e{Ranks}} \\
-        \B{Acrobatics} & 2 & {\footnotesize DEX} & - \\
-        \B{Appraise} & 9 & {\footnotesize INT} & 1 \\
-        \hline
-        \B{Bluff} & 5 & {\footnotesize CHA} & 4 \\
-        \B{Climb} & 1 & {\footnotesize STR} & 2 \\
-        \hline
-        % Concentration is not strictly a skill, but a caster level + ability mod check. 
-        % As such, the "ranks" here are actually caster levels, and do not count against ranks of skills known.
-        \B{Concentration} & 12 & {\footnotesize INT} & 7 \\
-        \B{Craft {\scriptsize CLOTH}} & 9 & {\footnotesize INT} & 1 \\
-        \hline
-        \B{Diplomacy} & 5 & {\footnotesize CHA} & 4 \\
-        %\B{Disable Device *} & - & {\footnotesize DEX} & - \\
-        \B{Disguise} & 1 & {\footnotesize CHA} & - \\
-        \hline
-        \B{Escape Artist} & 2 & {\footnotesize DEX} & - \\
-        \B{Fly} & 2 & {\footnotesize DEX} & - \\
-        \hline
-        %\B{Handle Animal *} & - & {\footnotesize CHA} & - \\
-        \B{Heal} & 1 & {\footnotesize WIS} & - \\
-        \B{Intimidate} & 1 & {\footnotesize CHA} & - \\
-        \hline
-        \B{Knowledge {\scriptsize ARCANA} *} & 15 & {\footnotesize INT} & 7 \\
-        %\B{Knowledge {\scriptsize DUNGEONEERING} *} & - & {\footnotesize INT} & -\\
-        %\B{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
-        %\B{Knowledge {\scriptsize GEOGRAPHY} *} & - & {\footnotesize INT} & - \\
-        \B{Knowledge {\scriptsize HISTORY} *} & 15 & {\footnotesize INT} & 7 \\
-        \hline
-        %\B{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
-        %\B{Knowledge {\scriptsize NATURE} *} & - & {\footnotesize INT} & - \\
-        \B{Knowledge {\scriptsize NOBILITY} *} & 9 & {\footnotesize INT} & 1 \\
-        \B{Knowledge {\scriptsize PLANES} *} & 9 & {\footnotesize INT} & 1 \\
-        \hline
-        %\B{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
-        %\B{Linguistics *} & - & {\footnotesize INT} & - \\
-        \B{Perception} & 8 & {\footnotesize WIS} & 7 \\
-        \B{Perform} & 1 & {\footnotesize CHA} & - \\
-        \hline
-        %\B{Profession *} & - & {\footnotesize WIS} & - \\
-        \B{Ride} & 2 & {\footnotesize DEX} & - \\
-        \B{Sense Motive} & 6 & {\footnotesize WIS} & 5 \\
-        \hline
-        %\B{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
-        \B{Spellcraft *} & 15 & {\footnotesize INT} & 7 \\
-        \B{Stealth} & 9 & {\footnotesize DEX} & 7 \\
-        \hline
-        \B{Survival} & 1 & {\footnotesize WIS} & - \\
-        \B{Swim} & 1 & {\footnotesize STR} & 2 \\
-        %\B{Use Magic Device *} & - & {\footnotesize CHA} & - \\
-        {\footnotesize * Trained Only} \\
-        \end{tabular}
-    }
-}
-\vspace{-1em}
-\end{table}
-\hrule
-\vspace{0.5em}
+\begin{tabu} to 0.333\textwidth{X[4] X[1c] X[1c]}
+\multicolumn{3}{c}{\e{Ability Scores}} \\
+\B{Strength} & 9  & -1 \\
+\B{Dexterity} & 14 & +2 \\
+\B{Constitution} & 12 & +1 \\
+\B{Intelligence} & 20 & +5 \\
+\B{Wisdom} & 12 & +1 \\
+\B{Charisma} & 12 & +1 \\
+\end{tabu}
+%
+\begin{tabu} to 0.333\textwidth{X[5] X[1c]}
+\multicolumn{2}{c}{\e{Defenses}} \\
+\B{Armor Class} & 16 \\
+Touch & 14 \\
+Flat Footed & 14 \\
+\B{Fortitude} & 4 \\
+\B{Reflex} & 5 \\
+\B{Will} & 7 \\
+\end{tabu}
+%
+\begin{tabu} to 0.333\textwidth{X[5] X[1c]}
+\multicolumn{2}{c}{\e{Movement}} \\
+\B{Speed} & 20 ft \\
+\B{Initiative} & +2 \\ 
+\multicolumn{2}{c}{~} \\
+\multicolumn{2}{c}{\e{Health}} \\
+\B{Hit Points} & 38 \\
+\e{Current HP} & 38 \\
+\end{tabu}\hrule
+%
+\begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
+\multicolumn{4}{c}{\e{Attacks and Damage}} \\
+{\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} \\
+\B{Base Attack Bonus} & +3 \\
+\B{Combat Maneuver} & +1 \\
+\B{Combat Defense} & 13 \\ \hline
+\B{M\^{e}l\'{e}e Touch Attack} & +2 \\
+\B{Ranged Touch Attack} & +5 & \multicolumn{2}{l}{(+6 on ray spells)} \\ 
+\\
+{\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
+{\footnotesize \e{Damage}} & {\footnotesize \e{Critical}} \\
+\B{Hand of the Apprentice} & +10 & 1d4+3* & 19-20x2 \\
+\multicolumn{4}{l}{\e{Piercing, 30 ft range, usable 8x/day}} \\ \hline
+\B{+2 Oerth Ritual Dagger} & +4 & 1d4+3* & 19-20x2 \\
+\multicolumn{4}{l}{\e{Piercing}} \\\hline
+\B{Wand: Max. Magic Missile} & - & 10 Force & - \\
+\multicolumn{4}{l}{\e{Caster Level 3, 37 Charges}} \\ \hline
+\multicolumn{4}{l}{* Includes bonus from \e{Arcane Strike}} \\[13em]
+\end{tabu}
+%
+%\definecolor{actualwhite}{RGB}{255,255,255}
+%\taburowcolors[4] 2{pathfinder-tan..actualwhite}
+\begin{tabu} to 0.5\textwidth{X[3] X[1c] X[1c] X[1c]}
+\multicolumn{4}{c}{\e{Skills}} \\
+% 2+INT mod/level +1 for favored class 5 times = 54 ranks
+{\footnotesize \e{Name}} & {\footnotesize \e{Bonus}} &
+{\footnotesize \e{Ability}} & {\footnotesize \e{Ranks}} \\
+\B{Acrobatics} & 2 & {\footnotesize DEX} & - \\
+\B{Appraise} & 9 & {\footnotesize INT} & 1 \\
+\hline
+\B{Bluff} & 5 & {\footnotesize CHA} & 4 \\
+\B{Climb} & 1 & {\footnotesize STR} & 2 \\
+\hline
+% Concentration is not strictly a skill, but a caster level + ability mod check. 
+% As such, the "ranks" here are actually caster levels, and do not count against ranks of skills known.
+\B{Concentration} & 12 & {\footnotesize INT} & 7 \\
+\B{Craft {\scriptsize CLOTH}} & 9 & {\footnotesize INT} & 1 \\
+\hline
+\B{Diplomacy} & 5 & {\footnotesize CHA} & 4 \\
+%\B{Disable Device *} & - & {\footnotesize DEX} & - \\
+\B{Disguise} & 1 & {\footnotesize CHA} & - \\
+\hline
+\B{Escape Artist} & 2 & {\footnotesize DEX} & - \\
+\B{Fly} & 2 & {\footnotesize DEX} & - \\
+\hline
+%\B{Handle Animal *} & - & {\footnotesize CHA} & - \\
+\B{Heal} & 1 & {\footnotesize WIS} & - \\
+\B{Intimidate} & 1 & {\footnotesize CHA} & - \\
+\hline
+\B{Knowledge {\scriptsize ARCANA} *} & 15 & {\footnotesize INT} & 7 \\
+%\B{Knowledge {\scriptsize DUNGEONEERING} *} & - & {\footnotesize INT} & -\\
+%\B{Knowledge {\scriptsize ENGINEERING} *} & - & {\footnotesize INT} & - \\
+%\B{Knowledge {\scriptsize GEOGRAPHY} *} & - & {\footnotesize INT} & - \\
+\B{Knowledge {\scriptsize HISTORY} *} & 15 & {\footnotesize INT} & 7 \\
+\hline
+%\B{Knowledge {\scriptsize LOCAL} *} & - & {\footnotesize INT} & - \\
+%\B{Knowledge {\scriptsize NATURE} *} & - & {\footnotesize INT} & - \\
+\B{Knowledge {\scriptsize NOBILITY} *} & 9 & {\footnotesize INT} & 1 \\
+\B{Knowledge {\scriptsize PLANES} *} & 9 & {\footnotesize INT} & 1 \\
+\hline
+%\B{Knowledge {\scriptsize RELIGION} *} & - & {\footnotesize INT} & - \\
+%\B{Linguistics *} & - & {\footnotesize INT} & - \\
+\B{Perception} & 8 & {\footnotesize WIS} & 7 \\
+\B{Perform} & 1 & {\footnotesize CHA} & - \\
+\hline
+%\B{Profession *} & - & {\footnotesize WIS} & - \\
+\B{Ride} & 2 & {\footnotesize DEX} & - \\
+\B{Sense Motive} & 6 & {\footnotesize WIS} & 5 \\
+\hline
+%\B{Sleight of Hand *} & - & {\footnotesize DEX} & - \\
+\B{Spellcraft *} & 15 & {\footnotesize INT} & 7 \\
+\B{Stealth} & 9 & {\footnotesize DEX} & 7 \\
+\hline
+\B{Survival} & 1 & {\footnotesize WIS} & - \\
+\B{Swim} & 1 & {\footnotesize STR} & 2 \\
+%\B{Use Magic Device *} & - & {\footnotesize CHA} & - \\
+{\footnotesize * Trained Only} \\
+\end{tabu}\hrule
+\tabureset
+%
 \e{Feats}\\
 % Bonus increases by +1 every five caster levels, up to a maximum of +5 at 20th level. \\
 % LVL10 increase bonus to +3
