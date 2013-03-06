@@ -15,9 +15,8 @@
 \setlength{\TPHorizModule}{1em}          % X grid unit for textpos
 \setlength{\TPVertModule}{\TPHorizModule}% Y grid unit for textpos
 \usepackage{changepage}                  % Adjustwidth environment
-\usepackage{parallel}                    % Side-by-side paragraphs
 \usepackage{xparse}                      % Multi-default argument commands, etc
-\usepackage{tabu}
+\usepackage{tabu}                        % Ultra-flexible tabular replacement
 
 % Default to not indenting any paragraphs, but allow \indent to still work
 \newlength\tindent
@@ -25,22 +24,16 @@
 \setlength{\parindent}{0pt}
 \renewcommand{\indent}{\hspace*{\tindent}}
 
-\setlength{\fboxsep}{0pt}
-
 % Shorthand command for frequent use and/or for hard to remember sequences 
-\newcommand{\fullline}{\line(1,0){542} \\}
-\newcommand{\colline}{\line(1,0){268} \\}
 \newcommand{\e}[1]{\emph{#1}}
 \newcommand{\B}[1]{\textbf{#1}}
 \newcommand{\s}[0]{$^S$}
 \newcommand{\N}[0]{$^N$}
+\newcommand{\D}[0]{$^\dag$}
 
 % Environment with smaller font started with huge title and line
 \newenvironment{notesection}[1]
-{ {\huge \B{#1}} \par
-\vspace{-0.75em}
-\colline
-\begingroup\fontsize{9pt}{12pt}\selectfont}
+{ {\huge \B{#1}}\hrule\vspace{0.5em}\begingroup\fontsize{9pt}{12pt}\selectfont}
 {\endgroup}
 
 % Command to clean up rows in inventory
@@ -85,7 +78,6 @@
 \end{sideways}
 \end{textblock}}
 
-\sffamily
 \begin{document}
 \sffamily
 \begin{wrapfigure}{r}{13em}
@@ -94,13 +86,10 @@
 \end{wrapfigure}
  \B{\huge{Zaru Bj\"{o}rtfiskur }\Large{Gnome Wizard 7}} \\
 \e{Chaotic Good} \hspace{2em} \e{Age 57y} \hspace{2em} \e{Height 3ft} \hspace{2em} \e{Weight 37lb} \par
-\vspace{-0.75em}
-
-\fullline
-
+\hrule
 \begin{table}[h!]
 \sffamily
-\vspace{-2em}
+\vspace{-1em}
 \hspace{-1.5em}
 \mbox{
     \subfigure{
@@ -143,15 +132,11 @@
         \end{tabular}
     }
 }
-\vspace{-1.5em}
-\end{table} \par
-
-\vspace{-1em}
-\fullline
-
+\end{table}
+\hrule
 \begin{table}[h!]
 \sffamily
-\vspace{-2em}
+\vspace{-1em}
 \hspace{-1.5em}
 \mbox{
     \subfigure{
@@ -237,14 +222,11 @@
         \end{tabular}
     }
 }
-\vspace{-1.5em}
-\end{table} \par
-
-\vspace{-1.5em}
-\fullline
 \vspace{-1em}
-
-\e{Feats} \\
+\end{table}
+\hrule
+\vspace{0.5em}
+\e{Feats}\\
 % Bonus increases by +1 every five caster levels, up to a maximum of +5 at 20th level. \\
 % LVL10 increase bonus to +3
 % LVL15 increase bonus to +4
@@ -267,10 +249,11 @@
 \B{39,745 / 51,000} \\
 \\
 {\e{Wealth}} \\
-\B{224ax, 3an} \\
+\B{224ax, 3an}
 
 \pagebreak
-\B{\huge{Inventory}}\\
+\B{\huge{Inventory}}
+\hrule
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \thing{\B{Personal Gear}}[\B{Weight}]
     \thing{+2 Ritual Dagger\N}[1]
@@ -377,10 +360,8 @@
 \spelllevel{31}{First: 6/day}
 \spelllevel{54}{Second: 4/day}
 
- {\huge \B{Spellbook}} \hspace{2em}4/6/4/3/2 per day\par
-\vspace{-0.5em}
-\fullline
-\vspace{-1.25em}
+{\huge \B{Spellbook}} \hspace{2em}4/6/4/3/2 per day\par
+\hrule\vspace{0.5em}
 
 %\spell{Acid Splash}{Full}{V S}{Conj}{Standard Action / 40ft Range / Instant}{
 %Ranged touch deals 1d3 acid damage to target}{}\\[-1em] % Close (25ft+5ft/2lvl)
@@ -407,14 +388,13 @@ Detect magic auras in a cone-shaped emanation.  Concentrate longer to reveal mor
 \spell{Mage Hand}{Full}{V S}{Trans}{Standard Action / 40ft Range / concentration duration}{%
 Manipulate an object at a distance. As a move action, move the object up to 15 feet in any direction.\\}{}\\[-2em] % Close (25ft+5ft/2lvl)
 
-\spell{Ray of Frost$^\dag$}{Full}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{
+\spell{Ray of Frost\D}{Full}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{
 With a successful ranged touch attack, a ray of ice strikes the target for 1d3 cold damage.\\}{}\\[-2em] % Close (25ft+5ft/2lvl)
 
 \spell{Read Magic}{Full}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 70 minutes*}{
-You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \e{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \e{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-2em] %10min/lvl
+You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \e{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \e{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-1em] %10min/lvl
 
-\fullline
-\vspace{-1.25em}
+\hrule\vspace{0.5em}
 
 \spell{Burning Hands}{}{V S}{Evoc}{Standard Action / 15ft Cone / Instant / Reflex DC 16 Half}{%
 Creatures in area take 5d4 fire damage, flammable materials in area are set on fire.}{}\\[-1em] %1d4/lvl, max 5d4
@@ -428,18 +408,17 @@ Creatures in area are affected by various status effects, according to their HD:
 \spell{Magic Missile}{}{V S}{Evoc}{Standard Action / 170ft Range / Instant}{%
 Four Missiles deal 1d4+1 points of force damage each.}{} \\[-1em] %Medium (100ft+10ft/lvl) One at 1st lvl, Two at 3rd, Three at 5th, Four at 7th, Five at 9th+.
 
-\spell{Ray of Enfeeblement}{}{V S}{Necro}{Standard Action / 40ft Range / 7 rounds / Fort DC 16 Half}{%
+\spell{Ray of Enfeeblement\D}{}{V S}{Necro}{Standard Action / 40ft Range / 7 rounds / Fort DC 16 Half}{%
 \mbox{Ranged touch attack causes 1d6+3 penalty to strength (to a minimum of 1).  Cannot be stacked with itself.}}{} \\[-1em] %Close (25ft+5ft/2lvl). 1round/lvl. 1d6, +1/2lvl (max 1d6+5).
 
 \spell{Shield}{}{V S}{Abjur}{Standard Action / Self / 7 minute duration (D)}{%
 Negates \e{magic missiles} targeted at you; grants +4 shield bonus to regular and touch AC.}{}\\[-1em] %1min/lvl
 
 \begin{adjustwidth}{3em}{0em}
-Others: \B{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Sleep, True Strike} \\[-2em]
+Others: \B{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Sleep, True Strike} \\[-1em]
 \end{adjustwidth}
 
-\fullline
-\vspace{-1.25em}
+\hrule\vspace{0.5em}
 
 \spell{Acid Arrow}{}{V S M (rhubarb leaf, adder's stomach) F (a dart)}{Conj}{\mbox{Standard Action / 680ft Range / 3 rounds}}{%
 Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] %Long (400ft+40ft/lvl). 1round+1/3lvl Duration (max 6 rounds at 18th lvl)
@@ -459,7 +438,7 @@ Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] 
 \spell{Hideous Laughter}{}{V S M (tiny fruit tarts and a feather)}{Ench}{\mbox{Standard Action / 40ft Range / 7 rounds / Will DC 17 Negates }}{%
 Target collapses into gales of manic laughter, falls \e{prone}, and is unable to take actions, but is not considered \e{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em} %Close (25ft+5ft/2lvl). 1round/lvl.
 
-\spell{Scorching Ray}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
+\spell{Scorching Ray\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
 Two ranged touch attacks deal 4d6 fire damage each to their target(s).}{}\\[-1em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
 
 \spell{Spectral Hand}{}{V S}{Necro}{\e{Standard Action / 170ft Range / 7 minutes (D)}}{%
@@ -492,11 +471,10 @@ Conjure a Large quasi-real horselike creature, only rideable by you or one speci
 Creates an unmoving sphere, half outside the ground, opaque from the outside but transparent from within.  Caster plus 9 medium creatures can fit inside.  Temperature is 70$^{\circ}$F inside unless exterior is below 0$^{\circ}$ or above 100$^{\circ}$, in which case it raises or lowers the interior on a 1-for-1 degree basis.  The hut protects from wind less than 75mph, as well as rain, dust, sand, etc.  You can illuminate it dimly upon command or extinguish the light as desired.  Spells, missiles, and weapons pass through the hut without affecting it, although the opaque barrier grants occupants total concealment if attacked from outside.}{2em} %2hours/lvl
 
 \begin{adjustwidth}{3em}{0em}
-    Others: \B{Sepia Snake Sigil}\\[-2em]
+    Others: \B{Sepia Snake Sigil}\\[-1em]
 \end{adjustwidth}
 
-\fullline
-\vspace{-1.25em}
+\hrule\vspace{0.5em}
 
 \spell{Confusion}{}{V S M (three nutshells)}{Ench}{\mbox{Standard Action / 170ft Range / 15ft Radius Burst / 7 rounds / Will DC 19 Negates}}{
     Targets are unable to determine their own actions.  Each round, an affected target rolls to see what it does. Any target who is attacked automatically retaliates on its next turn, as long as it is still confused. \mbox{Targets only take attacks of opportunity against creatures they are already attacking.}\\
@@ -510,14 +488,13 @@ Creates an unmoving sphere, half outside the ground, opaque from the outside but
 \spell{Dimension Door}{}{V}{Conj}{Standard Action / 680ft Range / Instant / Will DC 19 Negates (harmless)}{
 Teleport (including gear) yourself plus up to 7 medium or smaller touched targets (large counts as two medium, huge as two large, etc) to any location in range. If the arrival spot is occupied by a solid body, travelers take 1d6 damage and are shunted to a random open space within 100 feet.  If none exists, they take 2d6 more and are shunted to an open space within 1000 feet.  If none exists, they take an additional 4d6 damage and are returned to where they started.\\After arrival, the caster cannot take any other actions that turn.}{2em}\\[-1em]
 
-\spell{Scorching Ray, Empowered}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
-Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\[-2em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
+\spell{Scorching Ray, Empowered\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
+Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\[-1em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
 
-\fullline
-\vspace{-1.25em}
+\hrule\vspace{0.5em}
 
 * May be made permanent with a \e{permanency} spell \\
-$^\dag$ Ray spell: benefits from weapon focus (ray) \\
+\D Ray spell: benefits from weapon focus (ray) \\
 \s Available on a scroll
 
 \begin{comment}
