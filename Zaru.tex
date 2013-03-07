@@ -5,10 +5,8 @@
 % [Basic names, postscript predefined names, allow colored table backgrounds]
 \usepackage[margin=0.5in]{geometry}      % Easy way to set margins
 \usepackage{multirow}                    % Allow "merged cells" in tables
-\usepackage[normalem]{ulem}              % Strike-through text
 \usepackage{wasysym}                     % Male and Female symbols
 \usepackage{etoolbox}                    % Conditionals like \ifstrequal
-\usepackage{comment}                     % Env for large block comments
 \usepackage{rotating}                    % Allow sideways text
 \usepackage[absolute]{textpos}           % Allows arbitrarily-positioned text
 \setlength{\TPHorizModule}{1em}          % X grid unit for textpos
@@ -25,10 +23,10 @@
 
 % Styles
 \newcommand{\colhead}[0]{\footnotesize\itshape}
-
-% Shorthand for frequently used/math mode commands
 \newcommand{\e}[1]{\emph{#1}}
 \newcommand{\B}[1]{\textbf{#1}}
+
+% Shorthand for math mode commands
 \newcommand{\s}[0]{$^S$}
 \newcommand{\N}[0]{$^N$}
 \newcommand{\D}[0]{$^\dag$}
@@ -36,7 +34,7 @@
 % Color for rotated text in spellbook
 \definecolor{light-gray}{RGB}{179,179,179}
 % Background color for table rows, equal to pathfinder logo
-\definecolor{tan}{RGB}{229, 228, 153}
+\definecolor{tan}{RGB}{228, 220, 147}
 
 % Command to print a skill row
 \newcommand{\skill}[4]{\B{#1} & #2 & {\footnotesize{#3}} & #4 \\}
@@ -131,7 +129,7 @@ Current HP & 38 \\
 \begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
 \multicolumn{4}{c}{\e{Attacks and Damage}} \\
 \rowfont{\colhead}Name & Bonus &&\\
-\taburowcolors 2{tan!50..white}
+\taburowcolors 2{tan..white}
 \B{Base Attack Bonus} & +3 && \\
 \B{Combat Maneuver} & +1 && \\
 \B{Combat Defense} & 13 && \\
@@ -140,7 +138,7 @@ Current HP & 38 \\
 \taburowcolors 2{white..white}
 \\
 \rowfont{\colhead}Name & Bonus & Damage & Critical \\
-\taburowcolors 2{tan!50..white}
+\taburowcolors 2{tan..white}
 \B{Hand of the Apprentice} & +10 & 1d4+3* & 19-20x2 \\
 \multicolumn{4}{l}{\e{Piercing, 30 ft range, usable 8x/day}} \\
 \B{+2 Oerth Ritual Dagger} & +4 & 1d4+3* & 19-20x2 \\
@@ -156,7 +154,7 @@ Current HP & 38 \\
 % 2+INT mod/level +1 for favored class 5 times = 54 ranks
 \multicolumn{4}{c}{\e{Skills}} \\
 \rowfont{\colhead}Name & Bonus & Ability & Ranks \\
-\taburowcolors 2{tan!50..white}
+\taburowcolors 2{tan..white}
 \skill{Acrobatics}{2}{DEX}{-}
 \skill{Appraise}{9}{INT}{1}
 \skill{Bluff}{5}{CHA}{4}
@@ -217,7 +215,7 @@ Current HP & 38 \\
 \B{Common, Draconic, Dwarven, Gnome, Goblin, Orc, Sylvan} \\
 \\
 {\e{Experience}} \\
-\B{39,745 / 51,000} \\
+\B{40,195 / 51,000} \\
 \\
 {\e{Wealth}} \\
 \B{224ax, 3an}
@@ -227,7 +225,7 @@ Current HP & 38 \\
 \hrule
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \multicolumn{2}{c}{\e{Personal Gear}}\\
-    \taburowcolors 2{tan!50..white}
+    \taburowcolors 2{tan..white}
     \thing{+2 Ritual Dagger\N}[1]
     \thing{Cloak of Resistance +1}[1]
     \thing{Ring of Protection +1}
@@ -244,6 +242,7 @@ Current HP & 38 \\
     \thing*{Spellbook}[3]
     \thing*{Waterskin }[1]
     \thing*{8 Days Trail Rations }[2]
+    \thing*{\e{Globe of Sounding}\N}
     \thing{Scroll Case}[1]
     \thing*{Scroll of Hold Portal CL4}
     \thing*{Scroll of Feather Fall CL5}
@@ -254,11 +253,11 @@ Current HP & 38 \\
     \taburowcolors 2{white..white}
     \thing{}[\B{21/22.5}]
     \multicolumn{2}{r}{Med 46, Heavy 68.5, Lift 137, Push/Drag 342.5}
-    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \end{tabu}
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \multicolumn{2}{c}{\e{New Middleton Storage}}\\
-    \taburowcolors 2{tan!50..white}
+    \taburowcolors 2{tan..white}
     \thing{2 Draft Horses and Cart}
     \thing{2 Chests with good locks}
     \thing{Masterwork Breastplate}[350]
@@ -282,7 +281,7 @@ Current HP & 38 \\
     \thing{}[\B{17,991}]
     \\
     \multicolumn{2}{c}{\e{Party Loot and Supplies}}\\
-    \taburowcolors 2{tan!50..white}
+    \taburowcolors 2{tan..white}
     \thing{2 Masterwork Chain Shirts}[250]
     \thing{5 Potions of Cure Light Wounds}[50]
     \thing{4 Potions of Cure Moderate Wounds}[300]
@@ -292,7 +291,6 @@ Current HP & 38 \\
     \thing{Everfull Mug\N}
     \thing{Light Hammer of Thundering +1}[8,001]
     \thing{Warhammer of Dragonbane +2}[18,012]
-    \thing{Bard wand of Cure Serious Wounds}[$<=$30,000]
     \thing{Greataxe +1}[2,020]
     \thing{2 Longsword +1}[2,015]
     \thing{Full Plate Mail +1}[2,500]
@@ -302,13 +300,13 @@ Current HP & 38 \\
     \thing{Unholy Greatsword +2}[32,050]
     &\\&\\&\\&\\
     \taburowcolors 2{white..white}
-    \thing{}[\B{185,548}]
+    \thing{}[\B{155,548}]
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth[h]{X}
     \e{Party Members} \\
     \B{Zaru Bj\"{o}rtfiskur} Gnome Wizard 7 (Ryan) \\
-    \B{Shattered Fang} Halfling Barbarian 1/Druid 5 (Brian) \\
+    \B{Shattered Fang} Halfling Barbarian 1/Druid 6 (Brian) \\
     \B{Clay Blackpool} Human Cad 3/Inquisitor 3 (Jeremy) \\
     \B{Korvek} Dwarf Fighter 6 (James) \\
     \B{Sajitz} Half-Orc Alchemist 6 (Ben) \\
@@ -449,48 +447,6 @@ Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ 
 \D Ray spell: benefits from weapon focus (ray) \\
 \s Available on a scroll
 
-\begin{comment}
-\spell{Charm Person}{}{V S}{Ench}{Standard Action / 40ft Range / 7 hours / Will DC 16 \nolinebreak Negates}{%
-Target humanoid regards you as its trusted friend (if threatened by you or your allies, receives a +5 bonus to its save).  You cannot control the target, but it perceives your words and actions in the most favorable way.  You may order the target, but you must win an opposed CHA check to make it do anything it would not ordinarily do.  Target will never obey suicidal orders, but may be convinced that dangerous actions are worthwhile.}{1em} %1hr/lvl. Close (25ft+5ft/2lvl)
-
-\spell{Comprehend Languages}{}{V S M (pinch of soot and salt)}{Divin}{Standard Action / Personal / 70 minutes*}{%
-You can understand spoken or written words (but not speak or write) of any language. You can read one page per minute. Magical writing cannot be deciphered, and you do not gain any insight beyond literal meaning.}{} %10min/lvl
-
-\spell{Expeditious Retreat}{}{V S}{Trans}{Standard Action / Personal / 7 minutes (D)}{%
-Increases your base speed by 30ft.  Does not effect burrow, climb, fly, or swim speeds.}{}\\[-1em] %1min/lvl
-
-\spell{Feather Fall}{Scroll}{V}{Trans}{Immediate Action / 40ft Range / Until Landing or 7 rounds / Will DC 16 Negates (harmless)}{%
-Seven medium or smaller (or 3 large) target(s) fall slowly, taking no damage upon landing. Targets resume normal falling speed if the spell ends before landing.}{} % Close (25ft+5ft/2lvl). Targets 1 <=medium creature/lvl.  Until landing or 1round/lvl.
-
-\spell{Floating Disk}{Scroll}{V S M (a drop of mercury)}{Evoc}{Standard Action / 40ft Range / 7 hour duration}{%
-Creates a slightly concave, 3ft diameter disk that can hold 700lb or up to 2 gallons of liquid. Unless otherwise directed, it follows you at a 5-foot distance.  It winks out of existence at the end of the spell duration, or if you attempt to move beyond its range.}{0em} %Close (25ft+5ft/2lvl). 1hour/lvl. 100lb per level.
-
-\spell{Hold Portal}{Scroll}{V}{Abjur}{Standard Action / 170ft Range / 7 minute duration (D)}{%
-Holds shut a door, gate, window, or shutter of wood, metal, or stone.  A \e{knock} or successful \e{dispell magic} negates. Add 5 to the DC for forcing open the affected portal.}{} %Medium(100ft+10ft/lvl). Up to 20sq.ft./lvl. 1min/lvl.
-
-\spell{Magic Weapon}{}{V S}{Trans}{Standard Action / Touch / 7 minute duration / Will DC 16 Negates \mbox{(harmless)}}{%
-Target weapon gains +1 enhancement bonus to attack and damage rolls.}{}\\[-1em] %1min/lvl
-
-\spell{Sleep}{}{V S M (rose petals)}{Ench}{Full Round Action / 170ft Range / 10ft Radius Burst / 7 minute duration / Will DC 16 \nolinebreak Negates}{%
-Up to 4HD (lower HD creatures closest to origin affected first) fall unconscious.  Affected targets are helpless, not wakened by sounds, but can be wakened by damage or via a standard action. Cannot effect constructs and undead.}{}\\[-1em] %Medium (100ft+10ft/lvl). 1min/lvl duration.
-
-\spell{True Strike}{}{V F (small wooden replica of an archery target)}{Divin}{\mbox{Standard Action / Personal / See Text}}{%
-\mbox{Your next single attack gains a +20 insight bonus, and is not affected by miss change from striking a concealed target.}}{}\\
-
-\spell{Continual Flame}{}{V S M (ruby dust worth 50ax)}{Evoc}{\mbox{Standard Action / Touch / Permanent}}{%
-A flame springs from target object.  It looks like a regular flame, but creates no heat, needs no oxygen, can't be smothered or quenched.  Counters \e{darkness} spells of equal or lower level.}{}
-
-\spell{Glitterdust}{}{V S M (ground mica)}{Conj}{\mbox{Standard Action / 170ft Range / 10ft radius spread / 7 rounds / Will DC 17 Negates }}{%
-Creatures in area are \e{blinded} and take a -40 penalty on Stealth checks; invisible creatures are revealed. The dust cannot be removed until the spell ends. \e{Blinded} creatures may make a new save each round.}{} %Medium (100ft+10ft/lvl). 1round/lvl.
-
-\spell{Hypnotic Pattern}{}{S M (crystal rod)}{Illu}{\mbox{Standard Action / 170ft Range / 10ft radius spread / concentration + 2 rounds / Will DC 18 Negates }}{%
-Pattern of subtle shifting colors fascinates creatures within the area of effect.  Up to 2d4+7 HD are effected, starting with those with the fewest HD, closest to the center.  Sightless creatures are not effected.}{} %Medium (100ft+10ft/lvl). 2d4+lvl HD effected (max 2d4+10)
-
-\spell{Sepia Snake Sigil}{}{V S M (500ax of powdered amber; a snake scale)}{Conj}{\e{10 minutes / Touch / See Text / Reflex DC 18 Negates}}{%
-Cause a small symbol to appear in a written work or at least 25 words in length.  Anyone who reads the text triggers the spell, causing a large sepia snake to spring into being.  Target that fails to save is engulfed in an amber force field and immobilized for 1d4+7 days, or until you release them.  While immobilized, the target does not age, breathe, grow hungry, sleep, or regain spells: it is in a state of suspended animation.  It can be affected by its surroundings, but is unaware of them.  A \e{detect magic} spell does not reveal this spell, only that the text is magical.  A \e{dispell magic} spell can remove this sigil.  The \e{erase} spell destroys the entire page of text.  This spell may be cast in combination with other text-affecting spells, such as \e{secret page}.}{5em}\\[-1em] %1d4+1day/lvl immobilization
-
-\end{comment}
-
 \twocolumn
 \begin{notesection}{People and Places}
 \B{Seven Settlements} Human settlements on the North part of the continent in a loose coalition, subject to the political influence of the nearby Mountain Dwarves. Each is home to four or five thousand residents: \B{Cerena}, home to many of the party members, ruled by \e{Lord Kelvin} and protected by his Knights; \B{Baylith}, home to \e{T}'s Leatherworking shop, in a dispute with \e{Painswick}, and primary exporter of Bog Iron; \B{Painswick}, home of family Oerth and center of woodcutting and charcoal-making industry in the area; \B{Lindstrom}, a small fishing town on a lake and home to \e{Z} and most of the Gnomes of the North; \B{Haverton}, site of the Arcane Academy; \B{Meredith}, the agricultural heartland: known for both oat and barley crops and dairy farms; and \B{Stenwick}, the southernmost of the seven, home to \e{Matthew Lanliss}.\\
@@ -580,6 +536,7 @@ Cause a small symbol to appear in a written work or at least 25 words in length.
 \begin{notesection}{Notes}
 - Lands and settlements from north to south: The wastes, dwarven kingdom, 7 settlements, turnbull, horngrim, givissel.\\
 - Aganst \e{Dyson}, \e{Z}'s ritual dagger grants +4 and ignores piercing DR\\
+- \e{Globe of Sounding} is a map of the whole world. If the holder names a place, it will appear accurately on the globe and show routes to reach that point. It can to update to the present political or even geographical situation automatically, but only when the area in question has been queried as described.\\
 - \e{Behir Lightning} acts like \e{Lightning Bolt}, except it deals 7d6+6 damage\\
 - \e{Concluder} One of the nine swords of legend, each aligned to a particular moral outlook. With an alignment of chaotic good, it stands in contrast to two others we know of, \e{Backbiter} and \e{Retorter}. All of the nine have the capacity to ``get in the last word'' in a fight. (In combat rule terms, they act as +2 longswords, but also grant one additional attack at +4, which acts outside the normal initiative order, at the very end of a round.)\\
 - \e{Orb of Blasting} Fires up to 5 bolts of arcing lightning (range 100ft), each dealing d10+2 damage on a touch attack. Firing saps 1, 5, 10, 15, or 20hp of the firer's life force for one through five bolts, respectively.\\\\
@@ -664,7 +621,7 @@ We sent a message to \e{XG}, stating that \e{Dyson} was awake, to warn whomever 
 
 We returned to \e{Baylith}; \e{T} was happy to find us alive after so many of the Oerth workers returned bearing injuries and stories. \e{T} also had a message for \e{Z}: an invitation from \e{XG} to meet ASAP.
 
-\e{Z} rode ahead to \e{NM} with Sarsha. The rest met group of halfling refugees from outside \e{Horngrim} on the road to Cerena, about sixty in number. They requested permission to settle at \e{NM}. We agreed to give them land to farm and protection, in exchange for service and food. \e{SF} found dead merchants on the road, killed with arrows unique to his presumed-dead tribe.
+\e{Z} rode ahead to \e{NM} with Sarsha. The rest met group of halfling refugees from \e{Middleton}, a hamlet in \e{Malluk County, Horngrim} on the road to Cerena, about sixty in number. They requested permission to settle at \e{NM}. We agreed to give them land to farm and protection, in exchange for service and food. \e{SF} found dead merchants on the road, killed with arrows unique to his presumed-dead tribe.
 
 At \e{NM}, \e{Z} encountered the \e{North Circle} for the first time. \e{Elton} was abrasive, but not hostile. \e{XG} explained \e{Elton} was deceived into opening the tomb: \emph{Elton} expected an artifact, not \e{Dyson}'s wraith.  \e{Zachary} chuckled and quipped ``he has so much power, but not the sense to use it.'' \e{Figgins} explained that those present represent the spellcasters in the North; they seek to identify and educate talent, and to protect the North from aggression. They invited \e{Z} to join them, and although was reluctant to trust \e{Elton}, he accepted. \e{Elton} made his first attempt at helpfulness by explaining the ritual dagger, and suggeting using fire to put \e{Dyson} to rest. He also promised to research the demonic statue in the tomb.  Last, \e{Zachary} gave \e{Z} a Tome of Empowered Sorcel as a welcome gift, before the group departed.
 
@@ -682,7 +639,7 @@ At \e{NM}, \e{Z} encountered the \e{North Circle} for the first time. \e{Elton} 
 
 \e{WW} and \e{SF} continued interacting with \e{Viridian} and eventually convinced the feral halflings to return to \e{NM} with them rather than staying with her. They returned to \e{NM}, and we all set out North toward the Dwarven stronghold. On arrival, we found the tunnel we entered previously had been enlarged by crude workmanship. Inside, we found an ettin and a band of orcs had taken up residence, and defeated them. 
 
-\B{17 October 2012} Further into the stronghold, we encountered a trio of trolls.  \e{Kallus} was slain in the fight, though we ultimately defeated them. \e{Suk} sang of his valor, while the rest grimly moved on. In the jail room, the furthest we entered the stronghold previously, we found stairs leading down, and encountered a rogue-sorcerer, \e{Evan Ridell}, who agreed to join for the protection of numbers.
+\B{17 October 2012} Further into the stronghold, we encountered a trio of trolls.  \e{Kallus} was slain in the fight, though we ultimately defeated them. \e{Suk} sang of his valor, while the rest grimly moved on. In the jail room, the furthest we entered the stronghold previously, we found stairs leading down. 
 
 \B{24 October 2012} At the bottom of the steps, we encountered arcane darkness. By feeling our way around, we found a statue, and upon touching it, the darkness was dispelled: revealing a massive drider guarded by goblinoids bearing maces. We fought and defeated them. Very battered and with neither magic nor vitality remaining in much of a supply, we decided to return to the upper-level to rest.
 
@@ -737,13 +694,16 @@ Just as the town began to prepare for the feast, screams came from the edge of t
 
 We set out for the castle. On the road, we encountered a pair of flesh golems, and would have had to run, save for \e{Pellagius}' adamantine weapon.  We freed a prisoner from the nearby gatehouse (Patrick's character), who joined us.  Further along, the swamp receeded, ground became firmer, trees change to evergreen.  We encounter one last traveler on the road, a Night Hag, who warns us that if we fail to slay the lord of the keep, who she claimed is a vampire, that we will never be able to leave. To help, she told us about a drainage hole in the castle wall that could be used to gain entry; then she departed.
 
-\B{6 March 2013} Seeing no guard or any movement on the walls, we entered through the water entrance; the courtyard showed the decay of long neglect, and was scattered with skeletal remains of the inhabitants. \e{Leaf} checked the doors to the keep proper, and finding them unlocked, we proceeded inside.  \e{Korvek} led us up the grand staircase in the foyer, where eight sheilds bearing coat-of-arms adorned the walls; only two were recognizable to us: one bearing House Oerth's morningstar, the other the ancient sheild of a Denoxian legionaire.
+\B{6 March 2013} We entered through the water entrance, then proceeded inside the keep proper. Eight sheilds bearing coat-of-arms adorned the walls of the foyer; only two were recognizable to us: one bearing House Oerth's morningstar, the other the ancient shield of a Denoxian legionaire.
 
-The stairs led to a great dining hall, where the sound of a harp emanated softly from an alcove.  Approaching cautiously, we encountered the shade of a weeping elven woman, who led us about the room, showing us her own remains, pinned to the wall by a sword, and two mural tapestries.  The first depicted the dwarven victory over an aggressive lord of \e{Horngrim} some 400 years past.  The next, the execution of a knight, which the shade, in a whispering echo, says is \e{Lord Vostel}, the lord of this keep.  Just then, a figure materialized from the shadows, tall and handwome, ornately armed and armored.  \e{Z} opened with attempted diplomacy, but when Vostel began speaking of feeding on us, we quickly changed tactics.  \e{SF} and \e{Sajitz} delayed the arrival of several minions by filling the entrance hall with darkness and explosions, as we focused on Vostel himself.  After \e{Clay} disarmed him, \e{Korvek} makes short work of him, forcing Vostel to retreat in gaseous form. The Night Hag, who had apparently observed the whole thing, cackled madly with glee at our victory, until \e{Clay} threatened her, and she teleported away. The elven ghost reformed after the battle, and pleads with us to return her remains home, to \e{Lenoria}.
+Further inside, the sound of a harp emanated softly from an alcove. There, we encountered the shade of a weeping elven woman, who led us about the room, showing us her own remains, pinned to the wall by a sword, and two mural tapestries.  The first depicted the dwarven victory over an aggressive lord of \e{Horngrim} some 400 years past.  The next, the execution of a knight, which the shade, in a whispering echo, says is \e{Lord Vostel}, the lord of this keep.
 
-Grabbing Vostel's weapon, we pursued his mist, finding his bones in a tomb defaced with graffiti of \e{traitor!}.  \e{Clay} stopped the vampire from reforming with his magic, while \e{Pellagius} drove a stake through him.  Just before turning to dust, the vampire grabbed \e{Pellagius}, seemingly about to tell him something.  Searching the tomb, we found two magical tomes, and Vostel's enchanted armor. Only moments later, the world around us faded to black, and then was replaced by the chill air of winter; we found ourselves standing in a field outside \e{Mage's Point}, and \e{Bim}, who we nearly knocked over on our arrival, demands to know, ``Where have you been?''
+Just then, \e{Vostel} himself appeared. \e{Z} attempted diplomacy, but when Vostel began speaking of feeding on us, we quickly changed tactics. \e{SF} and \e{Sajitz} delayed the arrival of several minions by filling the entrance hall with darkness and explosions, as we focused on Vostel himself. After \e{Clay} disarmed him, \e{Korvek} forced Vostel to retreat in gaseous form. The Night Hag, who had apparently observed the whole thing, cackled madly with glee at our victory, until \e{Clay} threatened her, and she teleported away. After the battle, the elven ghost pleaded that we return her remains home, to \e{Lenoria}.
 
-\B{13 March 2013}
-Who the eff was Evan Ridell, from 17 October 2012 notes??
+We found \e{Vostels} bones in a tomb defaced with graffiti of \e{traitor!}. \e{Clay} stopped the vampire from reforming with his magic, while \e{Pellagius} drove a stake through him. Just before turning to dust, \e{Vostel} grabbed \e{Pellagius}, seemingly about to tell him something. Searching the tomb, we found two magical tomes, and Vostel's enchanted armor. Only moments later, the world around us faded to black, and then was replaced by the chill air of winter; we found ourselves standing in a field outside \e{Mage's Point}, with \e{Bim} standing nearby, looking annoyed.
+
+\B{13 March 2013} \e{Mage's Point}, and its fields, livestock, and people, had all appeared back in their normal locations. Mayor Fergus and his people were immensely grateful.  We decided to investigate the tower of the hamlet's namesake, and found it rotting and broken, unlike in the shadow realm.  We climbed in through a window, and after searching awhile, found a \e{Globe of Sounding}.
+
+Back in town, we met \e{Count Seavos}, who took us back to his fortress, \e{Seran}.  He thanked us and promised several rewards: a promissory note valued at 8000 axes within \e{Horngrim}, a feast, and access to both his counsellor and his castle's hot springs. On the way, we passed the ruins of one of the Mad Count's forts.  On arrival, the count introduced his family; his Lady was clearly not the mother of his children. \e{Pellagius} and \e{Leaf} went to the hot baths while \e{Z}, \e{Sajitz}, and \e{Clay} visit the library and meet counselor \e{Lork}.  \e{Clay} read up on golden gorgers and rust monsters, while \e{Z} and \e{Sajitz} discovered writings from which they pieced together a theory that the Mad Count was influenced by a magical helm. We all attended a great feast in our honor; one of the count's children confides that she believes something is wrong with her father, that he is not himself to have cast aside the children's mother for such a young replacement.
 \end{notesection}
 \end{document}
