@@ -123,7 +123,7 @@ Flat Footed & 14 \\
 \multicolumn{2}{c}{~} \\
 \multicolumn{2}{c}{\e{Health}} \\
 \B{Hit Points} & 38 \\
-Current HP & 38 \\
+Current HP & 21 \\
 \end{tabu}\vspace{1em}
 %
 \begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
@@ -147,7 +147,7 @@ Current HP & 38 \\
 \multicolumn{4}{l}{\e{Caster Level 3, 37 Charges}} \\
 \multicolumn{4}{l}{* Includes bonus from \e{Arcane Strike}} \\
 \taburowcolors 2{white..white}
-\\\\\\\\\\\\\\\\\\\\\\\\
+\\\\\\\\\\\\\\\\\\\\\\
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth{X[3] X[1c] X[1c] X[1c]}
@@ -180,7 +180,7 @@ Current HP & 38 \\
 \skill{Knowledge {\scriptsize NOBILITY}*}{9}{INT}{1}
 \skill{Knowledge {\scriptsize PLANES}*}{9}{INT}{1}
 %\skill{Knowledge {\scriptsize RELIGION}*}{-}{INT}{-}
-\skill{Linguistics*}{-}{INT}{-}
+%\skill{Linguistics*}{-}{INT}{-}
 \skill{Perception}{8}{WIS}{7}
 \skill{Perform}{1}{CHA}{-}
 %\skill{Profession*}{-}{WIS}{-}
@@ -215,7 +215,7 @@ Current HP & 38 \\
 \B{Common, Draconic, Dwarven, Gnome, Goblin, Orc, Sylvan} \\
 \\
 {\e{Experience}} \\
-\B{40,195 / 51,000} \\
+\B{42,295 / 51,000} \\
 \\
 {\e{Wealth}} \\
 \B{224ax, 3an}
@@ -249,7 +249,7 @@ Current HP & 38 \\
     \thing*{Scroll of Floating Disk CL5}
     \thing*{Scroll of Ice Storm CL7}
     \thing*{Scroll of Mage's Sword CL13}
-    \thing*{2 Scroll of \e{Behir Lightning}\N CL 7}
+    \thing*{1 Scroll of \e{Behir Lightning}\N CL 7}
     \taburowcolors 2{white..white}
     \thing{}[\B{21/22.5}]
     \multicolumn{2}{r}{Med 46, Heavy 68.5, Lift 137, Push/Drag 342.5}
@@ -284,7 +284,7 @@ Current HP & 38 \\
     \taburowcolors 2{tan..white}
     \thing{2 Masterwork Chain Shirts}[250]
     \thing{5 Potions of Cure Light Wounds}[50]
-    \thing{4 Potions of Cure Moderate Wounds}[300]
+    \thing{3 Potions of Cure Moderate Wounds}[300]
     \thing{2 Potions of Cure Serious Wounds}[750]
     \thing{Potion of Bear's Endurance}[300]
     \thing{Potion of Bull's Strength}[300]
@@ -298,7 +298,8 @@ Current HP & 38 \\
     \thing{Tome of Leadership and Influence I}[27,500]
     \thing{Manual of Bodily Health II}[55,000]
     \thing{Unholy Greatsword +2}[32,050]
-    &\\&\\&\\&\\
+    \thing{Dwarven Waraxe +1 (+2 v. Orcs)}[5,000]
+    &\\&\\&\\
     \taburowcolors 2{white..white}
     \thing{}[\B{155,548}]
 \end{tabu}
@@ -488,6 +489,7 @@ Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ 
 \B{Horngrim} the large town and surrounding four counties (Seavos, Malluk, and two others), lying about mid-way between the \e{Seven Settlements} and \e{Givissel}.\\
 \person{Gil Demair} \e{Horngrim} knight we met at a tourney; later was killed on the King's road\\
 \B{Mage's Point} a hamlet outside \e{Horngrim}, in Seavos County, disappeared into a shadow realm by forces unknown.\\
+\person{Lady Mala}{F}{Human Wizard} Daughter to the Count of Seavos County, student at the \e{Arcane Academy}.\\
 \person{Lord Vostel}{M}{Human Noble} Knight and minor lord of \e{Horngrim} 400 years ago. Executed for opposing his lord's war against the dwarves; later returned to unlife as a vampire.\\
 \B{Turnbull} a hamlet outside \e{Horngrim}.\\
 \B{Silverfish Bandits}, a group of half-orcs based outside \e{Turnbull}; hired to kill us and raze \e{NM} by unknown party.\\
@@ -506,7 +508,6 @@ Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ 
 \end{notesection}
 
 \begin{notesection}{Quests}
--Deliver garnets to \e{Horngrim} for \e{Merkel}, obtain the reward of a black pearl\\
 -Determine who summoned \e{Ser Dyson Oerth}'s shade, and stop him\\
 -Find out what \e{Elton Oerth} has discovered about the demonic statues\\
 -Investigate \e{Mertensia}'s claim of \e{Denoxian} princes fabricated the \e{Thrane Bog} incident\\
@@ -516,9 +517,9 @@ Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ 
 -Reign in Skel and the feral halflings\\
 -Begin taking our share of proceeds form the \e{NM} brewery\\
 -Complete extraction of the Mithril vein in the cave near \e{NM}\\
--Seek out who hired the \e{Silverfish Bandits} to raze \e{NM}\\
--Visit the \e{Dead Man's Arms} tavern in \e{Horngrim}: someone there instigated the attack on \e{NM} by mercenaries of Azmodeus\\
--Find family Garrett in \e{Horngrim}: source states they hired \e{Silverfish Bandits} to attack us\\
+
+-Connect \e{Dead Man's Arms} inn, \e{Silverfish Bandits}, cult to Azmodeus, and \e{D'Thrane} family; bash some skulls in for their unprovoked attack on \e{NM}.\\
+-Determine cult connection of \e{Merkel}'s son, if any.
 -Locate a broker to sell our items for cash/services/other items\\
 
 -Determine cause of disappearance of \e{Mage's Point}\\
@@ -702,8 +703,25 @@ Just then, \e{Vostel} himself appeared. \e{Z} attempted diplomacy, but when Vost
 
 We found \e{Vostels} bones in a tomb defaced with graffiti of \e{traitor!}. \e{Clay} stopped the vampire from reforming with his magic, while \e{Pellagius} drove a stake through him. Just before turning to dust, \e{Vostel} grabbed \e{Pellagius}, seemingly about to tell him something. Searching the tomb, we found two magical tomes, and Vostel's enchanted armor. Only moments later, the world around us faded to black, and then was replaced by the chill air of winter; we found ourselves standing in a field outside \e{Mage's Point}, with \e{Bim} standing nearby, looking annoyed.
 
-\B{13 March 2013} \e{Mage's Point}, and its fields, livestock, and people, had all appeared back in their normal locations. Mayor Fergus and his people were immensely grateful.  We decided to investigate the tower of the hamlet's namesake, and found it rotting and broken, unlike in the shadow realm.  We climbed in through a window, and after searching awhile, found a \e{Globe of Sounding}.
+\B{13 March 2013} \e{Mage's Point} and residents had all appeared back in their normal locations; they were immensely grateful.  We decided to investigate the tower of the hamlet's namesake, and found it rotting and broken, unlike in the shadow realm.  We climbed in through a window, and after searching awhile, found a \e{Globe of Sounding}.
 
-Back in town, we met \e{Count Seavos}, who took us back to his fortress, \e{Seran}.  He thanked us and promised several rewards: a promissory note valued at 8000 axes within \e{Horngrim}, a feast, and access to both his counsellor and his castle's hot springs. On the way, we passed the ruins of one of the Mad Count's forts.  On arrival, the count introduced his family; his Lady was clearly not the mother of his children. \e{Pellagius} and \e{Leaf} went to the hot baths while \e{Z}, \e{Sajitz}, and \e{Clay} visit the library and meet counselor \e{Lork}.  \e{Clay} read up on golden gorgers and rust monsters, while \e{Z} and \e{Sajitz} discovered writings from which they pieced together a theory that the Mad Count was influenced by a magical helm. We all attended a great feast in our honor; one of the count's children confides that she believes something is wrong with her father, that he is not himself to have cast aside the children's mother for such a young replacement.
+Back in town, we met \e{Count Seavos}, who thanked us and promised several rewards; he took us back to his fortress, \e{Seran}. On the way, we passed the ruins of one of the Mad Count's forts.  On arrival, we met his family (the Lady clearly not the mother of his children). \e{Pellagius} and \e{Leaf} went to the hot baths while \e{Z}, \e{Sajitz}, and \e{Clay} visit the library and meet counselor \e{Lork}.  \e{Clay} read up on golden gorgers and rust monsters, while \e{Z} and \e{Sajitz} pieced together a theory that the Mad Count was influenced by a magical helm. We all attended a great feast in our honor; the Count's youngest daughter,\e{Mala}, confides that she believes something is wrong with her father, that he is not himself to have cast aside the children's mother for such a young replacement.
+
+\B{20 March 2013} \e{SF} brought \e{Mala}'s concerns to \e{Z}. In the middle of the night, \e{Z} recieved a note from \e{Mala}, pleading for acceptance to the \e{Arcane Academy}, attached to a recommendation from Lork.
+
+\e{Leaf} investigated under the baths, found a fire elemental, and unable to understand it, went to wake us. \e{SF} transformed to speak with it, and learned it is just barely in to a century-long contract signed with Lork.  It claimed to have been tricked, but refused details, instead continually returning to a desire to ``bud'' with \e{SF}, and telling a tale of burning a halfling village to the ground somewhere in the Wastes. We sleep on the situation, and in the morning decided not to interfere with its contract.
+
+At breakfast, \e{Mala} demonstrated her fledgling ability by performing a minor cantrip on our breakfast. Lork insisted that schools in \e{Givissel} would be too harsh on \e{Mala}, but wouldn't speak with the Count directly. We go to him, but his indifference to \e{Mala}'s well-being angered \e{SF}, who began trading insults. \e{SF} transformed into a bird to flee the guards the count set on him, and \e{Z} charmed the count in the commotion. With our magical advantage, we compel the Count to sign a contract releasing his daughter in exchange for 50\% discount on \e{New Moon Brewery} products for a term of 1 year. \e{Z} then sent \e{Mala} off on a phantom steed, bearing a letter of explanation to \e{Zachary}.
+
+We set off for \e{Horngrim}, arrived the same day. At a dwarven blacksmith in town, we promised \e{Bim} and \e{Z}'s labor in exchange for some magical items.  The rest of the party found \e{Merkel}'s shop burnt to the ground, the jeweler himself dead. \e{Korvek} explained the trade to \e{Merkel}'s son, who completed the transaction.
+
+\B{27 March 2013} \e{SF} caught up to \e{Mala} using his bird form, and changed to a pony to carry her safely after the phandom steed disappeared. 
+
+\e{Pellagius} met with an acquaintance, Lord Quentin, a formerly influential noble in \e{Horngrim}, now a senile old man. The rest of us received an invitation to the Cow and Corset Inn, where the owner, Jorgan, informed us that \e{Lord D'Thrane} reserved the whole inn on our behalf for three nights. We dine and drink indulgently, and are met there by \e{Pellagius} with Lord Quentin and his footman, Ballut in tow. They described their encounter with a cult to Azmodeus in the city, and suggest both the \e{D'Thrane}s and \e{Merkel} were behind the activity. As they described a set of strange keys, one of which was produced by a missing gnomish artisan, the who inn suddenly errupted into chaos: the floor itself exploded inward in a flurry of icy wind. We found ourselves facing a huge blue skinned creture with stag's horns, a devil, which appeared to carry with it the magical blizzard. 
+
+\e{Clay} attempted to speak with it, but it responded by tragically striking him dead with a icy bolt, nearly taking \e{Z} and Lord Quentin down as well.  We fought valiantly on, but faced difficulty making any blow, physical or magical, penetrate its defenses. Between \e{Leaf}'s flank attacks, \e{Korvek} and \e{Pellagius}' consistently heavy blows, and a single lucky lightning bolt, we made progress. Before \e{Leaf} landed the kill though, it also struck down \e{Pellagius}, who melted away mysteriously. Battered and still reeling from our losses, we performed what healing we could, and closed ranks to find what safety and rest we could.
+
+\B{3 April 2013}
+
 \end{notesection}
 \end{document}
