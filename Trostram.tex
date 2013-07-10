@@ -1,0 +1,381 @@
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}                    % PNG images
+\usepackage{wrapfig}                     % Wrap text around images
+\usepackage[usenames,dvipsnames,table]{xcolor} % Colors
+% [Basic names, postscript predefined names, allow colored table backgrounds]
+\usepackage[margin=0.5in]{geometry}      % Easy way to set margins
+\usepackage{multirow}                    % Allow "merged cells" in tables
+\usepackage{wasysym}                     % Male and Female symbols
+\usepackage{etoolbox}                    % Conditionals like \ifstrequal
+\usepackage{rotating}                    % Allow sideways text
+\usepackage[absolute]{textpos}           % Allows arbitrarily-positioned text
+\setlength{\TPHorizModule}{1em}          % X grid unit for textpos
+\setlength{\TPVertModule}{\TPHorizModule}% Y grid unit for textpos
+\usepackage{changepage}                  % Adjustwidth environment
+\usepackage{xparse}                      % Multi-default argument commands, etc
+\usepackage{tabu}                        % Ultra-flexible tabular replacement
+
+% Default to not indenting any paragraphs, but allow \indent to still work
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+% Styles
+\newcommand{\colhead}[0]{\footnotesize\itshape}
+\newcommand{\e}[1]{\emph{#1}}
+\newcommand{\B}[1]{\textbf{#1}}
+
+% Shorthand for math mode commands
+\newcommand{\s}[0]{$^S$}
+\newcommand{\N}[0]{$^N$}
+\newcommand{\D}[0]{$^\dag$}
+
+% Color for rotated text in spellbook
+\definecolor{light-gray}{RGB}{179,179,179}
+% Background color for table rows, equal to pathfinder logo
+\definecolor{tan}{RGB}{228, 220, 147}
+
+% Command to print a skill row
+\newcommand{\skill}[4]{\B{#1} & #2 & {\footnotesize{#3}} & #4 \\}
+
+% Command to clean up rows in inventory
+\NewDocumentCommand{\thing}{ s m O{} }{
+    \IfBooleanTF{#1}{\hspace{1em} #2 & #3\\}{#2 & #3\\}}
+
+% Command to print sideways text in spellbook left margin
+\newcommand{\spelllevel}[2]{
+\begin{textblock}{1}(0.5,#1)
+\begin{sideways}
+     {\color{light-gray}{\LARGE \e{#2}}}
+\end{sideways}
+\end{textblock}}
+
+% Command to print a spell with all sorts of pretty formatting and a
+% checkbox to the left
+\newcommand{\spell}[7]{
+\begin{wrapfigure}{l}{2em}
+\vspace{-13pt}
+\ifstrequal{#2}{Full}{  \includegraphics[width=2em]{Checkbox-Full}}{
+\ifstrequal{#2}{Scroll}{\includegraphics[width=2em]{Checkbox-S}}{
+                        \includegraphics[width=2em]{Checkbox}}}
+\ifstrequal{#7}{}{\vspace{-1em}}{\vspace{#7}}
+\end{wrapfigure}
+ \B{#1} #3 {
+    \ifstrequal{#4}{Conj}{\color{Plum}Conj}{%
+    \ifstrequal{#4}{Divin}{\color{YellowOrange}Divin}{%
+    \ifstrequal{#4}{Ench}{\color{VioletRed}Ench}{%
+    \ifstrequal{#4}{Trans}{\color{LimeGreen}Trans}{%
+    \ifstrequal{#4}{Evoc}{\color{RedOrange}Evoc}{%
+    \ifstrequal{#4}{Illu}{\color{ProcessBlue}Illu}{%
+    \ifstrequal{#4}{Abjur}{\color{CadetBlue}Abjur}{%
+    \ifstrequal{#4}{Necro}{\color{Red}Necro}{%
+}}}}}}}}}
+{\footnotesize \e{#5}} \\
+#6
+}
+
+% Environment with smaller font started with huge title and line
+\newenvironment{notesection}[1]
+{ {\huge \B{#1}}\hrule\vspace{0.5em}\begingroup\fontsize{9pt}{12pt}\selectfont}
+{\endgroup}
+
+% Command to print a person with a colored M/F symbol
+\newcommand{\person}[3]{\B{#1
+    \ifstrequal{#2}{M}{{\color{ProcessBlue}\male}}{%
+    \ifstrequal{#2}{F}{\color{VioletRed}\female}{}}}{\scriptsize #3}}
+
+
+\begin{document}
+\sffamily
+\begin{wrapfigure}{r}{13em}
+\vspace{-1.5em}
+\includegraphics[width=13em]{Pathfinder}
+\end{wrapfigure}
+ \B{\huge{Trostram }\Large{Human Magus 1}} \\
+\e{Chaotic Good} \hspace{2em} \e{Age 24y} \hspace{2em} \e{Height 5ft 3in} \hspace{2em} \e{Weight 135lb} \par
+\hrule
+
+\begin{tabu} to 0.333\textwidth{X[4] X[1c] X[1c]}
+\multicolumn{3}{c}{\e{Ability Scores}} \\
+\B{Strength} & 19  & +4 \\
+\B{Dexterity} & 12 & +1 \\
+\B{Constitution} & 13 & +1 \\
+\B{Intelligence} & 18 & +4 \\
+\B{Wisdom} & 9 & -1 \\
+\B{Charisma} & 10 & +0 \\
+\end{tabu}
+%
+\begin{tabu} to 0.333\textwidth{X[5] X[1c]}
+\multicolumn{2}{c}{\e{Defenses}} \\
+\B{Armor Class} & 14 \\
+Touch & 11 \\
+Flat Footed & 13 \\
+\B{Fortitude} & 3 \\
+\B{Reflex} & 1 \\
+\B{Will} & 1 \\
+\end{tabu}
+%
+\begin{tabu} to 0.333\textwidth{X[5] X[1c]}
+\multicolumn{2}{c}{\e{Movement}} \\
+\B{Speed} & 30 ft \\
+\B{Initiative} & +1 \\ 
+\multicolumn{2}{c}{~} \\
+\multicolumn{2}{c}{\e{Health}} \\
+\B{Hit Points} & 9 \\
+Current HP & 9 \\
+\end{tabu}\vspace{1em}
+%
+\begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
+\multicolumn{4}{c}{\e{Attacks and Damage}} \\
+\rowfont{\colhead}Name & Bonus &&\\
+\taburowcolors 2{tan..white}
+\B{Base Attack Bonus} & +0 && \\
+\B{Combat Maneuver} & +4 && \\
+\B{Combat Defense} & 15 && \\
+\B{M\^{e}l\'{e}e Touch Attack} & +4 && \\
+\B{Ranged Touch Attack} & +1 && \\ 
+\taburowcolors 2{white..white}
+\\
+\rowfont{\colhead}Name & Bonus & Damage & Critical \\
+\taburowcolors 2{tan..white}
+\B{Longsword} & +4 & 1d8+4* & 19-20x2 \\
+\multicolumn{4}{l}{\e{Slashing}} \\
+\taburowcolors 2{white..white}
+\\\\\\\\\\\\\\\\\\\\\\
+\end{tabu}
+%
+\begin{tabu} to 0.5\textwidth{X[3] X[1c] X[1c] X[1c]}
+% 2+INT mod/level +1 for favored class 5 times = 54 ranks
+\multicolumn{4}{c}{\e{Skills}} \\
+\rowfont{\colhead}Name & Bonus & Ability & Ranks \\
+\taburowcolors 2{tan..white}
+\skill{Acrobatics}{2}{DEX}{-}
+\skill{Appraise}{9}{INT}{1}
+\skill{Bluff}{5}{CHA}{4}
+\skill{Climb}{1}{STR}{2}
+% Not a skill, but a CL + INT check; "ranks" actually CL here
+\skill{Concentration}{12}{INT}{7}
+\skill{Craft {\scriptsize CLOTH}}{9}{INT}{1}
+\skill{Diplomacy}{5}{CHA}{4}
+%\skill{Disable Device*}{-}{DEX}{-}
+\skill{Disguise}{1}{CHA}{-}
+\skill{Escape Artist}{2}{DEX}{-}
+\skill{Fly}{2}{DEX}{-}
+%\skill{Handle Animal*}{-}{CHA}{-}
+\skill{Heal}{1}{WIS}{-}
+\skill{Intimidate}{1}{CHA}{-}
+\skill{Knowledge {\scriptsize ARCANA}*}{15}{INT}{7}
+%\skill{Knowledge {\scriptsize DUNGEONEERING}*}{-}{INT}{-}
+%\skill{Knowledge {\scriptsize ENGINEERING}*}{-}{INT}{-}
+%\skill{Knowledge {\scriptsize GEOGRAPHY}*}{-}{INT}{-}
+\skill{Knowledge {\scriptsize HISTORY}*}{15}{INT}{7}
+%\skill{Knowledge {\scriptsize LOCAL}*}{-}{INT}{-}
+%\skill{Knowledge {\scriptsize NATURE}*}{-}{INT}{-}
+\skill{Knowledge {\scriptsize NOBILITY}*}{9}{INT}{1}
+\skill{Knowledge {\scriptsize PLANES}*}{9}{INT}{1}
+%\skill{Knowledge {\scriptsize RELIGION}*}{-}{INT}{-}
+%\skill{Linguistics*}{-}{INT}{-}
+\skill{Perception}{8}{WIS}{7}
+\skill{Perform}{1}{CHA}{-}
+%\skill{Profession*}{-}{WIS}{-}
+\skill{Ride}{2}{DEX}{-}
+\skill{Sense Motive}{6}{WIS}{5}
+\skill{Spellcraft*}{15}{INT}{7}
+\skill{Stealth}{9}{DEX}{7}
+\skill{Survival}{1}{WIS}{-}
+\skill{Swim}{1}{STR}{2}
+%\skill{Use Magic Device*}{-}{CHA}{-}
+\multicolumn{4}{l}{\footnotesize * Trained Only} \\
+\end{tabu}
+\tabureset
+%
+\e{Feats}\\
+\e{Racial Traits} \\
+\e{Languages} \\
+\B{Common, Draconic, Dwarven, Elvish, Goblin} \\
+\\
+{\e{Experience}} \\
+\B{0 / 51,000} \\
+\\
+{\e{Wealth}} \\
+\B{3g 7s 9c}
+
+\pagebreak
+\B{\huge{Inventory}}
+\hrule
+\begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
+    \multicolumn{2}{c}{\e{Personal Gear}}\\
+    \taburowcolors 2{tan..white}
+    \thing{Explorer's Outfit}[8]
+    \thing{Studded Leather}[20]
+    \thing{Longsword}[4]
+    \thing{Spell Component Pouch}[2]
+    \thing{Masterwork Backpack}[4]
+    \thing*{Spellbook}[3]
+    \thing*{Journal}[1]
+    \thing*{Ink, Inkpen}
+    \thing*{Soap}[1]
+    \thing*{5 Days' Trail Rations}[5]
+    \thing*{5 pt Lamp Oil}[5]
+    \thing*{}[]
+    \thing{Waterskin}[4]
+    \thing{Small Tent}[20]
+    \thing{Bedroll}[5]
+    \thing{Hooded Lantern}[2]
+    \taburowcolors 2{white..white}
+    \thing{}[\B{84/133}]
+    \multicolumn{2}{r}{Med 266, Heavy 400, Lift 800, Push/Drag 2000}
+\end{tabu}
+\begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
+    \multicolumn{2}{c}{\e{Party Loot and Supplies}}\\
+    \taburowcolors 2{tan..white}
+    &\\&\\&\\&\\&\\&\\
+    &\\&\\&\\&\\&\\&\\
+    &\\&\\&\\&\\&\\&\\
+    \taburowcolors 2{white..white}
+\end{tabu}
+%
+\begin{tabu} to 0.5\textwidth[h]{X}
+    \e{Party Members} \\
+    \B{Trostram} Human Magus 1 (Ryan) \\
+    \B{Geoffrey} Human SOMETHING 1 (Jeremy) \\
+    \B{Tom} Human SOMETHING 1 (Mikey) \\
+    \B{Khrili} Half-Elf Witch 1 (JT) \\
+\end{tabu}
+
+\pagebreak
+
+\spelllevel{14}{Cantrips}
+\spelllevel{33}{First: 2/day}
+
+{\huge \B{Spellbook}} \hspace{2em}3/2 per day\par
+\hrule\vspace{0.5em}
+
+
+\spell{Detect Magic}{Full}{V S}{Divin}{Standard Action / 60ft range / 7 minute duration (D)}{
+Detect magic auras in a cone-shaped emanation.  Concentrate longer to reveal more detailed information:\\
+\e{1st Round}: Presence or absence of auras.\\
+\e{2nd Round}: Number of auras, strength of most potent aura.\\
+\e{3rd Round}: Strength and location of each aura.  For each aura, a successful Knowledge (arcana) check determines the school of the aura (DC 15 + spell level or +1/2 caster level on non-spells); a successful Spellcraft determines the properties of magic items (DC 15 + caster level).}{3em} %1min/lvl
+
+\spell{Mage Hand}{Full}{V S}{Trans}{Standard Action / 40ft Range / concentration duration}{%
+Manipulate an object at a distance. As a move action, move the object up to 15 feet in any direction.\\}{}\\[-2em] % Close (25ft+5ft/2lvl)
+
+\spell{Ray of Frost\D}{Full}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{
+With a successful ranged touch attack, a ray of ice strikes the target for 1d3 cold damage.\\}{}\\[-2em] % Close (25ft+5ft/2lvl)
+
+\spell{Read Magic}{Full}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 70 minutes*}{
+You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \e{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \e{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-1em] %10min/lvl
+\begin{adjustwidth}{3em}{0em}
+Others: \B{Acid Splash, Arcane Mark, Bleed, Dancing Lights, Detect Poison, Disrupt Undead, Flare, Ghost Sound, Light, Daze}\\
+\end{adjustwidth}
+
+\spell{Burning Hands}{}{V S}{Evoc}{Standard Action / 15ft Cone / Instant / Reflex DC 16 Half}{%
+Creatures in area take 5d4 fire damage, flammable materials in area are set on fire.}{}\\[-1em] %1d4/lvl, max 5d4
+
+\spell{Color Spray}{}{V S M (red, yellow, and blue sand)}{Illu}{Standard Action / 15ft Cone / Instant / Will DC 17 Negates}{%
+Creatures in area are affected by various status effects, according to their HD:\\
+\e{2HD or less}: Unconscious+blind+stunned 2d4 rounds, then blind+stunned 1d4 rounds, then stunned 1 round \\
+\e{3 or 4HD}: Creature is blinded and stunned for 1d4 rounds, then stunned for 1 round.\\
+\e{5HD or more}: Creature is stunned for 1 round.}{1em}
+
+\spell{Magic Missile}{}{V S}{Evoc}{Standard Action / 170ft Range / Instant}{%
+Four Missiles deal 1d4+1 points of force damage each.}{} \\[-1em] %Medium (100ft+10ft/lvl) One at 1st lvl, Two at 3rd, Three at 5th, Four at 7th, Five at 9th+.
+
+\spell{Ray of Enfeeblement\D}{}{V S}{Necro}{Standard Action / 40ft Range / 7 rounds / Fort DC 16 Half}{%
+\mbox{Ranged touch attack causes 1d6+3 penalty to strength (to a minimum of 1).  Cannot be stacked with itself.}}{} \\[-1em] %Close (25ft+5ft/2lvl). 1round/lvl. 1d6, +1/2lvl (max 1d6+5).
+
+\begin{adjustwidth}{3em}{0em}
+Others: \B{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Shield, Sleep, True Strike} \\
+\end{adjustwidth}
+
+\spell{Acid Arrow}{}{V S M (rhubarb leaf, adder's stomach) F (a dart)}{Conj}{\mbox{Standard Action / 680ft Range / 3 rounds}}{%
+Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] %Long (400ft+40ft/lvl). 1round+1/3lvl Duration (max 6 rounds at 18th lvl)
+
+\spell{Bear's Endurance}{}{V S M (bear dung)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}} {%
+\mbox{Target gains +4 enhancement bonus to Constitution (add usual benefits to HP, et cetera).} }{}\\[-1em] %1min/lvl Duration
+
+\spell{Blur}{}{V}{Illu}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 18 Negates (harmless)}}{%
+\mbox{Target gains concealment (20\% miss chance) \e{See invisibility} does not counteract this effect, but \e{true seeing} does} }{}\\[-1em] %1min/lvl Duration
+
+\spell{Bull's Strength}{}{V S M (bull dung)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}}{%
+\mbox{Target gains +4 enhancement bonus to Strength (add usual benefits to melee attack/damage rolls, et cetera).} }{}\\[-1em] %1min/lvl Duration
+
+\spell{Cat's Grace}{}{V S M (cat fur)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}}{%
+\mbox{Target gains +4 enhancement bonus to Dexterity (add usual benefits to range attack, et cetera).} }{}\\[-1em] %1min/lvl Duration
+
+\spell{Hideous Laughter}{}{V S M (tiny fruit tarts and a feather)}{Ench}{\mbox{Standard Action / 40ft Range / 7 rounds / Will DC 17 Negates }}{%
+Target collapses into gales of manic laughter, falls \e{prone}, and is unable to take actions, but is not considered \e{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em} %Close (25ft+5ft/2lvl). 1round/lvl.
+
+\spell{Scorching Ray\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
+Two ranged touch attacks deal 4d6 fire damage each to their target(s).}{}\\[-1em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
+
+\spell{Spectral Hand}{}{V S}{Necro}{\e{Standard Action / 170ft Range / 7 minutes (D)}}{%
+A ghostly hand delivers touch spells at a distance.  You lose 1d4 HP (returns when the spell ends, unless the hand is destroyed). Any 4th level or lower Touch range spell may be delivered by the \e{hand}, with a +2 bonus. If moved beyond the max range, the hand re-materializes next to you. It is incorporeal, has improved evasion, saves equal to yours, an AC of 27, and HP equal to the number you lost in creating it.}{1em}\\[-1em] % Medium (100ft+10ft/lvl). 1min/lvl. AC = 22+INT modifier.
+
+\begin{adjustwidth}{3em}{0em}
+Others: \B{Continual Flame, Glitterdust, Hypnotic Pattern} \\[-2em]
+\end{adjustwidth}
+
+\pagebreak
+% White makes this invisible, but Latex doesn't seem to understand how to start the page correctly unless it starts with some text
+{\color{White} Yay Haxx}\\[-2em]
+
+\spelllevel{10}{Third: 3/day}
+\spelllevel{31}{Fourth: 2/day}
+
+\spell{Displacement}{}{V M (a small loop of leather)}{Illu}{\mbox{Standard Action / Touch / 7 Rounds (D) / Will DC 19 Negates (Harmless)}}{%
+Target benefits from 50\% miss chance. May be negated by \e{True Seeing}.}{}\\[-1em] %1round/lvl.
+
+\spell{Flame Arrow}{}{V S M (oil drop and flint)}{Trans}{\mbox{Standard Action / 40ft Range / 70 minutes}}{%
+\mbox{Turns up to 50 target projectiles into fiery ones which deal an extra 1d6 fire damage on hit, and can ignite a flamable object.}}{}\\[-1em] %Close (25ft+5ft/2lvl). 10min/lvl.
+
+\spell{Lightning Bolt}{}{V S M (fur and a glass rod)}{Evoc}{Standard Action / 120ft Line / Instant / Reflex DC 18 Half}{%
+Creatures and objects in line take 6d6 electricity damage. Combustibles are set on fire, lead, gold, copper, silver and bronze melt; if barriers are broken by damage, the line continues.}{} %1d6damage/lvl (max 10d6)
+
+\spell{Phantom Steed}{}{V S}{Conj}{10 Minutes / Instant / 7 Hours (D)}{%
+Conjure a Large quasi-real horselike creature, only rideable by you or one specified target. It does not fight, but has AC 18 and 13hp (if attacked or pushed).  If it looses all its hp, it disappears.  Speed is 60ft, and it can bear the rider's weight plus 60 pounds.}{1em}\\[-1em] % 1hr/lvl. Gains new abilities at level 8, 10, 12, and 14
+
+\spell{Tiny Hut}{}{V S M (small crystal bead)}{Evoc}{\mbox{Standard Action / 20ft radius sphere on caster /  14 hours (D)}}{%
+Creates an unmoving sphere, half outside the ground, opaque from the outside but transparent from within.  Caster plus 9 medium creatures can fit inside.  Temperature is 70$^{\circ}$F inside unless exterior is below 0$^{\circ}$ or above 100$^{\circ}$, in which case it raises or lowers the interior on a 1-for-1 degree basis.  The hut protects from wind less than 75mph, as well as rain, dust, sand, etc.  You can illuminate it dimly upon command or extinguish the light as desired.  Spells, missiles, and weapons pass through the hut without affecting it, although the opaque barrier grants occupants total concealment if attacked from outside.}{2em} %2hours/lvl
+
+\begin{adjustwidth}{3em}{0em}
+    Others: \B{Sepia Snake Sigil}\\
+\end{adjustwidth}
+
+\spell{Confusion}{}{V S M (three nutshells)}{Ench}{\mbox{Standard Action / 170ft Range / 15ft Radius Burst / 7 rounds / Will DC 19 Negates}}{
+    Targets are unable to determine their own actions.  Each round, an affected target rolls to see what it does. Any target who is attacked automatically retaliates on its next turn, as long as it is still confused. \mbox{Targets only take attacks of opportunity against creatures they are already attacking.}\\
+    \begin{tabu} to \textwidth{X[1] X[4] X[1] X[4]}
+        \rowfont{\colhead}d\% & Behavior & d\% & Behavior\\
+        \rowfont{\footnotesize}0-25 & Acts normally & 51-75 & Deals 1d8+Str mod to self with item in hand\\
+        \rowfont{\footnotesize}26-50 & Does nothing but babble incoherently & 76-100 & Attacks nearest creature\\
+    \end{tabu}}{2em}\\ % Medium (100ft+10ft/lvl).
+
+\spell{Dimension Door}{}{V}{Conj}{Standard Action / 680ft Range / Instant / Will DC 19 Negates (harmless)}{
+Teleport (including gear) yourself plus up to 7 medium or smaller touched targets (large counts as two medium, huge as two large, etc) to any location in range. If the arrival spot is occupied by a solid body, travelers take 1d6 damage and are shunted to a random open space within 100 feet.  If none exists, they take 2d6 more and are shunted to an open space within 1000 feet.  If none exists, they take an additional 4d6 damage and are returned to where they started.\\After arrival, the caster cannot take any other actions that turn.}{2em}\\[-1em]
+
+\spell{Scorching Ray, Empowered\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
+Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ %Close (25ft+5ft/2lvl). LVL11 increase to three rays
+
+* May be made permanent with a \e{permanency} spell \\
+\D Ray spell: benefits from weapon focus (ray) \\
+\s Available on a scroll
+
+\twocolumn
+\begin{notesection}{People and Places}
+\person{Trig (T)}{F}{Gnome Artisan} Leatherworking shop owner in \e{Baylith} \\
+\end{notesection}
+
+\begin{notesection}{Quests}
+\end{notesection}
+
+\begin{notesection}{Notes}
+\end{notesection}
+
+\begin{notesection}{Events}
+\setlength{\parindent}{\tindent}
+\B{17 July 2013}
+\end{notesection}
+
+\end{document}
