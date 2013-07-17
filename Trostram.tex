@@ -122,9 +122,9 @@ Flat Footed & 13 \\
 \B{Initiative} & +1 \\ 
 \multicolumn{2}{c}{~} \\
 \multicolumn{2}{c}{\e{Health}} \\
-\B{Hit Points} & 9 \\
-Current HP & 9 \\
-\end{tabu}\vspace{1em}
+\B{Hit Points} & 10 \\ % Max at lvl 1, +1 CON, +1 favored class
+Current HP & 10 \\
+\end{tabu}
 %
 \begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
 \multicolumn{4}{c}{\e{Attacks and Damage}} \\
@@ -139,64 +139,75 @@ Current HP & 9 \\
 \\
 \rowfont{\colhead}Name & Bonus & Damage & Critical \\
 \taburowcolors 2{tan..white}
-\B{Longsword} & +4 & 1d8+4* & 19-20x2 \\
+\B{Longsword} & +5 & 1d8+4 & 19-20x2 \\
 \multicolumn{4}{l}{\e{Slashing}} \\
 \taburowcolors 2{white..white}
 \\\\\\\\\\\\\\\\\\\\\\
 \end{tabu}
 %
-\begin{tabu} to 0.5\textwidth{X[3] X[1c] X[1c] X[1c]}
-% 2+INT mod/level +1 for favored class 5 times = 54 ranks
+\begin{tabu} to 0.5\textwidth{X[9] X[2c] X[2c] X[2c]}
+% 2+INT mod/level +0 for favored class 0 times = 7 ranks
+\\
 \multicolumn{4}{c}{\e{Skills}} \\
 \rowfont{\colhead}Name & Bonus & Ability & Ranks \\
 \taburowcolors 2{tan..white}
-\skill{Acrobatics}{2}{DEX}{-}
-\skill{Appraise}{9}{INT}{1}
-\skill{Bluff}{5}{CHA}{4}
-\skill{Climb}{1}{STR}{2}
+\skill{Acrobatics}{1}{DEX}{-}
+\skill{Appraise}{4}{INT}{-}
+\skill{Bluff}{0}{CHA}{-}
+\skill{Climb}{8}{STR}{1}
 % Not a skill, but a CL + INT check; "ranks" actually CL here
-\skill{Concentration}{12}{INT}{7}
-\skill{Craft {\scriptsize CLOTH}}{9}{INT}{1}
-\skill{Diplomacy}{5}{CHA}{4}
+\skill{Concentration}{5}{INT}{1}
+%\skill{Craft {\scriptsize CLOTH}}{9}{INT}{1}
+\skill{Diplomacy}{0}{CHA}{-}
 %\skill{Disable Device*}{-}{DEX}{-}
-\skill{Disguise}{1}{CHA}{-}
-\skill{Escape Artist}{2}{DEX}{-}
-\skill{Fly}{2}{DEX}{-}
+\skill{Disguise}{0}{CHA}{-}
+\skill{Escape Artist}{1}{DEX}{-}
+\skill{Fly}{1}{DEX}{-}
 %\skill{Handle Animal*}{-}{CHA}{-}
-\skill{Heal}{1}{WIS}{-}
-\skill{Intimidate}{1}{CHA}{-}
-\skill{Knowledge {\scriptsize ARCANA}*}{15}{INT}{7}
-%\skill{Knowledge {\scriptsize DUNGEONEERING}*}{-}{INT}{-}
+\skill{Heal}{2}{WIS}{1}
+\skill{Intimidate}{0}{CHA}{-}
+\skill{Knowledge {\scriptsize ARCANA}*}{8}{INT}{1}
+%\skill{Knowledge {\mbox {\scriptsize DUNGEONEERING}*}}{8}{INT}{1}
 %\skill{Knowledge {\scriptsize ENGINEERING}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize GEOGRAPHY}*}{-}{INT}{-}
-\skill{Knowledge {\scriptsize HISTORY}*}{15}{INT}{7}
+%\skill{Knowledge {\scriptsize HISTORY}*}{15}{INT}{7}
 %\skill{Knowledge {\scriptsize LOCAL}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize NATURE}*}{-}{INT}{-}
-\skill{Knowledge {\scriptsize NOBILITY}*}{9}{INT}{1}
-\skill{Knowledge {\scriptsize PLANES}*}{9}{INT}{1}
+%\skill{Knowledge {\scriptsize NOBILITY}*}{9}{INT}{1}
+%\skill{Knowledge {\scriptsize PLANES}*}{9}{INT}{1}
 %\skill{Knowledge {\scriptsize RELIGION}*}{-}{INT}{-}
 %\skill{Linguistics*}{-}{INT}{-}
-\skill{Perception}{8}{WIS}{7}
-\skill{Perform}{1}{CHA}{-}
+\skill{Perception}{0}{WIS}{1}
+\skill{Perform}{0}{CHA}{-}
 %\skill{Profession*}{-}{WIS}{-}
-\skill{Ride}{2}{DEX}{-}
-\skill{Sense Motive}{6}{WIS}{5}
-\skill{Spellcraft*}{15}{INT}{7}
-\skill{Stealth}{9}{DEX}{7}
-\skill{Survival}{1}{WIS}{-}
-\skill{Swim}{1}{STR}{2}
+\skill{Ride}{1}{DEX}{-}
+\skill{Sense Motive}{0}{WIS}{1}
+\skill{Spellcraft*}{8}{INT}{1}
+\skill{Stealth}{1}{DEX}{-}
+\skill{Survival}{-1}{WIS}{-}
+\skill{Swim}{8}{STR}{1}
 %\skill{Use Magic Device*}{-}{CHA}{-}
 \multicolumn{4}{l}{\footnotesize * Trained Only} \\
 \end{tabu}
 \tabureset
 %
 \e{Feats}\\
-\e{Racial Traits} \\
+\B{Arcane Strike} Swift action: grant your weapon a +1 to damage (affected weapon treated as magic in terms of damage reduction). \\ %+2/+3/+4/+5 at level 5/10/15/20
+\B{Combat Casting} +4 on concentration checks to cast defensively. \\
+\\
+\e{Traits and Special Abilities (Source)} \\
+\B{Skilled} +1 skill rank per level (Race) \\
+\B{Bonus Feat} One extra feat at first level (Race) \\
+\B{Inspired} Once per day, take the higher of two rolls on a skill check (Trait) \\
+\B{Swordsman's Page} +1 on critical confirmation rolls with a longsword (Trait) \\
+\B{Arcane Pool} 5 points available. For 1 point, as a swift action, held weapon gains a +1 enhancement bonus for 1 minute. (Class) \\%1/2 level+INT points in pool. +1/+2/+3/+4/+5 bonus at level 1/5/9/13/17, not to exceed +5 when added to existing enchantment, Other options at 5th level
+\B{Spell Combat} When wielding a light or one-handed m\^{e}l\'{e}e weapon, as a full-round action, make all attacks with the weapon at a -2 penalty and simultaneously cast any standard action spell (if it requires an attack, it also takes the -2). If casting defensively, may opt to take up to an additional -4 on the attack and add that amount to the concentration check. (Class)\\ %Up to INT modifier additional penalty/bonus
+\\
 \e{Languages} \\
 \B{Common, Draconic, Dwarven, Elvish, Goblin} \\
 \\
 {\e{Experience}} \\
-\B{0 / 51,000} \\
+\B{0 / 2,000} \\
 \\
 {\e{Wealth}} \\
 \B{3g 7s 9c}
@@ -239,7 +250,7 @@ Current HP & 9 \\
 \begin{tabu} to 0.5\textwidth[h]{X}
     \e{Party Members} \\
     \B{Trostram} Human Magus 1 (Ryan) \\
-    \B{Geoffrey} Human SOMETHING 1 (Jeremy) \\
+    \B{Geoffrey} Human Summoner 1 (Jeremy) \\
     \B{Tom} Human SOMETHING 1 (Mikey) \\
     \B{Khrili} Half-Elf Witch 1 (JT) \\
 \end{tabu}
@@ -247,11 +258,10 @@ Current HP & 9 \\
 \pagebreak
 
 \spelllevel{14}{Cantrips}
-\spelllevel{33}{First: 2/day}
+\spelllevel{35}{First: 2/day}
 
 {\huge \B{Spellbook}} \hspace{2em}3/2 per day\par
 \hrule\vspace{0.5em}
-
 
 \spell{Detect Magic}{Full}{V S}{Divin}{Standard Action / 60ft range / 7 minute duration (D)}{
 Detect magic auras in a cone-shaped emanation.  Concentrate longer to reveal more detailed information:\\
@@ -268,113 +278,48 @@ With a successful ranged touch attack, a ray of ice strikes the target for 1d3 c
 \spell{Read Magic}{Full}{V S F (a clear crystal prism)}{Divin}{Standard Action / Personal / 70 minutes*}{
 You can decipher magical inscriptions; doing so does not invoke the magic contained in the writing.  After reading a particular inscription, you are thereafter able to read it again without this spell.  You can read about one page per minute. Allows identification of a \e{glyph of [greater] warding} with DC 13[16] Spellcraft check, or any \e{symbol} spell with a Spellcraft of DC 10 + the spell level.}{1em}\\[-1em] %10min/lvl
 \begin{adjustwidth}{3em}{0em}
-Others: \B{Acid Splash, Arcane Mark, Bleed, Dancing Lights, Detect Poison, Disrupt Undead, Flare, Ghost Sound, Light, Daze}\\
+Others: \B{Acid Splash, Arcane Mark, Dancing Lights, Daze, Disrupt Undead, Flare, Ghost Sound, Light, Open/Close, Prestidigitation, Spark}\\
 \end{adjustwidth}
 
-\spell{Burning Hands}{}{V S}{Evoc}{Standard Action / 15ft Cone / Instant / Reflex DC 16 Half}{%
-Creatures in area take 5d4 fire damage, flammable materials in area are set on fire.}{}\\[-1em] %1d4/lvl, max 5d4
+\spell{Expeditious Retreat}{}{V S}{Trans}{Standard Action / Personal / 1 minutes (D)}{%
+Increases your base land speed by 30ft.}{}\\[-1em] %1min/lvl
 
-\spell{Color Spray}{}{V S M (red, yellow, and blue sand)}{Illu}{Standard Action / 15ft Cone / Instant / Will DC 17 Negates}{%
-Creatures in area are affected by various status effects, according to their HD:\\
-\e{2HD or less}: Unconscious+blind+stunned 2d4 rounds, then blind+stunned 1d4 rounds, then stunned 1 round \\
-\e{3 or 4HD}: Creature is blinded and stunned for 1d4 rounds, then stunned for 1 round.\\
-\e{5HD or more}: Creature is stunned for 1 round.}{1em}
+\spell{Mirror Strike}{}{V S M (shard of a mirror)}{Trans}{Standard Action / Personal}{%
+Next attack roll may hit two targets in reach; +2 attack if targets have flanking on you. If the attack hits both, each takes half damage; if it hits one, deal damage to it as normal. A critical threat is only confirmed if the confirmation roll hits both.}{}\\[-1em]
 
-\spell{Magic Missile}{}{V S}{Evoc}{Standard Action / 170ft Range / Instant}{%
-Four Missiles deal 1d4+1 points of force damage each.}{} \\[-1em] %Medium (100ft+10ft/lvl) One at 1st lvl, Two at 3rd, Three at 5th, Four at 7th, Five at 9th+.
+\spell{Shock Shield}{}{V S}{Abjur}{Standard Action / Self / 1 minute duration (D)}{%
+Negates \emph{magic missiles} targeted at you; +2 shield bonus to AC. Dismissing deals 1d6 electrical damage to creatures in a 5 foot burst (Ref DC 15 half).}{}\\[-1em] %1min/lvl
 
-\spell{Ray of Enfeeblement\D}{}{V S}{Necro}{Standard Action / 40ft Range / 7 rounds / Fort DC 16 Half}{%
-\mbox{Ranged touch attack causes 1d6+3 penalty to strength (to a minimum of 1).  Cannot be stacked with itself.}}{} \\[-1em] %Close (25ft+5ft/2lvl). 1round/lvl. 1d6, +1/2lvl (max 1d6+5).
+\spell{Shocking Grasp}{}{V S}{Evoc}{Standard Action / Touch / Instant}{%
+Touch delivers 1d6 electricity damage; +3 on the attack if target is wearing metal armor.}{}\\[-1em] %1d6/level, max 5d6
 
-\begin{adjustwidth}{3em}{0em}
-Others: \B{Charm Person, Comprehend Languages, Expeditious Retreat, Feather Fall\s , Floating Disk\s ,\\ Hold Portal\s , Magic Weapon, Shield, Sleep, True Strike} \\
-\end{adjustwidth}
+\spell{True Strike}{}{V F (small wooden replica of an archery target)}{Divin}{\mbox{Standard Action / Personal / See Text}}{%
+\mbox{Your next single attack gains a +20 insight bonus, and is not affected by miss change from striking a concealed target.}}{}\\[-1em]
 
-\spell{Acid Arrow}{}{V S M (rhubarb leaf, adder's stomach) F (a dart)}{Conj}{\mbox{Standard Action / 680ft Range / 3 rounds}}{%
-Ranged touch attack deals 2d4 acid damage per round of its duration.}{}\\[-1em] %Long (400ft+40ft/lvl). 1round+1/3lvl Duration (max 6 rounds at 18th lvl)
+\spell{Unerring Weapon}{}{V S}{Trans}{Standard Action / 25ft Range / 1 Round}{%
+Target weapon (or 20 projectiles) gain +2 on critical confirmation rolls.}{}\\[-1em] %Close (25ft+5ft/2lvl), 1 Round/level, +2/+3/+4/+5/+6/+7 at level 1/4/8/12/16/20
 
-\spell{Bear's Endurance}{}{V S M (bear dung)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}} {%
-\mbox{Target gains +4 enhancement bonus to Constitution (add usual benefits to HP, et cetera).} }{}\\[-1em] %1min/lvl Duration
-
-\spell{Blur}{}{V}{Illu}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 18 Negates (harmless)}}{%
-\mbox{Target gains concealment (20\% miss chance) \e{See invisibility} does not counteract this effect, but \e{true seeing} does} }{}\\[-1em] %1min/lvl Duration
-
-\spell{Bull's Strength}{}{V S M (bull dung)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}}{%
-\mbox{Target gains +4 enhancement bonus to Strength (add usual benefits to melee attack/damage rolls, et cetera).} }{}\\[-1em] %1min/lvl Duration
-
-\spell{Cat's Grace}{}{V S M (cat fur)}{Trans}{\mbox{Standard Action / Touch / 7 minute duration / Will DC 17 Negates (harmless)}}{%
-\mbox{Target gains +4 enhancement bonus to Dexterity (add usual benefits to range attack, et cetera).} }{}\\[-1em] %1min/lvl Duration
-
-\spell{Hideous Laughter}{}{V S M (tiny fruit tarts and a feather)}{Ench}{\mbox{Standard Action / 40ft Range / 7 rounds / Will DC 17 Negates }}{%
-Target collapses into gales of manic laughter, falls \e{prone}, and is unable to take actions, but is not considered \e{helpless}. On the target's first turn after this begins, it may make one more save (counts as a full round action).  Creatures with INT $\leq$ 2 are not affected.  Creatures with a different type from the caster recieve a +4 bonus to their save.}{0em} %Close (25ft+5ft/2lvl). 1round/lvl.
-
-\spell{Scorching Ray\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
-Two ranged touch attacks deal 4d6 fire damage each to their target(s).}{}\\[-1em] %Close (25ft+5ft/2lvl). LVL11 increase to three rays
-
-\spell{Spectral Hand}{}{V S}{Necro}{\e{Standard Action / 170ft Range / 7 minutes (D)}}{%
-A ghostly hand delivers touch spells at a distance.  You lose 1d4 HP (returns when the spell ends, unless the hand is destroyed). Any 4th level or lower Touch range spell may be delivered by the \e{hand}, with a +2 bonus. If moved beyond the max range, the hand re-materializes next to you. It is incorporeal, has improved evasion, saves equal to yours, an AC of 27, and HP equal to the number you lost in creating it.}{1em}\\[-1em] % Medium (100ft+10ft/lvl). 1min/lvl. AC = 22+INT modifier.
-
-\begin{adjustwidth}{3em}{0em}
-Others: \B{Continual Flame, Glitterdust, Hypnotic Pattern} \\[-2em]
-\end{adjustwidth}
-
-\pagebreak
-% White makes this invisible, but Latex doesn't seem to understand how to start the page correctly unless it starts with some text
-{\color{White} Yay Haxx}\\[-2em]
-
-\spelllevel{10}{Third: 3/day}
-\spelllevel{31}{Fourth: 2/day}
-
-\spell{Displacement}{}{V M (a small loop of leather)}{Illu}{\mbox{Standard Action / Touch / 7 Rounds (D) / Will DC 19 Negates (Harmless)}}{%
-Target benefits from 50\% miss chance. May be negated by \e{True Seeing}.}{}\\[-1em] %1round/lvl.
-
-\spell{Flame Arrow}{}{V S M (oil drop and flint)}{Trans}{\mbox{Standard Action / 40ft Range / 70 minutes}}{%
-\mbox{Turns up to 50 target projectiles into fiery ones which deal an extra 1d6 fire damage on hit, and can ignite a flamable object.}}{}\\[-1em] %Close (25ft+5ft/2lvl). 10min/lvl.
-
-\spell{Lightning Bolt}{}{V S M (fur and a glass rod)}{Evoc}{Standard Action / 120ft Line / Instant / Reflex DC 18 Half}{%
-Creatures and objects in line take 6d6 electricity damage. Combustibles are set on fire, lead, gold, copper, silver and bronze melt; if barriers are broken by damage, the line continues.}{} %1d6damage/lvl (max 10d6)
-
-\spell{Phantom Steed}{}{V S}{Conj}{10 Minutes / Instant / 7 Hours (D)}{%
-Conjure a Large quasi-real horselike creature, only rideable by you or one specified target. It does not fight, but has AC 18 and 13hp (if attacked or pushed).  If it looses all its hp, it disappears.  Speed is 60ft, and it can bear the rider's weight plus 60 pounds.}{1em}\\[-1em] % 1hr/lvl. Gains new abilities at level 8, 10, 12, and 14
-
-\spell{Tiny Hut}{}{V S M (small crystal bead)}{Evoc}{\mbox{Standard Action / 20ft radius sphere on caster /  14 hours (D)}}{%
-Creates an unmoving sphere, half outside the ground, opaque from the outside but transparent from within.  Caster plus 9 medium creatures can fit inside.  Temperature is 70$^{\circ}$F inside unless exterior is below 0$^{\circ}$ or above 100$^{\circ}$, in which case it raises or lowers the interior on a 1-for-1 degree basis.  The hut protects from wind less than 75mph, as well as rain, dust, sand, etc.  You can illuminate it dimly upon command or extinguish the light as desired.  Spells, missiles, and weapons pass through the hut without affecting it, although the opaque barrier grants occupants total concealment if attacked from outside.}{2em} %2hours/lvl
-
-\begin{adjustwidth}{3em}{0em}
-    Others: \B{Sepia Snake Sigil}\\
-\end{adjustwidth}
-
-\spell{Confusion}{}{V S M (three nutshells)}{Ench}{\mbox{Standard Action / 170ft Range / 15ft Radius Burst / 7 rounds / Will DC 19 Negates}}{
-    Targets are unable to determine their own actions.  Each round, an affected target rolls to see what it does. Any target who is attacked automatically retaliates on its next turn, as long as it is still confused. \mbox{Targets only take attacks of opportunity against creatures they are already attacking.}\\
-    \begin{tabu} to \textwidth{X[1] X[4] X[1] X[4]}
-        \rowfont{\colhead}d\% & Behavior & d\% & Behavior\\
-        \rowfont{\footnotesize}0-25 & Acts normally & 51-75 & Deals 1d8+Str mod to self with item in hand\\
-        \rowfont{\footnotesize}26-50 & Does nothing but babble incoherently & 76-100 & Attacks nearest creature\\
-    \end{tabu}}{2em}\\ % Medium (100ft+10ft/lvl).
-
-\spell{Dimension Door}{}{V}{Conj}{Standard Action / 680ft Range / Instant / Will DC 19 Negates (harmless)}{
-Teleport (including gear) yourself plus up to 7 medium or smaller touched targets (large counts as two medium, huge as two large, etc) to any location in range. If the arrival spot is occupied by a solid body, travelers take 1d6 damage and are shunted to a random open space within 100 feet.  If none exists, they take 2d6 more and are shunted to an open space within 1000 feet.  If none exists, they take an additional 4d6 damage and are returned to where they started.\\After arrival, the caster cannot take any other actions that turn.}{2em}\\[-1em]
-
-\spell{Scorching Ray, Empowered\D}{}{V S}{Evoc}{Standard Action / 40ft Range / Instant}{%
-Two ranged touch attacks deal 4d6*1.5 fire damage each to their target(s).}{}\\ %Close (25ft+5ft/2lvl). LVL11 increase to three rays
-
-* May be made permanent with a \e{permanency} spell \\
-\D Ray spell: benefits from weapon focus (ray) \\
-\s Available on a scroll
+\spell{Warding Weapon}{}{V S F (equipped m\^{e}l\'{e}e weapon)}{Abjur}{Standard Action / Personal / 1 Round}{%
+Focus weapon animates and defends you, allowing you to cast spells without provoking attacks of opportunity. Does not function against attackers with the Disruptive feat.}{}\\
 
 \twocolumn
-\begin{notesection}{People and Places}
-\person{Trig (T)}{F}{Gnome Artisan} Leatherworking shop owner in \e{Baylith} \\
-\end{notesection}
+%\begin{notesection}{People and Places}
+%\person{Trig (T)}{F}{Gnome Artisan} Leatherworking shop owner in \e{Baylith} \\
+%\end{notesection}
 
-\begin{notesection}{Quests}
-\end{notesection}
+%\begin{notesection}{Quests}
+%\end{notesection}
 
-\begin{notesection}{Notes}
-\end{notesection}
+%\begin{notesection}{Notes}
+%\end{notesection}
 
 \begin{notesection}{Events}
 \setlength{\parindent}{\tindent}
+\B{Background} Trostram was born in \e{Minoria} to a pair of human artisans: his father Bistram, and his mother Caelia, who together have run a silversmith in the city for many years.  Trostram has one older sister, Charissa, and had one younger brother, Garam, who was killed during a war when Trostram was very young. Though \e{Minoria} claimed victory in that war over now vassal-state \e{Paravok}, Trostram's outlook on life was permanently shaped by its misery and suffering in general, and the death of his younger brother specifically.  
+
+For much of his youth, Trostram looked up to an older Minorian youth, [blank], who fought in the war against \e{Paravok}, and himself dreamed of one day becoming a warrior and fighting to defend his homeland against aggressors. 
+
+
 \B{17 July 2013}
 \end{notesection}
 
