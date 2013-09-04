@@ -92,8 +92,9 @@
 \vspace{-1.5em}
 \includegraphics[width=13em]{Pathfinder}
 \end{wrapfigure}
- \B{\huge{Trostram }\Large{Human Magus 1}} \\
+ \B{\huge{Trostram }\Large{Human Magus 2}} \\
 \e{Chaotic Good} \hspace{2em} \e{Age 24y} \hspace{2em} \e{Height 5ft 3in} \hspace{2em} \e{Weight 135lb} \par
+% Hair Red-Brown, Eyes Green
 \hrule
 
 \begin{tabu} to 0.333\textwidth{X[4] X[1c] X[1c]}
@@ -111,9 +112,9 @@
 \B{Armor Class} & 14 \\
 Touch & 11 \\
 Flat Footed & 13 \\
-\B{Fortitude} & 3 \\
+\B{Fortitude} & 4 \\
 \B{Reflex} & 1 \\
-\B{Will} & 1 \\
+\B{Will} & 2 \\
 \end{tabu}
 %
 \begin{tabu} to 0.333\textwidth{X[5] X[1c]}
@@ -122,31 +123,31 @@ Flat Footed & 13 \\
 \B{Initiative} & +1 \\ 
 \multicolumn{2}{c}{~} \\
 \multicolumn{2}{c}{\e{Health}} \\
-\B{Hit Points} & 10 \\ % Max at lvl 1, +1 CON, +1 favored class
-Current HP & 10 \\
+\B{Hit Points} & 12 \\ % Max at lvl 1, 2 at level 2, +1xlvl CON, +2 favored class
+Current HP & 2 \\
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c] X[2c]}
 \multicolumn{4}{c}{\e{Attacks and Damage}} \\
 \rowfont{\colhead}Name & Bonus &&\\
 \taburowcolors 2{tan..white}
-\B{Base Attack Bonus} & +0 && \\
-\B{Combat Maneuver} & +4 && \\
-\B{Combat Defense} & 15 && \\
-\B{M\^{e}l\'{e}e Touch Attack} & +4 && \\
-\B{Ranged Touch Attack} & +1 && \\ 
+\B{Base Attack Bonus} & +1 && \\
+\B{Combat Maneuver} & +5 && \\ % BAB + STR + 1 if small
+\B{Combat Defense} & 16 && \\ % BAB + STR + DEX + 1 if small + 10
+\B{M\^{e}l\'{e}e Touch Attack} & +5 && \\
+\B{Ranged Touch Attack} & +2 && \\ 
 \taburowcolors 2{white..white}
 \\
 \rowfont{\colhead}Name & Bonus & Damage & Critical \\
 \taburowcolors 2{tan..white}
-\B{Longsword} & +5 & 1d8+4 & 19-20x2 \\
+\B{Longsword} & +6 & 1d8+4 & 19-20x2 \\
 \multicolumn{4}{l}{\e{Slashing}} \\
 \taburowcolors 2{white..white}
 \\\\\\\\\\\\\\\\\\\\\\
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth{X[9] X[2c] X[2c] X[2c]}
-% 2+INT mod/level +0 for favored class 0 times = 7 ranks
+% 2+INT mod/level +0 for favored class 0 times +2 for skilled racial trait = 14 ranks
 \\
 \multicolumn{4}{c}{\e{Skills}} \\
 \rowfont{\colhead}Name & Bonus & Ability & Ranks \\
@@ -156,9 +157,9 @@ Current HP & 10 \\
 \skill{Bluff}{0}{CHA}{-}
 \skill{Climb}{8}{STR}{1}
 % Not a skill, but a CL + INT check; "ranks" actually CL here
-\skill{Concentration}{5}{INT}{1}
+\skill{Concentration}{6}{INT}{2}
 %\skill{Craft {\scriptsize CLOTH}}{9}{INT}{1}
-\skill{Diplomacy}{0}{CHA}{-}
+\skill{Diplomacy}{1}{CHA}{1}
 %\skill{Disable Device*}{-}{DEX}{-}
 \skill{Disguise}{0}{CHA}{-}
 \skill{Escape Artist}{1}{DEX}{-}
@@ -167,23 +168,23 @@ Current HP & 10 \\
 \skill{Heal}{2}{WIS}{1}
 \skill{Intimidate}{0}{CHA}{-}
 \skill{Knowledge {\scriptsize ARCANA}*}{8}{INT}{1}
-%\skill{Knowledge {\mbox {\scriptsize DUNGEONEERING}*}}{8}{INT}{1}
+\skill{Knowledge {\mbox {\scriptsize DUNGEONEERING}*}}{8}{INT}{1}
 %\skill{Knowledge {\scriptsize ENGINEERING}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize GEOGRAPHY}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize HISTORY}*}{15}{INT}{7}
 %\skill{Knowledge {\scriptsize LOCAL}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize NATURE}*}{-}{INT}{-}
 %\skill{Knowledge {\scriptsize NOBILITY}*}{9}{INT}{1}
-%\skill{Knowledge {\scriptsize PLANES}*}{9}{INT}{1}
+\skill{Knowledge {\scriptsize PLANES}*}{8}{INT}{1}
 %\skill{Knowledge {\scriptsize RELIGION}*}{-}{INT}{-}
 %\skill{Linguistics*}{-}{INT}{-}
-\skill{Perception}{0}{WIS}{1}
+\skill{Perception}{1}{WIS}{2}
 \skill{Perform}{0}{CHA}{-}
 %\skill{Profession*}{-}{WIS}{-}
 \skill{Ride}{1}{DEX}{-}
-\skill{Sense Motive}{0}{WIS}{1}
-\skill{Spellcraft*}{8}{INT}{1}
-\skill{Stealth}{1}{DEX}{-}
+\skill{Sense Motive}{1}{WIS}{2}
+\skill{Spellcraft*}{9}{INT}{2}
+\skill{Stealth}{2}{DEX}{1}
 \skill{Survival}{-1}{WIS}{-}
 \skill{Swim}{8}{STR}{1}
 %\skill{Use Magic Device*}{-}{CHA}{-}
@@ -202,15 +203,16 @@ Current HP & 10 \\
 \B{Swordsman's Page} +1 on critical confirmation rolls with a longsword (Trait) \\
 \B{Arcane Pool} 5 points available. For 1 point, as a swift action, held weapon gains a +1 enhancement bonus for 1 minute. (Class) \\%1/2 level+INT points in pool. +1/+2/+3/+4/+5 bonus at level 1/5/9/13/17, not to exceed +5 when added to existing enchantment, Other options at 5th level
 \B{Spell Combat} When wielding a light or one-handed m\^{e}l\'{e}e weapon, as a full-round action, make all attacks with the weapon at a -2 penalty and simultaneously cast any standard action spell (if it requires an attack, it also takes the -2). If casting defensively, may opt to take up to an additional -4 on the attack and add that amount to the concentration check. (Class)\\ %Up to INT modifier additional penalty/bonus
+\B{Spellstrike} When casting a touch spell, instead of receiving a free touch attack as part of casting, you may opt to deliver it as part of a free m\^{e}l\'{e}e attack (not a touch attack). 
 \\
 \e{Languages} \\
 \B{Common, Draconic, Dwarven, Elvish, Goblin} \\
 \\
 {\e{Experience}} \\
-\B{0 / 2,000} \\
+\B{2,400 / 5,000} \\
 \\
 {\e{Wealth}} \\
-\B{3g 7s 9c}
+\B{53g 7s 9c}
 
 \pagebreak
 \B{\huge{Inventory}}
@@ -260,7 +262,7 @@ Current HP & 10 \\
 \spelllevel{14}{Cantrips}
 \spelllevel{35}{First: 2/day}
 
-{\huge \B{Spellbook}} \hspace{2em}3/2 per day\par
+{\huge \B{Spellbook}} \hspace{2em}4/3 per day\par
 \hrule\vspace{0.5em}
 
 \spell{Detect Magic}{Full}{V S}{Divin}{Standard Action / 60ft range / 7 minute duration (D)}{
@@ -280,6 +282,8 @@ You can decipher magical inscriptions; doing so does not invoke the magic contai
 \begin{adjustwidth}{3em}{0em}
 Others: \B{Acid Splash, Arcane Mark, Dancing Lights, Daze, Disrupt Undead, Flare, Ghost Sound, Light, Open/Close, Prestidigitation, Spark}\\
 \end{adjustwidth}
+
+%LVL2: Add 2 more level 1 spells known
 
 \spell{Expeditious Retreat}{}{V S}{Trans}{Standard Action / Personal / 1 minutes (D)}{%
 Increases your base land speed by 30ft.}{}\\[-1em] %1min/lvl
@@ -315,12 +319,43 @@ Focus weapon animates and defends you, allowing you to cast spells without provo
 
 \begin{notesection}{Events}
 \setlength{\parindent}{\tindent}
-\B{Background} Trostram was born in \e{Minoria} to a pair of human artisans: his father Bistram, and his mother Caelia, who together have run a silversmith in the city for many years.  Trostram has one older sister, Charissa, and had one younger brother, Garam, who was killed during a war when Trostram was very young. Though \e{Minoria} claimed victory in that war over now vassal-state \e{Paravok}, Trostram's outlook on life was permanently shaped by its misery and suffering in general, and the death of his younger brother specifically.  
+\B{Background} Trostram was born in \e{Minoria} to a pair of human artisans: his father Bistram, and his mother Caelia. For many years (and still today), they have run a silversmith in the city.  Trostram has one older sister, Charissa, and had one younger brother, Garam, who was killed during a war when Trostram was very young. Though \e{Minoria} claimed victory in that war over now vassal-state \e{Paravok}, Trostram's outlook on life was permanently shaped by its misery and suffering in general, and the death of his younger brother specifically.  
 
 For much of his youth, Trostram looked up to an older Minorian youth, [blank], who fought in the war against \e{Paravok}, and himself dreamed of one day becoming a warrior and fighting to defend his homeland against aggressors. 
 
+% Swordsman's Page - liked metalworking but dreamed big...wanted to fight to defend the homeland when young. Apprenticed to a swordsmith later, but while liking swordsplay, couldn't handle the confinement of the ridgid rules.
+
+% Continually strove for accomplishing things nearly impossible - learning magic while keeping up with swordsplay.
+
+% Close to an older guy who excelled in athletic tests of strength - and fought to defend Minoria.  Found out he was not a good person later ... along with his squad, this person committed atrocities in the name of Minoria...Trostram's dislike of the establishment influenced in no small part by this experience
+
+% Currently in a romantic relationship - boy back home who worked with me as an apprentice swordsmith
 
 \B{17 July 2013}
+% Tom summoned by chancellor on accound of his nobility/trustworthyness, to recover stuff stolen from the rtoyal vault - an item/artifact in particular among it.  No forced entry, few people had access.  Tom received 500g advance for purchasing equipment.  Princess is missing too, along with artifact, though town guard is on that.  
+
+% Geoffrey/Trostram out drinking, Tom goes to enlist G's help, asks if T would like to tag along if he's trustworthy.  The 3 go out near the park at the edges of town to find ghe guard, pester them for info.
+
+% The road S goes to a harbor.  Road NW as well has guards milling about; they report no sign of princess or Lute.  Duke Ganul may also be gone, no word from him in awhile.  Redmond (Guard's name) bribed by Tom to keep quiet about the Lute that we weren't supposed to tell them about.  We meet up with Khrili, a crazy witch with an expressionless mask, in the woods.  K wants us to ``swear on the snake'', his familiar that he consults with at every turn.  We swear.
+
+% New session ?
+
+% We head off to the ``Northern Marshes'' to find the Duke, as it's likely where he went - it's his favorite hunting ground.  We decide to follow the road by foot - expecti9ng it to be a day's trip, about.  
+
+% We are ambushed by wolves as we set up camp for the night, after an uneventful trip up, dispatched them .  Thext morning we find the path to the Duke's cabin.  We all hide except K, approaach the cabim.  
+
+% 24 July session
+
+%Temple, undead milling about... Temple used to be dedicated to NG goddess Arshea years ago, her naked statues and iconography still visible. Currently being rebuilt for CE god Dahak and hsi dragon/serpentfolk icons being put in place of old ones.  primary activity not at main door.  Torches evenly placed about.  Follow pillared halls about a circle, four rooms, one on each corner, and a central room (locked) accessible only from a door toward the back.  We fight some skeleton guards at some point?
+
+% new session? 
+
+% found out from conversation back in town with duke that eh lute is linked to a prophecy about the ``end of the world'' ...the ``Lute of Korona'' .
+
+% identified our loot from the temple as a MW longsword and a +1 ghost touch longsword
+
+Cast defensively reference: DC is 15+double spell level.  So for Trostram, a face value of 7 or higher on a D20 for a level 1 spell, or 70\% chance of success (calculation: DC=15+(1*2)=17, bonus=caster level 2 + ability modifier 4 + feat bonus of 4 = 10)
+
 \end{notesection}
 
 \end{document}
