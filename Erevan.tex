@@ -1,0 +1,334 @@
+\documentclass[letterpaper]{article}
+\usepackage{graphicx}                    % PNG images
+\usepackage{wrapfig}                     % Wrap text around images
+\usepackage[usenames,dvipsnames,table]{xcolor} % Colors
+% [Basic names, postscript predefined names, allow colored table backgrounds]
+\usepackage[margin=0.5in]{geometry}      % Easy way to set margins
+\usepackage{multirow}                    % Allow "merged cells" in tables
+\usepackage{wasysym}                     % Male and Female symbols
+\usepackage{etoolbox}                    % Conditionals like \ifstrequal
+\usepackage{rotating}                    % Allow sideways text
+\usepackage[absolute]{textpos}           % Allows arbitrarily-positioned text
+\setlength{\TPHorizModule}{1em}          % X grid unit for textpos
+\setlength{\TPVertModule}{\TPHorizModule}% Y grid unit for textpos
+\usepackage{changepage}                  % Adjustwidth environment
+\usepackage{xparse}                      % Multi-default argument commands, etc
+\usepackage{tabu}                        % Ultra-flexible tabular replacement
+
+% Default to not indenting any paragraphs, but allow \indent to still work
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+% Styles
+\newcommand{\colhead}[0]{\footnotesize\itshape}
+\newcommand{\e}[1]{\emph{#1}}
+\newcommand{\B}[1]{\textbf{#1}}
+\newcommand{\detail}[1]{{\footnotesize\emph{#1}}}
+
+% Shorthand for math mode commands
+\newcommand{\race}[0]{$^*$}
+\newcommand{\class}[0]{$^\dag$}
+\newcommand{\advantage}[0]{$\Uparrow$}
+\newcommand{\disadvantage}[0]{$\Downarrow$}
+
+% Background color for header rows (low saturation variant of 5e logo)
+\definecolor{light-red}{RGB}{236, 190, 190}
+
+% Command to clean up rows in inventory
+\NewDocumentCommand{\thing}{ s m O{} }{
+    \IfBooleanTF{#1}{\hspace{1em} #2 & #3\\}{#2 & #3\\}}
+
+\newcommand{\spell}[4]{
+ #1{
+    \ifstrequal{#2}{conj}{\color{Plum}conj}{%
+    \ifstrequal{#2}{divin}{\color{YellowOrange}divin}{%
+    \ifstrequal{#2}{ench}{\color{VioletRed}ench}{%
+    \ifstrequal{#2}{trans}{\color{LimeGreen}trans}{%
+    \ifstrequal{#2}{evoc}{\color{RedOrange}evoc}{%
+    \ifstrequal{#2}{illu}{\color{ProcessBlue}illu}{%
+    \ifstrequal{#2}{abjur}{\color{CadetBlue}abjur}{%
+    \ifstrequal{#2}{necro}{\color{Red}necro}{%
+}}}}}}}}}
+\detail{#3}\\
+\detail{#4}}
+
+% Environment with smaller font started with huge title and line
+\newenvironment{notesection}[1]
+{ {\huge \B{#1}}\hrule\vspace{0.5em}\begingroup\fontsize{9pt}{12pt}\selectfont}
+{\endgroup}
+
+% Command to print a person with a colored M/F symbol
+\newcommand{\person}[3]{#1\B{
+    \ifstrequal{#2}{M}{{\color{ProcessBlue}\male}}{%
+    \ifstrequal{#2}{F}{\color{VioletRed}\female}{}}} #3}
+
+\newcommand{\header}[2]{    
+    \taburowcolors 2{light-red..white}
+    \multicolumn{#2}{c}{#1} \\
+    \taburowcolors 2{white..white}}
+\begin{document}
+\sffamily
+\begin{wrapfigure}{r}{13em}
+    \vspace{-1.5em}
+    \includegraphics[width=13em]{5e}
+\end{wrapfigure}
+\B{\huge{Erevan Na\"ilo} \Large{Drow Warlock 1}} \hspace{1em} 350/300 XP \\
+\e{Chaotic Good} \hspace{1em} \e{Age 153y} \hspace{1em} \e{Height 5ft 4in} \hspace{1em} \e{Weight 110lb} \hspace{1em} \e{Obsidian Skin} \hspace{1em} \e{Lilac Eyes} \par
+\hrule
+\vspace{1em}
+
+\begin{tabu} to 0.25\textwidth{X[1c] X[2] X[1c]}
+    \header{Ability Scores}{3}
+    9 & Strength & -1 \\
+    17 & Dexterity & +3 \\
+    16 & Constitution & +3 \\
+    13 & Intelligence & +1 \\
+    13 & Wisdom & +1 \\
+    18 & Charisma & +4 \\
+\end{tabu}
+%
+\begin{tabu} to 0.25\textwidth{X[5] X[2]}
+    \header{Combat Stats}{2}
+    Hit Points & 1 / 11 \\
+    Hit Dice & 1d8 \\
+    \\
+    Armor Class & 14 \\
+    Speed & 30 ft \\
+    Initiative & +3 \\ 
+\end{tabu}
+%
+\begin{tabu} to 0.333\textwidth{X[1] X[1]}
+    \header{Proficiencies}{2}
+    Arcana\class & Light Armor\class \\
+    Deception\class & Simple Weapons\class \\
+    Insight & Rapier\race \\
+    Perception\race & Short Sword\race \\
+    Religion & Hand Crossbow\race \\
+    \\
+\end{tabu}
+%
+\begin{tabu} to 0.166\textwidth{X[1]}
+    \header{Languages}{1}
+    Abyssal \\
+    Common\race \\
+    Draconic \\
+    Elven\race \\
+    \\
+    \\
+\end{tabu}\vspace{1em}
+%-------------------------------------------------------------------------------
+\begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c]}
+    \header{Attacks}{3}
+    Rapier & +5 & 1d8+3 \\
+    \multicolumn{3}{l}{\detail{piercing, finesse}} \\
+    Light Crossbow & +5 & 1d8+3 \\
+    \multicolumn{3}{l}{\detail{piercing, range 80/320}} \\
+    Spell Attack & +6 & DC 14 \\
+    \multicolumn{3}{l}{\detail{non-cantrips always cast as first level}} \\
+    \multicolumn{3}{l}{Spell Slots \Large{$\Box$}} \\
+    \\
+    \\
+    \\
+\end{tabu}
+%
+\begin{tabu} to 0.5\textwidth{X[1]}
+    \header{Special Abilities}{1}
+    Dark One's Blessing\class \\
+    \detail{gain 5hp (temporary) when reducing a target to 0hp} \\ % HP gain is CHA + Warlock Level
+    Darkvision\race \\
+    \detail{monochromatic vision in dim light up to 120ft} \\
+    % Drow Magic dancing lights as cantrip; more spells gained at 3rd and 5th level
+    Fey Ancestry\race \\
+    \detail{immune to sleep; \advantage ~saves versus charm} \\
+    Sunlight Sensitivity\race \\
+    \detail{\disadvantage ~attacks and perception using sight in direct sunlight} \\
+    Trance\race \\
+    \detail{semiconscious meditation for 4hr replaces sleep} \\
+\end{tabu}\vspace{1em}
+%-------------------------------------------------------------------------------
+\begin{tabu} to 0.5\textwidth[h]{X}
+    \header{Background}{1}
+    Trait \detail{I can find common ground between the fiercest enemies} \\
+    \detail{empathizing with them and always working toward peace} \\
+    Ideal \detail{We must help bring about the changes the gods are} \\
+    \detail{constantly working in the world} \\
+    Bond \detail{I was raised by a cult to Demogorgon after my parents'} \\
+    \detail{deaths and owe my life to them} \\
+    Flaw \detail{I am suspicious of strangers and expect the worst of them} \\
+\end{tabu}
+%
+\begin{tabu} to 0.5\textwidth[h]{X}
+    \header{Party Members}{1}
+    \person{Garabella By-The-Sea}{F}{Half-Elf Paladin} \detail{Jeremy} \\
+    \person{Balthazar Civilin}{M}{Human Cleric} \detail{Mel} \\
+    \person{Kallista Fitzimmith}{F}{Tiefling Sorcerer} \detail{James} \\
+    \person{Darvel Flint}{M}{Human Rogue} \detail{Steve} \\
+    \person{Erevan Na\"ilo}{M}{Drow Warlock} \detail{Ryan} \\
+    \\
+    \\
+\end{tabu}\vspace{1em}
+%-------------------------------------------------------------------------------
+\begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
+    \header{Inventory}{2}
+    \thing{leather armor}[10]
+    \thing{rapier}[2]
+    \thing{light crossbow}[5]
+    \thing{\e{potion of healing}}[.5]
+    \thing{arcane focus (wand)}[1]
+    \thing{backpack}[5] % 30lb capacity (PHB153)
+    \thing*{crowbar}[5]
+    \thing*{hammer}[3]
+    \thing*{10 pitons}[2.5]
+    \thing*{10 torches}[10]
+    \thing*{tinderbox}[1]
+    \thing*{10 days' rations}[20]
+    \thing*{waterskin}[5]
+    \thing*{50 ft hemp rope}[10]
+    \thing{common clothes}[3]
+    \thing{}[83/135lbs] % capacity = STR * 15 (PHB176)
+\end{tabu}
+%
+\begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
+    \header{Pary Loot}{2}
+    \thing{well-made greatsword}
+    \thing{well-made scimitar}
+    \thing{2 Keoghtom's ointment}
+    \thing{42pp, 30gp}
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+    \\
+\end{tabu}
+%-------------------------------------------------------------------------------
+\begin{tabu} to \textwidth[h]{X[1]}
+    \header{Spells}{1}
+    \spell{Eldritch Blast}{evoc}{cantrip /  V S / 120ft range / instant}{
+    on a hit, target takes 1d10 force damage}\\
+\end{tabu}\vspace{1em}
+{\footnotesize \race Racial Trait \hspace{1em} \class Class Feature} \\
+
+\twocolumn
+\begin{notesection}{People and Places}
+\B{Seven Settlements} Human settlements on the North part of the continent in a loose coalition, subject to the political influence of the nearby Mountain Dwarves. Each is home to four or five thousand residents: \B{Cerena}, home to many of the party members, ruled by \e{Lord Kelvin} and protected by his Knights; \B{Baylith}, home to \e{T}'s Leatherworking shop, in a dispute with \e{Painswick}, and primary exporter of Bog Iron; \B{Painswick}, home of family Oerth and center of woodcutting and charcoal-making industry in the area; \B{Lindstrom}, a small fishing town on a lake and home to \e{Z} and most of the Gnomes of the North; \B{Haverton}, site of the Arcane Academy; \B{Meredith}, the agricultural heartland: known for both oat and barley crops and dairy farms; and \B{Stenwick}, the southernmost of the seven, home to \e{Matthew Lanliss}.\\
+\B{Turnell} The ``Eighth settlement'' of the north, long ago burned to the ground by \e{Ser Dyson Oerth} \\
+\B{The Frothy Jugs} Tavern in Cerena; campaign start\\
+\person{Trig (T)}{F}{Gnome Artisan} Leatherworking shop owner in \e{Baylith} \\
+\person{Philo Fixtell}{M}{Halfling Bard} Rescued along with \e{T} and \e{Gareth}\\
+\person{King Kazim}{M}{Dwarf Noble} King of the Mountain Dwarves\\
+\person{Lord Duran}{M}{Dwarf} Son of \e{King Kazim}\\
+\person{Lord Kelvin}{M}{} Lord of \e{Cerena}; diplomat to the Mountain Dwarves for all of the \e{Seven Settlements}\\
+\person{Ser Reisling}{M}{} Knight of \e{Lord Kelvin}\\
+\person{Gregory Reisling}{M}{} Son of \e{Ser Reisling}, we escorted him to negotiate peace between \e{Painswick} and \e{Baylith}\\
+\person{Ser Bolton}{M}{} \e{Lord Kelvin}'s militia leader, gave the party the quest to escort \e{Gregory Reisling} \\
+\person{Xander Grey}{M}{Human Wizard} Scholar in \e{Cerena}; son of \e{Ser Grey}; advisor, informant, and quest-giver for the party\\
+\person{Old Man Worthington}{M}{Human Expert} Plantation owner near \e{Cerena}; organizer of carpenters and laborers that repaired \e{NM}\\
+\person{Randall Riley}{M}{Human Artisan} Miner who excavated \e{NM}'s basement and mined Mithril for us\\
+\person{Neville}{M}{Human Cavalier} Crimson cloak member who frequently brings news and comes to socialize with us at \e{NM}\\
+\person{Tristan Moonstone}{M}{Elf} Seeker of a temple from his dreams in the woods in between Baylith and Cerena\\
+\person{Dr. Bernard Bozzle}{M}{Human Alchemist} Shop-owner in \e{Baylith}, seller of strange regeneration potions\\
+\person{Ivek}{M}{Dwarf} Outcast from the citadel; armorsmith in \e{Cerena}\\
+\person{Merkel}{F}{Human Expert} A jeweler, with a shop in Cerena\\
+\person{Matthew Lanliss}{M}{Half-Elf Arcane Archer} \e{WW}'s trainer in \e{Stenwick}\\
+\B{The North Circle} A group of spellcasters in the Seven Setltements and the North, consisting of \e{Z} and: \person{Zachary Bj\"{o}rtfiskur}{M}{Gnome Wizard}, \e{Z}'s Uncle; \person{Elton Oerth}{M}{Human Wizard}, Son of Lord Oerth; \person{Nanny Oggle}{F}{Human Witch}, an elderly spellcaster form Haverton; and \person{Figgins Fixtell}{M}{Halfling}, \e{Philo Fixtell's} cousin and peddler of magical wares of dubious origin. \\
+\person{Viridian/Mertensia}{F}{Green Dragon} Often taking the guise of a beautiful elven woman, and playing ally of good, in reality a scheming dragon seeking to move up in social and politial standing among her kind \\
+
+\B{New Middleton} A former Dwarven scouting camp, now taken by the party with the consent of \e{Lord Duran}.  Central 40x30ft ``keep'' with a forge, study, and sleeping quarters, complete with lookout cupola and basement, and two auxiliary buildings: a stable and a supply shack. Surrounded in all directions by a 5-ft high wall made of local stone. Outside the curtain wall are a few dozzen small houses and fields, and a distillery, run by halflings. \\
+\B{Stout Defenders} The \e{NM} militia, led by swordsman \person{Bruno the Younger}{M}{Halfling Fighter 2} (son of \e{Bruno Fixtell}), and archer \person{Harp Moonglow}{F}{Halfling Fighter 2} (daughter of \e{Byron Moonglow}), and consisting of 18 other halfling warriors.\\
+\person{Bruno Fixtell}{M}{Halfling Expert} Fixtell Clan member, blacksmith for halflings of \e{NM} \\
+\person{Bellis Bluebottle}{F}{Halfling Adept} \e{NM}'s healer and herbalist \\
+\person{Hallis Littlefoot}{F}{Halfling Farmer} \e{NM}'s agricultural expert \\
+\person{Byron Moonglow}{M}{Halfling Merchant} Owner and operator of \e{NM}'s brewery, a de-facto leader of the Middleton halfling clans \\
+\person{Gareth}{M}{Half-Orc Artisan} Weaponsmith able to imbue weapons with magic. Former prisoner of orcs, forged their weapons for 4 years (since age 16) before being rescued by the party. \\
+\person{Regan}{M}{Orc Wizard} Rescued from the Broken Tusk tribe, now \e{Z}'s apprentice \\
+\person{Skel}{M}{Feral Halfling Barbarian} Young member of \e{SF}'s obliterated tribe, now a major troublemaker and eyesore in \e{NM} \\
+\person{Grundle Bolthammer}{F}{Dwarf Fighter} Short-lived Silverfish bandit, now a resident of \e{NM}.\\
+\person{Shah-Yur}{M}{Crow} \e{SF}'s spirit companion, who saved him and gave him a new path in life as a druid\\
+\B{Rat's Tooth} Intelligent shortsword, cursed to turn both wielder and targets into were-rats\\
+
+\B{Horngrim} the large town and surrounding four counties (Seavos, Malluk, and two others), lying about mid-way between the \e{Seven Settlements} and \e{Givissel}.\\
+\person{Gil Demair} \e{Horngrim} knight we met at a tourney; later was killed on the King's road\\
+\B{Mage's Point} a hamlet outside \e{Horngrim}, in Seavos County, disappeared into a shadow realm by forces unknown.\\
+\person{Lady Mala}{F}{Human Wizard} Daughter to the Count of Seavos County, student at the \e{Arcane Academy}.\\
+\person{Lord Vostel}{M}{Human Noble} Knight and minor lord of \e{Horngrim} 400 years ago. Executed for opposing his lord's war against the dwarves; later returned to unlife as a vampire.\\
+\B{Turnbull} a hamlet outside \e{Horngrim}.\\
+\B{Silverfish Bandits}, a group of half-orcs based outside \e{Turnbull}; hired to kill us and raze \e{NM} by unknown party.\\
+
+\B{Givissel} Port town far south of the \e{Seven Settlements}, with garish sense of fashion and where political intrigue and assasination are seemingly commonplace \\
+\person{Lord Falcone}{M}{Human Noble} Givisselite who recruits/presses into service mercenaries and slaves to fight for his city's interests\\
+\person{Miranda}{F}{Human Assassin} Beautiful woman from \e{Givissel} who was hired to kill \e{Gregory Riesling} and slept with \e{Barneby} \\
+\B{Rikante Family} A ruling merchant family of Givissel, and probable employer of \e{Miranda}.\\
+
+\B{Thrane Bog} A swamp lying between \e{Baylith} and \e{Painswick}.\\
+\person{Corpselight}{F}{Black Dragon} Former resident and assumed ruler of the Bog, departed around the time \e{Elton Oerth} began excavating Dyson's tomb.\\
+\person{Ser Dyson Oerth}{M}{Human Paladin} Long deceased, with a checkered history. Although a knight, burned \e{Turnell} and killed Lady Sylvia Gray after she refused his hand in marriage. Slain by a member of the Reisling family.\\
+
+\B{Denoxian Empire} The primary political faction across the sea to the West, the Denoxians are an expansionist culture both historically and presently. In the past, they fought against the Estani Barbarians and their ``Sword Coven,'' which bore some resemblance to \e{Gareth} and his abilities, and may have been related to the temple in \e{Triastan Moonstone}'s dreams.\\
+\B{Lenoria} Island halfway across the sea to the \e{Denoxian Empire}, and home to the elves of the world.\\
+\end{notesection}
+
+\begin{notesection}{Quests}
+-Determine who summoned \e{Ser Dyson Oerth}'s shade, and stop him\\
+-Find out what \e{Elton Oerth} has discovered about the demonic statues\\
+-Investigate \e{Mertensia}'s claim of \e{Denoxian} princes fabricated the \e{Thrane Bog} incident\\
+-Investigate murder of \e{Gil Demair} and other \e{Horngrim} knights\\
+
+-Expand \e{NM}'s keep and defenses\\
+-Reign in Skel and the feral halflings\\
+-Begin taking our share of proceeds form the \e{NM} brewery\\
+-Complete extraction of the Mithril vein in the cave near \e{NM}\\
+
+-Connect \e{Dead Man's Arms} inn, \e{Silverfish Bandits}, cult to Azmodeus, and \e{D'Thrane} family; bash some skulls in for their unprovoked attack on \e{NM}.\\
+-Determine cult connection of \e{Merkel}'s son, if any.
+-Locate a broker to sell our items for cash/services/other items\\
+
+-Determine cause of disappearance of \e{Mage's Point}\\
+-Return the bones of the elven ghost home, to \e{Lenoria}\\
+-Infiltrate \e{Lord Falcone}'s estate in \e{Givissel}\\
+
+-Confront \e{Bozzle} about his potions that turn you into a troll\\
+-Seek out the trail into the wastes detailed in the ancient map (see notes)\\
+-Continue investigation of the Nine Swords and their cults\\
+
+-Copy Ogre's and Elton's spellbooks into \e{Z}'s\\
+-Locate a champion to wield \e{Concluder}, and possibly to benefit from the \e{Strength of Ages} spell\\
+\end{notesection}
+
+\begin{notesection}{Notes}
+- Lands and settlements from north to south: The wastes, dwarven kingdom, 7 settlements, turnbull, horngrim, givissel.\\
+- Aganst \e{Dyson}, \e{Z}'s ritual dagger grants +4 and ignores piercing DR\\
+- \e{Globe of Sounding} is a map of the whole world. If the holder names a place, it will appear accurately on the globe and show routes to reach that point. It can to update to the present political or even geographical situation automatically, but only when the area in question has been queried as described.\\
+- \e{Behir Lightning} acts like \e{Lightning Bolt}, except it deals 7d6+6 damage\\
+- \e{Concluder} One of the nine swords of legend, each aligned to a particular moral outlook. With an alignment of chaotic good, it stands in contrast to two others we know of, \e{Backbiter} and \e{Retorter}. All of the nine have the capacity to ``get in the last word'' in a fight. (In combat rule terms, they act as +2 longswords, but also grant one additional attack at +4, which acts outside the normal initiative order, at the very end of a round.)\\
+- \e{Orb of Blasting} Fires up to 5 bolts of arcing lightning (range 100ft), each dealing d10+2 damage on a touch attack. Firing saps 1, 5, 10, 15, or 20hp of the firer's life force for one through five bolts, respectively.\\\\
+- Ogre Mage's spellbook contains: Summon Monster II, and Detect Thoughts\\
+- Elton's spellbooks contain 1st: Chill Touch, Detect Undead, and Detect Secret Doors; 4th: Black Tentacles, Crushing Despair, Summon Monster IV, Phantasmal Killer, Locate Creature, Bestow Curse, Detect Scrying, and Animate Dead; 5th: Symbol of Pain, Dominate Person, Nightmare, Teleport, and Cloudkill; 6th: Create Undead, Undeath to Death, Chain Lightning, Acid Fog, Greater Dispel Magic, and Circle of Death.\\\\
+- Making potions or scrolls uses caster level * spell level units of supplies. see core book p549 for time needed to make an item.\\
+- Smelting unrefined mithril yields 1/3 the weight in usable ingots.\\
+- \e{Everfull Mug} an engraved silver mug that fills itself on command, up to 5x/day.\\
+
+
+\end{notesection}
+
+\begin{notesection}{Events}
+\setlength{\parindent}{\tindent}
+
+\B{27 Jan 2015}
+\\
+\B{3 Feb 2015}
+\\
+\B{10 Feb 2015} We met \e{Lord Falcone} at the \e{Frothy Jugs}, who suggested that trouble is brewing, so mercenary help is in high demand; he also implicated the Oerth family in helping draft soldiers into a Givisselian army.  He asked \e{Z} and \e{SF} to join as mercenaries, but we declined; we instead asked for directions to the Falcone family compound so we could join later (really with indent to investigate).
+
+\B{17 Feb 2015}
+
+\end{notesection}
+\end{document}
