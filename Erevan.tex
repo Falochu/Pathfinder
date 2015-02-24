@@ -59,7 +59,11 @@
 \IfNoValueTF{#6}{}{\multicolumn{2}{l}{\detail{#6}}\\}}
 
 \newcommand{\notesection}[1]{
-    \begin{tabu} to\columnwidth{X}\header{#1}{1}\end{tabu}\\}
+  \begin{tabu} to \columnwidth[h]{X[1c]}
+  \taburowcolors 2{light-red..white}
+  #1\\
+  \taburowcolors 2{white..white}
+  \end{tabu}}
 
 % Command to print a person with a colored M/F symbol
 \newcommand{\person}[3]{#1\B{
@@ -188,15 +192,17 @@
     \thing*{10 days' rations}[20]
     \thing*{waterskin}[5]
     \thing{common clothes}[3]
+    \thing{Healing Potion}
     \thing{}[83/135lbs] % capacity = STR * 15 (PHB176)
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
-    \header{Pary Loot}{2}
+    \header{Party Loot}{2}
     \thing{well-made greatsword}
     \thing{well-made scimitar}
     \thing{2 Keoghtom's ointment}
     \thing{42pp, 30gp}
+    \\
     \\
     \\
     \\
@@ -226,16 +232,42 @@
 
 \twocolumn
 \notesection{People and Places}
-\\
-\notesection{Quests}
-\\
-\notesection{Notes}
-\\
+Thezaraim - now called the ``Shattered Kingdom''; a dictatorship that broke apart 2 years prior due in part to competition with the Northern Commonwealth\\
+Northern Commonwealth - Coalition between three kingdoms: Rhyradon (Humans), Lishana (Elves), and Fargrim (Dwarves)\\
+Rhyradon - human kingdom best known for its traveling merchants who, in effect, conquer and absorb their neighbors through culture and trade. Their culture seems to thrive everywhere, and they have small outposts all over the world.\\
+Kerrhylon - Dragonborn kingdom-island that fell overnight around 450 years ago\\
+\person{Archlord Tamarlain}{M}{Noble} \detail{2nd son of the last king of Rhyradon} \\
+\person{Lord Tamarlain}{M}{Noble} \detail{18 year old son of Archlord Tamarlain} \\
 \notesection{Events}
-27 Jan 2015\\
+27 Jan 2015
+ Six months ago, the Royal Scouts of Rhyradon set out to take a look at the island of Kerrhylon. Though they lose several members to the dangerous place, they return with exciting news: they believe that with some concerted effort, the Northern Commonwealth could in fact establish a foothold in the area, and that it has a wealth, both physical and cultural, ready for rediscovery. Their report is the pivotal moment in the plan that has been in motion for a year at least. The Northern Commonwealth's member-states have an uneasy alliance, especially given the human kingdom, Rhyradon's expansionist tendencies. To stay together, they require a common goal, and exploring (and importing the wealth from, presumably) the ancient island is that goal.\\
+
+ We begin in early Spring in the port city of Helarn, Rhyradon. There, the young son of Archlord Tamarlain has been put in charge of a much larger expedition, 8 cogs, carracks, and hulks, heavily-laden with soldiers and supplies establish an outpost and survive for six months or more. Various nobles have provided funding for the expedition, in hopes of a return on their investment, but few of the general citizenry seem happy with such a young, untested noble being given the reins of such a politically important mission. Our group arrives at Helarn to apply for the expedition, each for our own reasons, but all manage to pass the high bar to entry into the limited space. We head toward the Speedwell, a carrack that is to be our home for the trip, but are rebuffed by the captain, a short-tempered, deeply prejudiced man who refuses to allow Kallista and Erevan to board.
+
 3 Feb 2015\\
+After being refused accommodations aboard the Speedwell, Darvel leads our group to the Sword Royale, whose captain, fortunately, does not hold the same prejudices toward those of scaly or dark skin. This captain, Lokan, does however demand we ``cause no trouble'', and sets Darvel as the responsible party for ensuring our cooperation.
+
+We set out toward Kerrhylon. Erevan hides below deck and away from the sun, but the others have ample opportunity to meet some of the crew and passengers: Connor, the chipper half-elf bard we observed in conversation from the dock, Audrei, the scatterbrained arcanist of Lord Tamarlin's court, and Bridget Cloverdown, leader of the Royal Scouts. From Bridget's account, our destination is swarming with orcs, goblinoids, dragon-riding kobolds, and other creatures that were, most likely, responsible for her prior expedition losing nearly half its members. She also relates a wondrous story of a tower reaching hundreds of feet high, ringed with a spiral stair and various long-abandoned shops and the like, centered in the ruined capital city. Balthazar nearly drives Bridget crazy with incessant questions, fascinated by her stories.
+
+On the fifth day of the journey, we pass through a massive storm, making our land lubing selves sick with the rocking. From some distance away, we are able to observe that the storm has a strange, unnatural ring shape to it.
+
+A few days after that, we make land at a port on the island of Kerrhylon, under the watchful gaze of a ominous fort and among the skeletal masts of long-sunken ships stretching skyward from the bottom of the harbor. Lord Tamarlain makes his first appearance, resplendent in untested armor, to observe the landfall, while Bridget, her scouts, and our party board a longboat to row ashore. The beach is eerily silent, but after a few minutes with nothing coming out to meet us, everyone relaxes a bit. Bridget orders the camp set up, and we set up near Connor's campsite, next to a rotting seaside cottage.
+
+Bridget orders us to investigate the lower levels of the fort, while others explore the upper ones, and gives us a Driftglobe to light our way. Connor and his more sombre elven friend, Dest Longmeadows, accompany us. Inside the keep's courtyard, we find a barracks off to one side, and a round, oddly intact armory to the other. Darvel leads the way inside, where we find a rat gnawing a skeletal corpse, but no other signs of life. Huge stained glass scenes depict dragonborn at training, but the barracks itself contains but one weapon, a greatsword locked securely to a weapon rack. It only takes a few extremely painful shocks from touching the thing, and Dest's suggestion none of us can wield it, for us to give up on picking the sword up. We still pilfer it, wrapped safely in a blanket.
+
+Connor finds stairs leading down, and we proceed with our assignment. On a body, Darvel locates a ruby-set golden triangular something, inscribed with the phrase ``glory to the platinum one'' in draconic script. Not ones to leave behind anything potentially valuable, we stash that away, too.
+
+Behind a set of double doors at the bottom of the steps, stands a statue of a dragonborn: the centerpiece to a old, dried out fountain. But before we can examine it or the room further, a goblin springs out brandishing a tiny sword, and is closely followed by a horde of his kind, along with a huge, 7-foot-tall goblinoid. We fight them, but, despite our best effort, lose Kallista to her wounds; the rest of the group suffers grave wounds and/or lose consciousness entirely.\\
+
 10 Feb 2015\\
+Kallista wakes to a dragonborn child staring intently, they throw a ball and talk. The child, of clear red-dragon descent, calls herself Akra. She asks Kallista to play, if he doesn't survive. Her father was the ``Kastillian'' here, but couldn't protect her from goblins. The sword we acquired up above, which she calls Illuminescent, was her father's.
+
+Meanwhile, Erevan sees a small head pop up from a secret hatch in the floor. Everan hides while the goblin look through the party's possessions, until Erevan springs up and confronts it. Fawning and crudely attempting Drow speech, the goblin sees to gain our trust, and promises help navigating the complex. Dest returns in a hurry followed by a small, balding, sour priest of Wee Jas who, though irritated that Kallista is dead rather than injured, resurrects Kallista and heals us, but at a price: Kallista's service for a year's duration. The priest, Danid Theric, leaves with instructions for Kallista to meet him later to begin her payment.
+
+Connor suggests we are unprepared to proceed, but Dest pushes for us to continue, after providing a healing potions to each of us. With the goblin, Wretch, in the lead, we head deeper into the fort. The group is distrustful of Wretch, but after he hands over a cache of platinum coins and disarms several traps, we mostly relax. While we proceed down, Darvel opening locks and Wretch disarming traps along the way, Wretch tells the tale of Drow arriving here a year or so ago to take a staff and every platinum coin they could find. After passing through a hall filled with reliefs (which Balthazar records in his sketchbook), we encounter a group of goblinoids, and fight with much better results than our first encounter. We keep some of their weapons, and also locate some jars and vases packed in straw-filled crates. Then, we proceed down another flight of steps, where Wretch reports ``the boss'' awaits.\\
+
 17 Feb 2015\\
-24 Feb 2015\\
+\[unknown\]\\
+24 Feb 2015
 
 \end{document}
