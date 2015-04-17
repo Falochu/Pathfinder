@@ -82,7 +82,7 @@
     \vspace{-1.5em}
     \includegraphics[width=13em]{5e}
 \end{wrapfigure}
-\B{\huge{Erevan Na\"ilo} \Large{Drow Warlock 3}} \hspace{1em} 900/900 XP \\
+\B{\huge{Erevan Na\"ilo} \Large{Drow Warlock 3}} \hspace{1em} 2250/2700 XP \\
 \e{Chaotic Good} \hspace{1em} \e{Age 153y} \hspace{1em} \e{Height 5ft 4in} \hspace{1em} \e{Weight 110lb} \hspace{1em} \e{Obsidian Skin} \hspace{1em} \e{Lilac Eyes} \par
 
 \begin{tabu} to 0.25\textwidth{X[1c] X[2] X[1c]}
@@ -97,10 +97,10 @@
 %
 \begin{tabu} to 0.25\textwidth{X[5] X[2]}
     \header{Combat Stats}{2}
-    Hit Points & 19 / 27 \\ % 8+5+5 + (3*3CON)
-    Hit Dice & 1/3d8 \\
+    Hit Points & 22 / 27 \\ % 8+5+5 + (3*3CON)
+    Hit Dice & 3/3d8 \\
     \\
-    Armor Class & 14 \\
+    Armor Class & 15 \\ % 10 + 3 (DEX) + 1 (Leather) + 1 (Cloak of Protection)
     Speed & 30 ft \\
     Initiative & +3 \\ 
 \end{tabu}
@@ -131,11 +131,11 @@
     \multicolumn{3}{l}{\detail{piercing, finesse}} \\
     Light Crossbow & +5 & 1d8+3 \\
     \multicolumn{3}{l}{\detail{piercing, range 80/320}} \\
+    \multicolumn{3}{l}{Pact of the Blade\class}\\
+    \multicolumn{3}{l}{\detail{As an action, summon a weapon that counts as magical}}\\
     Spell Attack & +6 & DC 14 \\
     \multicolumn{3}{l}{\detail{non-cantrips always cast as first level}} \\
     \multicolumn{3}{l}{Spell Slots \Large{$\Box$}\Large{$\Box$}} \\
-    \\
-    \\
     \\
     \\
     \\
@@ -155,7 +155,7 @@
     Trance\race \\
     \detail{semiconscious meditation for 4hr replaces sleep} \\
     Eldritch Invocations\class \\
-    \detail{Eldritch Sight (detect magic); Fiendish Vigor (false life: 1d4+4 tHP)}
+    \detail{Eldritch Sight (detect magic); Fiendish Vigor (false life: 1d4+4 tHP)}\\
 \end{tabu}
 %-------------------------------------------------------------------------------
 \begin{tabu} to 0.5\textwidth[h]{X}
@@ -185,7 +185,8 @@
     \thing{leather armor}[10]
     \thing{rapier}[2]
     \thing{light crossbow}[5]
-    \thing{\e{potion of healing}}[.5]
+    \thing{3 \e{potions of healing}}[1.5]
+    \thing{Keoghtom's ointment}[1]
     \thing{arcane focus (wand)}[1]
     \thing{backpack}[5] % 30lb capacity (PHB153)
     \thing*{crowbar, hammer, 10 pitons}[10.5]
@@ -193,21 +194,22 @@
     \thing*{10 torches, tinderbox}[11]
     \thing*{10 days' rations}[20]
     \thing*{waterskin}[5]
+    \thing{cloak of protection}[1]
     \thing{common clothes}[3]
-    \thing{Healing Potion}
-    \thing{}[83/135lbs] % capacity = STR * 15 (PHB176)
+    \thing{}[86/135lbs] % capacity = STR * 15 (PHB176)
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \header{Party Loot}{2}
-    \thing{2 Keoghtom's ointment}
-    \thing{42pp, 30gp, 500sp}
-    \thing{670gp store credit}
-    \thing{12 pea-sized diamonds}
-    \thing{dragonborn-sized plate mail}
-    \thing{2 healing potions}
-    \thing{1 better healing potion}
     \thing{potions of heroism, vitality}
+    \thing{scroll  of melf's acid arrow and magic weapon}
+    \thing{scroll of spider climb}
+    \thing{scroll of mirror image}
+    \thing{wand of secrets}
+    \thing{wand from kobold}
+    \thing{thing glass orb of swirling color, from kobold}
+    \\
+    \\
     \\
     \\
     \\
@@ -218,8 +220,8 @@
 %-------------------------------------------------------------------------------
 \begin{longtabu} to \textwidth[h]{X[1c] X[99]}
     \header{Spells}{2}
-    \spell{C}{Dancing Lights}{evoc}{V S M / 120ft range / up to 1 minute (concentration)}{
-        create up to 4 10ft radius dim lights or 1 glowing medium humanoid form; as a bonus action, move the lights up to 60ft (within range)}
+    %\spell{C}{Dancing Lights}{evoc}{V S M / 120ft range / up to 1 minute (concentration)}{
+    %    create up to 4 10ft radius dim lights or 1 glowing medium humanoid form; as a bonus action, move the lights up to 60ft (within range)}
     \spell{C}{Eldritch Blast}{evoc}{V S / 120ft range / instant}{
         a beam of crackling energy deals 1d10 force on hit}
     \spell{C}{Poison Spray}{conj}{V S / 10ft range / instant}{
@@ -230,7 +232,7 @@
     \spell{1}{Hellish Rebuke}{evoc}{V S / 60ft range / instant}{ % damage increases by 1d10 for each slot level above 1st
         as a reaction to being damaged, surround your attacker with hellish flames, dealing 2d10 fire on a failed DEX save (half damage on success)}
       \end{longtabu}\vspace{-1em}
-    Unseen Servant, Scorching Ray\\
+      Dancing Lights(C), Unseen Servant(1), Scorching Ray(2)\\
 {\footnotesize \race Racial Trait \hspace{1em} \class Class Feature} \\
 
 ~~\\
@@ -284,14 +286,35 @@ Proceeding to the vault, we find 3 doors on each side of the hall, only one stil
 
 We plan with Dest to join the defensive lines in the morning.
 
-3 March 2015\\
-
 10 March 2015\\
+After an uneasy rest the night before battle, we wake to Dest and Connor buckling armor on grimly. They inform us that regretfully, they have been orders to join Lord Tamarlain's personal guard rather than fighting on the front line. We commiserate over the young Lord's inexperience, but wish them luck and safety.  Cam is a flurry of activity, and soon we join ranks at our assigned area along with some new friends, Bant Cormath, Jim (a bard), and a few regular foot soldiers. After the terror of the goblin horde crashing against our line, little side battles break out, and we defeat our challengers with only one footman casualty. Soon, a horn sounds, and Bridget rides by yelling for us to reform. Kallista and Balthazar work to discreetly stabilize and tie up a dying goblin, while we watch the mounted knights charge down and annihilate the fleeing remnants of the goblin force, decisively ending the battle in our favor. Afterward, Balthazar and Gary help heal the wounded, and the rest of us return to camp, relieved that the danger has passed, for now.
 
 17 March 2015\\
+No sign of Connor/Dest back in camp. Kallista brings goblin to Danid Theric, who is as aloof and unappreciative as ever. Balthazar leads the rest of us around camp seeking our missing friends. It takes us awhile, but we eventually find them, returning from Lord Tamarlain's tent. They report moving heir camp closer to the young lord (seeking favor?). Connor slips Darvel a note discreetly. Dest embarassed, Connor amused when we suggest they just don't want to be around us anymore. Darvel's note asks us to meet at the main campfire tonight. Erevan and Kallista stay back as they have trouble blending in, others go. Darvel sits nonchalantly by the fire while the others look out for any trouble. Dest, disguised in a heavy raincoat, sits with Darvel and reports quietly that he and Connor stole, copied, and returned a map to a nearby location: the "Great Pavilion". The whole expedition will head there in 2-3 more days, but if we can head there before, we can have first crack at any discoveries (and treasure!). 
+
+We try to sneak out, but (literally) bump into a guard on the way out. He jokes about us heading out looting, and won't hear our denial (but he doesn't stop us). Walking through abandoned streets, nothing disturbs us, but we feel like we're watched the whole way. A few minutes out, a putrid smell begins blowing from the north, making us nauseous, and upon arriving at the pavilion, we find the floor dug out and bodies strewn about everywhere. Hundreds of half-decomposed goblinoids and others in a mass grave. Just before we are struck by them, Erevan notices a pair of massive centipede-like creatures, and we fight, pulling off victory despite some paralysis issues.
+
+We find a hole in the back of the pavilion, leading to a strangely clean, well-lit hall, ending with two double-doors on either side of a dragonborn statue.  Darvel notices and narrowly disarms a pressure plate trap near the statue, and we proceed through the right door. An unadorned  hall extends 100 feet down and ends with another door.
 
 24 March 2015 \\
+Beyond the door we find a round, domed room with large furniture scattered about like a lounge, and banners reading "Therium Academy" in gold lettering on green background.  Several doors lead out from here. The first opens to a massive kitchen with large tools, but devoid of any food; behind the kitchen, a similarly appointed dining hall. The second door leads to a large hall with high ceiling, with circles painted on the floor and racks of staves around the perimeter (a training hall, likely). Using magic detection, we find two of them to be magical in nature, and take them with us. Behind the training hall, is a barracks with large bunks and footlockers, but no signs of habitation. Finally, behind the largest door from the semi-sphere room, which we notice bears a sign reading "Chancellor" in a fading draconic inscription, stand a laboratory of sorts to one side, some sort of enchanting or ritual area to the other, and stairs leading up between the two.
+
+As we look around the area, the door at the top of the stairs opens and a skull wreathed in green fire floats quickly toward us, spraying beams of fire and injuring several of us before we can dispatch it. Left in peace to search the area, we find a few scrolls and potions, along with a wand, cloak, and a pearl with magical auras (later at camp Connor identifies the items). At the top of the stairs, we find a bedroom with a magical four-poster that we discover fully recovers you in only an hour of sleep. After healing from our wounds quickly, we hurry back to camp before our absence is missed. 
 
 31 March 2015 \\
+The next morning, Kallista visits Danid's tent and passes a little 'test' by not opting to slit the throat of a sleeping Danid-illusion. Danid reports his tests, contrary to expectation, showed no differences between goblins from this continent and those nearer our home (Kallista decline to ask what has become of the goblins). Danid then tasks Kallista to retrieve a rarer quarry, a spellcasting Kobold.
+
+Bridget arrives and reports her scouts were attacked by some magic-wielding creatures early in the morning, and sends us to pursue them into the sewers, and shows us where to begin on a map. After some argument between Erevan and Bridget, we decide to obey and head out. We enter a sewer grate and descend, and after some exploring, encounter a group of Kobolds, and then a wave of reinforcements, testing our resourcefulness. We have barely time to stabilize and tie up the spell caster Kobold (and relieve it of its wand and magical glass orb) before a third wave approaches.
+
+7 April 2015 \\
+The third wave comes led by a tiny black dragon, who barks out repeatedly for the kobolds to kill us, but when we turn our power on the dragon, it seems surprised at the pain (maybe it had never been hurt before?) and flees. Without the dragon's help, we finish off the remaining kobolds, and report back to Bridget. Bridget informs us camp will be moving inland in a day's time; Erevan and Bridget argue again, when Erevan accuses the expedition of being the same sort of mindless slaughter machine as the Drow of the underdark. Kallista returns to Danid with the kobold prisoner in tow; Danid is almost giddy with happiness upon learning he has a new creature to torture to death/study.
+
+14 April 2015 \\
+Some party members train up prior to the move, while the rest of us scrape together the entirety of our acquired magical items, coin, and store credit and trade the whole lot (along with a promise of more in the form of alchemical ingredients in the future) for a manual of gainful exercise for Gary. 
+
+Connor reports that he suggested to the high command that we be put on a special mission, and sure enough soon after Bridget arrives with orders "directly from Lord Tamarlain" (which doesn't seem to make her very happy). A ship has been spotted off the coast, not part of our expedition, and we are to follow the coast and report back who is aboard and if they are a threat (rivals from the shattered empire?). Before we set out, Bridget hands over a map showing us where to return, as the camp will move while we are away.
+
+We follow the coast until the beach gives way to rocky, low cliffs. Soon after, we come upon a ship's boat wrecked up on the rocks, and when Balthazar and Darvel swim out to it, they see the ship itself in the distance. We see sharks circling the ship, so Erevan summons an unseen servant to push another rowboat to shore from the ship, and we use it to get out there safely and board. The ship is mostly wrecked, with at first no signs of life (but we do see the flag of Tharazim). Before we can investigate further, we are ambushed by odd humanoid fish-people from below deck, and become embroiled in battle.
 
 \end{document}
+
