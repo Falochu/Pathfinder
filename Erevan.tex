@@ -82,7 +82,7 @@
     \vspace{-1.5em}
     \includegraphics[width=13em]{5e}
 \end{wrapfigure}
-\B{\huge{Erevan Na\"ilo} \Large{Drow Warlock 3}} \hspace{1em} 2250/2700 XP \\
+\B{\huge{Erevan Na\"ilo} \Large{Drow Warlock 5}} \hspace{1em} 13400/14000 XP \\
 \e{Chaotic Good} \hspace{1em} \e{Age 153y} \hspace{1em} \e{Height 5ft 4in} \hspace{1em} \e{Weight 110lb} \hspace{1em} \e{Obsidian Skin} \hspace{1em} \e{Lilac Eyes} \par
 
 \begin{tabu} to 0.25\textwidth{X[1c] X[2] X[1c]}
@@ -97,16 +97,16 @@
 %
 \begin{tabu} to 0.25\textwidth{X[5] X[2]}
     \header{Combat Stats}{2}
-    Hit Points & 22 / 27 \\ % 8+5+5 + (3*3CON)
-    Hit Dice & 3/3d8 \\
+    Hit Points & 43 \\ % 8+5+5+8+2 + (5LVLs*3CON)
     \\
+    Hit Dice & 5d8 \\
     Armor Class & 15 \\ % 10 + 3 (DEX) + 1 (Leather) + 1 (Cloak of Protection)
     Speed & 30 ft \\
     Initiative & +3 \\ 
 \end{tabu}
 %
 \begin{tabu} to 0.333\textwidth{X[1] X[1]}
-    \header{Proficiencies}{2}
+  \header{Proficiencies (+3)}{2}
     Arcana\class & Light Armor\class \\
     Deception\class & Simple Weapons\class \\
     Insight & Rapier\race \\
@@ -127,18 +127,18 @@
 %-------------------------------------------------------------------------------
 \begin{tabu} to 0.5\textwidth{X[7] X[1c] X[2c]}
     \header{Attacks}{3}
-    Rapier & +5 & 1d8+3 \\
+    Rapier & +6 & 1d8+3 \\
     \multicolumn{3}{l}{\detail{piercing, finesse}} \\
-    Light Crossbow & +5 & 1d8+3 \\
+    Light Crossbow +1 (+1 bolts optional) & +7/+8 & 1d8+4/+5 \\
     \multicolumn{3}{l}{\detail{piercing, range 80/320}} \\
     \multicolumn{3}{l}{Pact of the Blade\class}\\
     \multicolumn{3}{l}{\detail{As an action, summon a weapon that counts as magical}}\\
-    Spell Attack & +6 & DC 14 \\
-    \multicolumn{3}{l}{\detail{non-cantrips always cast as first level}} \\
+    Spell Attack & +7 & DC 15 \\
+    \multicolumn{3}{l}{\detail{non-cantrips always cast as third level}} \\
     \multicolumn{3}{l}{Spell Slots \Large{$\Box$}\Large{$\Box$}} \\
     \\
-    \\
-    \\
+    \multicolumn{3}{l}{Eldritch Invocations\class} \\
+    \multicolumn{3}{l}{\detail{Eldritch Sight (detect magic); Fiendish Vigor (false life: 1d4+4 tHP)}}\\
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth{X[1]}
@@ -154,8 +154,8 @@
     \detail{\disadvantage ~attacks and perception using sight in direct sunlight} \\
     Trance\race \\
     \detail{semiconscious meditation for 4hr replaces sleep} \\
-    Eldritch Invocations\class \\
-    \detail{Eldritch Sight (detect magic); Fiendish Vigor (false life: 1d4+4 tHP)}\\
+    Lucky \Large{$\Box$}\Large{$\Box$}\Large{$\Box$}\\
+    \detail{roll an extra d20 with any attack, check, or save; pick which roll gets used}\\
 \end{tabu}
 %-------------------------------------------------------------------------------
 \begin{tabu} to 0.5\textwidth[h]{X}
@@ -176,17 +176,18 @@
     \person{Kallista Fitzimmith}{F}{Tiefling Sorcerer} \detail{James} \\
     \person{Darvel Flint}{M}{Human Rogue} \detail{Steve} \\
     \person{Erevan Na\"ilo}{M}{Drow Warlock} \detail{Ryan} \\
-    \\
-    \\
+    \person{Worryn Scheppen}{M}{Gnome Bard} \detail{Jack} \\
+    \person{Tanya Tinta}{F}{Hill Dwarf Cleric} \detail{Michelle} \\
 \end{tabu}
 %-------------------------------------------------------------------------------
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \header{Inventory}{2}
     \thing{leather armor}[10]
     \thing{rapier}[2]
-    \thing{light crossbow}[5]
+    \thing{+1 light crossbow}[5]
+    \thing{24 +1 bolts}[1]
     \thing{3 \e{potions of healing}}[1.5]
-    \thing{Keoghtom's ointment}[1]
+    \thing{2 Keoghtom's ointment \detail{(2d8+2+cure poi/dis)}}[1]
     \thing{arcane focus (wand)}[1]
     \thing{backpack}[5] % 30lb capacity (PHB153)
     \thing*{crowbar, hammer, 10 pitons}[10.5]
@@ -196,18 +197,19 @@
     \thing*{waterskin}[5]
     \thing{cloak of protection}[1]
     \thing{common clothes}[3]
-    \thing{}[86/135lbs] % capacity = STR * 15 (PHB176)
+    \thing{}[87/135lbs] % capacity = STR * 15 (PHB176)
 \end{tabu}
 %
 \begin{tabu} to 0.5\textwidth[h]{X[3] X[1c]}
     \header{Party Loot}{2}
-    \thing{potions of heroism, vitality}
-    \thing{scroll  of melf's acid arrow and magic weapon}
-    \thing{scroll of spider climb}
-    \thing{scroll of mirror image}
+    \thing{potions \detail{heroism, vitality}}
+    \thing{scrolls \detail{melf's acid arrow, magic weapon,}}
+    \thing{\detail{spider climb, mirror image}}
     \thing{wand of secrets}
-    \thing{wand from kobold}
-    \thing{thing glass orb of swirling color, from kobold}
+    \\
+    \\
+    \\
+    \\
     \\
     \\
     \\
@@ -232,7 +234,7 @@
     \spell{1}{Hellish Rebuke}{evoc}{V S / 60ft range / instant}{ % damage increases by 1d10 for each slot level above 1st
         as a reaction to being damaged, surround your attacker with hellish flames, dealing 2d10 fire on a failed DEX save (half damage on success)}
       \end{longtabu}\vspace{-1em}
-      Dancing Lights(C), Unseen Servant(1), Scorching Ray(2)\\
+      Dancing Lights(C), Mage Hand(C), Unseen Servant(1), Witch Bolt(1), Scorching Ray(2), Hunger of Hadar (3)\\
 {\footnotesize \race Racial Trait \hspace{1em} \class Class Feature} \\
 
 ~~\\
@@ -315,6 +317,21 @@ Some party members train up prior to the move, while the rest of us scrape toget
 Connor reports that he suggested to the high command that we be put on a special mission, and sure enough soon after Bridget arrives with orders "directly from Lord Tamarlain" (which doesn't seem to make her very happy). A ship has been spotted off the coast, not part of our expedition, and we are to follow the coast and report back who is aboard and if they are a threat (rivals from the shattered empire?). Before we set out, Bridget hands over a map showing us where to return, as the camp will move while we are away.
 
 We follow the coast until the beach gives way to rocky, low cliffs. Soon after, we come upon a ship's boat wrecked up on the rocks, and when Balthazar and Darvel swim out to it, they see the ship itself in the distance. We see sharks circling the ship, so Erevan summons an unseen servant to push another rowboat to shore from the ship, and we use it to get out there safely and board. The ship is mostly wrecked, with at first no signs of life (but we do see the flag of Tharazim). Before we can investigate further, we are ambushed by odd humanoid fish-people from below deck, and become embroiled in battle.
+
+---
+
+[interlude]
+
+---
+
+13 October 2015 \\
+We explode the devil into little chunks just before the arrival of rather dismayed Bridget, who demands to know what happened and doesn't seem to believe our explanation. Kallista admits the connection to her father and Ser Sharnfei arrives just in time to hear us describe once again that his squire is gone. We are taken before Lord Tamarlain. Sharnfei demands we be charged with murder, but surprisingly Bridget takes our side\ldots or, ``our'' minus Kallista, who she no longer seems to trust. We each speak in Kallista's defense before Lord Tamarlain dismisses us.
+
+As we return to our tents, Connor stops by to voice his continued support, but suggests we be more cautious. Rogar suggests an inquisition-style rite of purity (carry a burning hot cauldron on bare skin: if you're only scarred for life, you were good, if you die, you were bad!), but we dismiss that idea.
+
+Later that night, Connor comes by again to report that, after long deliberation with both Dest and Audrei, Lord Tamarlain has decided to essentially turn Kallista over to Danid. We panic, and argue of the best course of action. Audrei arrives to remind us of Danid's penchant for dissecting things he finds interesting, and to encourages us escape before it's too late. She gives us some potions to help on such an undertaking, as well as a (possibly final) update on the Holy Avenger sword: it was called Illuminescent by the dwarves who gifted it to Nadar, a dragonborn paladin, around 100 years before the fall of the island. If we return it to the shrine of Moradin where it first reached the island, we may be able to repurpose it for a just cause.
+
+We decide to split up, Kallista staying with Erevan and Flint, the others go to retrieve Gary's armor, and all of us preparing to flee the camp.
 
 \end{document}
 
